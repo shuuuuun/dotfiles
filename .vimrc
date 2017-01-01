@@ -1,0 +1,129 @@
+set number
+syntax on
+
+set nocompatible
+filetype off
+
+"NeoBundle Scripts-----------------------------
+if &compatible
+ set nocompatible               " Be iMproved
+endif
+
+" Required:
+set runtimepath^=/Users/motoki-shun/.vim/bundle/neobundle.vim/
+
+" Required:
+call neobundle#begin(expand('/Users/motoki-shun/.vim/bundle'))
+
+" Let NeoBundle manage NeoBundle
+" Required:
+NeoBundleFetch 'Shougo/neobundle.vim'
+
+
+" Add or remove your Bundles here:
+" NeoBundle 'Shougo/neosnippet.vim'
+" NeoBundle 'Shougo/neosnippet-snippets'
+" NeoBundle 'tpope/vim-fugitive'
+" NeoBundle 'ctrlpvim/ctrlp.vim'
+NeoBundle 'scrooloose/nerdtree'
+NeoBundle "slim-template/vim-slim"
+NeoBundle 'ConradIrwin/vim-bracketed-paste'
+NeoBundle 'wakatime/vim-wakatime'
+
+" color scheme
+" NeoBundle 'w0ng/vim-hybrid'
+" NeoBundle 'nanotech/jellybeans.vim'
+" NeoBundle 'tomasr/molokai'
+" NeoBundle 'sjl/badwolf'
+NeoBundle 'morhetz/gruvbox'
+
+
+" You can specify revision/branch/tag.
+" NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
+
+" Required:
+call neobundle#end()
+
+" Required:
+filetype plugin indent on
+
+" If there are uninstalled bundles found on startup,
+" this will conveniently prompt you to install them.
+NeoBundleCheck
+"End NeoBundle Scripts-------------------------
+
+
+" color scheme
+autocmd ColorScheme * highlight Normal ctermbg=none
+colorscheme gruvbox
+
+" 隠しファイルをデフォルトで表示させる
+let NERDTreeShowHidden = 1
+
+" デフォルトでツリーを表示させる
+"autocmd VimEnter * execute 'NERDTree'
+
+
+"
+" keymap
+"
+" Ctrl+eでNERDTreeをトグル
+nnoremap <silent><C-e> :NERDTreeToggle<CR>
+
+" normal & visual modeでの行頭行末移動
+noremap 6 ^
+noremap 4 $
+noremap 1 ^
+noremap 9 $
+
+" insert modeでの行頭行末移動
+inoremap <C-a> <C-o>^
+inoremap <C-e> <C-o>$
+
+" insert modeでのカーソル移動
+inoremap <C-j> <C-g>j
+inoremap <C-k> <C-g>k
+inoremap <C-h> <C-o>h
+inoremap <C-l> <C-o>l
+
+" insert modeでctrl+dで削除
+inoremap <C-d> <C-o>x
+
+
+"
+" alias
+"
+" 終了コマンドをエイリアス
+:command Q q
+
+" wもよく大文字にしちゃうので
+:command W w
+:command Wq wq
+
+
+"
+" settings
+"
+set expandtab
+set tabstop=2
+set shiftwidth=2
+
+set list
+set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
+
+set cursorline
+
+" set clipboard=unnamed,autoselect
+set clipboard=unnamed
+
+" 左右のカーソル移動で行間移動可能にする
+set whichwrap=b,s,h,l,<,>,[,],~
+
+" いつのまにかdelete(backspace)がうまく効かなくなったので設定
+set backspace=indent,eol,start
+
+" バックアップファイル（hoge.swpやhoge~やhoge.un~）を１箇所にまとめる
+set directory=~/.vim/backup
+set backupdir=~/.vim/backup
+set undodir=~/.vim/backup
+

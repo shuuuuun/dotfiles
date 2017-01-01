@@ -1,0 +1,40 @@
+[core]
+	excludesfile = /Users/motoki-shun/.gitignore_global
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+
+[alias]
+	ad = add
+	ada = add --all
+	st = status
+	co = checkout
+	br = branch
+	bra = branch -a
+	cm = commit
+	cmm = commit -m
+	cmam = commit --amend
+	mg = merge
+	mg-noff = merge --no-ff
+	ft = fetch
+	fet = fetch
+	pll = pull
+	psh = push
+	diff-no = diff --name-only
+
+[user]
+	name = motoki-shun
+	email = motoki-shun@kayac.com
+[merge]
+	tool = vimdiff
+[push]
+	default = simple
+[pager]
+	log = diff-highlight | less
+	show = diff-highlight | less
+	diff = diff-highlight | less
+[diff]
+	compactionHeuristic = true
