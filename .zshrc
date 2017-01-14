@@ -265,12 +265,14 @@ function rand {
 
 function init-new-project {
   name=$1
+  repository="git@github.com:shuuuuun/gulp-template.git"
+  branch="master"
   echo "new project: $name"
-  echo "based on repository: git@github.com:shuuuuun/gulp-template.git"
-  echo "             branch: version/babelify"
+  echo "based on repository: $repository"
+  echo "             branch: $branch"
   mkdir "$name"
   cd "$name"
-  git clone --depth 1 -b version/babelify git@github.com:shuuuuun/gulp-template.git .
+  git clone --depth 1 -b $branch $repository .
   rm -rf .git
   git init
   git add --all
