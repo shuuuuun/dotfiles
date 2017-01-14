@@ -21,7 +21,7 @@ echo "download end."
 #
 echo "doing backup dotfiles to $HOME..."
 now=$(date "+%Y%m%d-%H%M%S")
-for file in $DOTFILES; do
+for file in ${DOTFILES[@]}; do
   if [ -e "$HOME/$file" ]; then
     cp "$HOME/$file" "$HOME/$file.$now.bak"
     echo "  backup: $HOME/$file -> $HOME/$file.$now.bak"
@@ -34,7 +34,7 @@ echo "backup done."
 # deploy
 #
 echo "deploying dotfiles to $HOME..."
-for file in $DOTFILES; do
+for file in ${DOTFILES[@]}; do
   ln -s "$HOME/dotfiles/$file" "$HOME/$file"
   echo "  symbolic_link: ~/dotfiles/$file -> ~/$file"
 done
