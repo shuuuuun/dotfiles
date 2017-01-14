@@ -23,7 +23,7 @@ echo "doing backup dotfiles to $HOME..."
 now=$(date "+%Y%m%d-%H%M%S")
 for file in ${DOTFILES[@]}; do
   if [ -e "$HOME/$file" ]; then
-    cp "$HOME/$file" "$HOME/$file.$now.bak"
+    mv "$HOME/$file" "$HOME/$file.$now.bak"
     echo "  backup: $HOME/$file -> $HOME/$file.$now.bak"
   fi
 done
