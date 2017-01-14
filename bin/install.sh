@@ -19,7 +19,7 @@ echo "download end."
 #
 # backup
 #
-echo "doing backup dotfiles to $HOME..."
+echo "doing backup dotfiles..."
 now=$(date "+%Y%m%d-%H%M%S")
 for file in ${DOTFILES[@]}; do
   if [ -e "$HOME/$file" ]; then
@@ -27,7 +27,7 @@ for file in ${DOTFILES[@]}; do
     echo "  backup: $HOME/$file -> $HOME/$file.$now.bak"
   fi
 done
-echo "backup done."
+echo "backup end."
 
 
 #
