@@ -20,7 +20,7 @@ echo "download end."
 # backup
 #
 echo "doing backup dotfiles..."
-now=$(date "+%Y%m%d-%H%M%S")
+now=$(date "+%Y%m%d%H%M%S")
 for file in ${DOTFILES[@]}; do
   if [ -e "$HOME/$file" ]; then
     mv "$HOME/$file" "$HOME/$file.$now.bak"
