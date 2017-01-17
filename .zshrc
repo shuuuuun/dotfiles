@@ -141,6 +141,8 @@ alias gcodevelop='git checkout develop'
 alias git-root='git rev-parse --show-toplevel'
 
 alias tg='tig'
+alias tgst='tig status'
+alias tigstatus='tig status'
 alias tigstash='tig stash'
 alias tigrep='tig grep'
 alias tigmaster='tig master'
@@ -277,6 +279,10 @@ function init-new-project {
   git init
   git add --all
   git commit -m "init"
+}
+
+function  tigdiff {
+  git diff $@ | tig
 }
 
 
