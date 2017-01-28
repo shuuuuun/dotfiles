@@ -154,6 +154,7 @@ alias svndiff='svn diff | less'
 alias svnlog='svn log | less'
 
 GITHUB_REPO_NAME_REGEX='/[https?:\/\/|git\@]github\.com[\/|:]([^\/]+)\/([^\/]+)\.git/'
+# TODO: URLをechoしときたい
 alias open-github='git remote -v | perl -0ne '"'"'print "https://github.com/$1/$2" if ('$GITHUB_REPO_NAME_REGEX')'"'"' | xargs -I url open url'
 alias open-gh-pages='git remote -v | perl -0ne '"'"'print "https://$1.github.io/$2/" if ('$GITHUB_REPO_NAME_REGEX')'"'"' | xargs -I url open url'
 alias push-gh-pages='git subtree push --prefix public/ origin gh-pages'
@@ -267,6 +268,7 @@ function rand {
 }
 
 function init-new-project {
+  # TODO: configやREADMEもproject-nameに置換したい
   name=$1
   repository="git@github.com:shuuuuun/gulp-template.git"
   branch="master"
