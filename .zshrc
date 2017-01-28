@@ -153,8 +153,9 @@ alias svnstatus='svn status'
 alias svndiff='svn diff | less'
 alias svnlog='svn log | less'
 
-alias github='git remote -v | perl -0ne '"'"'print "$1" if (/(https?:\/\/github\.com\/[^\/]+\/[^\/]+)\.git/)'"'"' | xargs -I url open url'
-alias gh-page='git remote -v | perl -0ne '"'"'print "https://$1.github.io/$2/" if (/[https?:\/\/|git\@]github\.com[\/|:]([^\/]+)\/([^\/]+)\.git/)'"'"' | xargs -I url open url'
+GITHUB_REPO_NAME_REGEX='/[https?:\/\/|git\@]github\.com[\/|:]([^\/]+)\/([^\/]+)\.git/'
+alias github='git remote -v | perl -0ne '"'"'print "https://github.com/$1/$2" if ('$GITHUB_REPO_NAME_REGEX')'"'"' | xargs -I url open url'
+alias gh-page='git remote -v | perl -0ne '"'"'print "https://$1.github.io/$2/" if ('$GITHUB_REPO_NAME_REGEX')'"'"' | xargs -I url open url'
 alias gh-push='git subtree push --prefix public/ origin gh-pages'
 
 alias bundle-install-path-vendor-bundle='bundle install --path vendor/bundle'
