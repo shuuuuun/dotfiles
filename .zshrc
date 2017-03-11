@@ -139,6 +139,7 @@ alias gpull-rebase='git pull --rebase'
 alias gcomaster='git checkout master'
 alias gcodevelop='git checkout develop'
 alias git-root='git rev-parse --show-toplevel'
+alias gco-peco='git branch | peco | xargs git checkout'
 
 alias tg='tig'
 alias tgst='tig status'
