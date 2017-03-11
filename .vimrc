@@ -29,6 +29,8 @@ NeoBundle 'scrooloose/nerdtree'
 NeoBundle "slim-template/vim-slim"
 NeoBundle 'ConradIrwin/vim-bracketed-paste'
 NeoBundle 'wakatime/vim-wakatime'
+NeoBundle 'mattn/emmet-vim'
+NeoBundle 'alvan/vim-closetag'
 
 " color scheme
 " NeoBundle 'w0ng/vim-hybrid'
