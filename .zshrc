@@ -284,6 +284,22 @@ function init-new-project {
   git commit -m "init"
 }
 
+function init-rails-project {
+  name=$1
+  repository="git@github.com:shuuuuun/rails-template.git"
+  branch="master"
+  echo "new project: $name"
+  echo "based on repository: $repository"
+  echo "             branch: $branch"
+  mkdir "$name"
+  cd "$name"
+  git clone --depth 1 -b $branch $repository .
+  rm -rf .git
+  git init
+  git add --all
+  git commit -m "init"
+}
+
 function  tigdiff {
   git diff $@ | tig
 }
