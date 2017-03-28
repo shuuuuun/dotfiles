@@ -305,6 +305,14 @@ function  tigdiff {
   git diff $@ | tig
 }
 
+function github-commit-page {
+  github_repo_name_regexp='/[https?:\/\/|git\@]github\.com[\/|:]([^\/]+)\/([^\/]+)\.git/'
+  github_url=$(git remote -v | perl -0ne 'print "https://github.com/$1/$2" if ('$github_repo_name_regexp')')
+  commit_url="$github_url/commit/$1"
+  echo $commit_url
+  open $commit_url
+}
+
 
 # enhancd
 # source ~/.enhancd/zsh/enhancd.mtk.zsh
