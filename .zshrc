@@ -140,6 +140,8 @@ alias gcomaster='git checkout master'
 alias gcodevelop='git checkout develop'
 alias git-root='git rev-parse --show-toplevel'
 alias gco-peco='git branch | peco | xargs git checkout'
+alias gft-origin-master='git fetch origin master:master'
+alias gft-origin-develop='git fetch origin develop:develop'
 
 alias tg='tig'
 alias tgst='tig status'
