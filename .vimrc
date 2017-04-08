@@ -27,6 +27,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle "slim-template/vim-slim"
+NeoBundle "digitaltoad/vim-pug"
 NeoBundle 'ConradIrwin/vim-bracketed-paste'
 NeoBundle 'wakatime/vim-wakatime'
 NeoBundle 'mattn/emmet-vim'
