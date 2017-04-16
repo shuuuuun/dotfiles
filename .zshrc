@@ -307,6 +307,16 @@ function  tigdiff {
   git diff $@ | tig
 }
 
+function github-file-page {
+  filename=$1
+  github_repo_name_regexp='/[https?:\/\/|git\@]github\.com[\/|:]([^\/]+)\/([^\/]+)\.git/'
+  github_url=$(git remote -v | perl -0ne 'print "https://github.com/$1/$2" if ('$github_repo_name_regexp')')
+  branch=$(git rev-parse --abbrev-ref HEAD)
+  url="$github_url/blob/$branch/$filename"
+  echo $url
+  open $url
+}
+
 function github-commit-page {
   github_repo_name_regexp='/[https?:\/\/|git\@]github\.com[\/|:]([^\/]+)\/([^\/]+)\.git/'
   github_url=$(git remote -v | perl -0ne 'print "https://github.com/$1/$2" if ('$github_repo_name_regexp')')
