@@ -5,6 +5,8 @@
 #
 REPOSITORY="https://github.com/shuuuuun/dotfiles.git"
 DOTFILES=(.bash_profile .bashrc .gitignore_global .vimrc .zprofile .zshrc)
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE:-$0}")"; pwd)"
+DOTFILES_ROOT="$(cd "$SCRIPT_DIR/../"; pwd)"
 
 
 #
@@ -35,8 +37,8 @@ echo "backup end."
 #
 echo "deploying dotfiles to $HOME..."
 for file in ${DOTFILES[@]}; do
-  ln -s "$HOME/dotfiles/$file" "$HOME/$file"
-  echo "  symbolic_link: ~/dotfiles/$file -> ~/$file"
+  ln -s "$DOTFILES_ROOT/$file" "$HOME/$file"
+  echo "  symbolic_link: $DOTFILES_ROOT/$file -> ~/$file"
 done
 echo "deploy end."
 
