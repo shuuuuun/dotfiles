@@ -208,6 +208,9 @@ function chpwd () {
 }
 set_window_title
 
+# PERIOD=5
+# add-zsh-hook periodic set_window_title
+
 
 # 文字列を置換する
 # ex. agreplace hoge fuga
@@ -220,6 +223,11 @@ function agreplace () {
 function agcount () {
   ag --nobreak --nofilename $1 $2 | wc -l 
 }
+
+# TODO:
+# function agec() {
+#   emacsclient -n $(ag $@ | peco --query "$LBUFFER" | awk -F: '{print "+" $2, $1}')
+# }
 
 # クリップボードにコピー
 # ex. copy hoge fuga
@@ -306,6 +314,17 @@ function init-rails-project {
 function  tigdiff {
   git diff $@ | tig
 }
+
+function open-localhost {
+  # TODO: .envのPORTを読む
+}
+
+function open-local-ip {
+}
+
+# TODO: git-current-branch
+# http://qiita.com/sugyan/items/83e060e895fa8ef2038c
+# http://ikm.hatenablog.jp/entry/2012/11/28/114146
 
 function github-file-page {
   filename=$1
@@ -419,4 +438,3 @@ source ~/.oh-my-zsh/lib/key-bindings.zsh
 # load local settgins
 #
 source ~/.zshrc_local
-
