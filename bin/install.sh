@@ -37,8 +37,8 @@ echo "backup end."
 #
 echo "deploying dotfiles to $HOME..."
 for file in ${DOTFILES[@]}; do
-  ln -s "$DOTFILES_ROOT/$file" "$HOME/$file"
-  echo "  symbolic_link: $DOTFILES_ROOT/$file -> ~/$file"
+  ln -s "$DOTFILES_ROOT/$file" "$HOME/$file" && \
+    echo "  symbolic_link: $DOTFILES_ROOT/$file -> $HOME/$file"
 done
 echo "deploy end."
 
