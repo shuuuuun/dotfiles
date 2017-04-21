@@ -1,5 +1,5 @@
 #
-# zplug
+# zplug (Zsh Plugin Manager) https://github.com/zplug/zplug
 #
 source ~/.zplug/init.zsh
 
@@ -95,6 +95,12 @@ source ~/dotfiles/lib/functions.sh
 
 
 #
+# load local settgins
+#
+source ~/.zshrc_local
+
+
+#
 # other
 #
 
@@ -102,9 +108,3 @@ source ~/dotfiles/lib/functions.sh
 # ちゃんと分からないので
 # とりあえずoh-my-zshのkey-bindingを読み込む
 source ~/.oh-my-zsh/lib/key-bindings.zsh
-
-
-#
-# load local settgins
-#
-source ~/.zshrc_local

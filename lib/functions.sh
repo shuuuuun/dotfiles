@@ -4,17 +4,17 @@
 
 # cdしたらpwdする
 # http://qiita.com/b4b4r07/items/8cf5d1c8b3fbfcf01a5d
-function cd () {
+function cd {
     pwd && builtin cd "$@" && pwd
 }
 
 # gitのルートディレクトリにcd
-function cd-git-root () {
+function cd-git-root {
     cd `git rev-parse --show-toplevel`
 }
 
 # ウィンドウタイトル（タブ名）を設定
-function set_window_title () {
+function set_window_title {
   # echo -en "\033];"$(pwd | sed "s@$HOME@~@")"\007" # current path
   # echo -en "\033];"$(pwd | sed "s@^.*\/@@")"\007" # current directory name
 
@@ -28,7 +28,7 @@ function set_window_title () {
 }
 
 # ディレクトリ変更時に毎回呼ばれる関数
-function chpwd () {
+function chpwd {
   set_window_title
 }
 set_window_title
@@ -39,24 +39,24 @@ set_window_title
 
 # 文字列を置換する
 # ex. agreplace hoge fuga
-function agreplace () {
+function agreplace {
   ag -rl $1 . | xargs perl -i -pe "s/$1/$2/g"
 }
 
 # 検索してマッチした数を出す
 # ex. agcount hoge path
-function agcount () {
+function agcount {
   ag --nobreak --nofilename $1 $2 | wc -l 
 }
 
 # TODO:
-# function agec() {
+# function agec {
 #   emacsclient -n $(ag $@ | peco --query "$LBUFFER" | awk -F: '{print "+" $2, $1}')
 # }
 
 # クリップボードにコピー
 # ex. copy hoge fuga
-function copy () {
+function copy {
     echo $@ | pbcopy
 }
 
@@ -136,7 +136,7 @@ function init-rails-project {
   git commit -m "init"
 }
 
-function  tigdiff {
+function tigdiff {
   git diff $@ | tig
 }
 
@@ -182,36 +182,6 @@ function ps-peco-kill {
   # kill
 }
 
-
-# ranger
-# function ranger() {
-#     if [ -z "$RANGER_LEVEL" ]; then
-#         /usr/local/bin/ranger $@
-#     else
-#         exit
-#     fi
-# }
-# source ~/commands/ranger/examples/bash_automatic_cd.sh
-function rgr {
-    tempfile="$(mktemp -t tmp.XXXXXX)"
-    ranger --choosedir="$tempfile" "${@:-$(pwd)}"
-    test -f "$tempfile" &&
-        if [ "$(cat -- "$tempfile")" != "$(echo -n `pwd`)" ]; then
-            cat "$tempfile"
-        fi
-    command rm -f -- "$tempfile"
-}
-function ranger-cd {
-    tempfile="$(mktemp -t tmp.XXXXXX)"
-    ranger --choosedir="$tempfile" "${@:-$(pwd)}"
-    test -f "$tempfile" &&
-        if [ "$(cat -- "$tempfile")" != "$(echo -n `pwd`)" ]; then
-            cd -- "$(cat "$tempfile")"
-        fi
-    command rm -f -- "$tempfile"
-}
-alias rgrcd="ranger-cd"
-
 # erbをslimに変換する ディレクトリを指定して再帰的に
 function erb2slim-recursive {
   # erb2slimコマンドが存在する場合のみ（ガード節にしたいけど書き方がわからん）
@@ -244,4 +214,28 @@ function git_diff_archive {
     diff="git diff --diff-filter=d --name-only ${diff}"
   fi
   git archive --format=zip --prefix=root/ $h `eval $diff` -o archive.zip
+}
+
+# ranger
+# cf. https://github.com/ranger/ranger/blob/master/examples/bash_automatic_cd.sh
+function ranger-cd {
+    tempfile="$(mktemp -t tmp.XXXXXX)"
+    ranger --choosedir="$tempfile" "${@:-$(pwd)}"
+    test -f "$tempfile" &&
+        if [ "$(cat -- "$tempfile")" != "$(echo -n `pwd`)" ]; then
+            cd -- "$(cat "$tempfile")"
+        fi
+    command rm -f -- "$tempfile"
+}
+alias rgrcd="ranger-cd"
+
+# 抜けた時のpwdを出力する
+function rgr {
+    tempfile="$(mktemp -t tmp.XXXXXX)"
+    ranger --choosedir="$tempfile" "${@:-$(pwd)}"
+    test -f "$tempfile" &&
+        if [ "$(cat -- "$tempfile")" != "$(echo -n `pwd`)" ]; then
+            cat "$tempfile"
+        fi
+    command rm -f -- "$tempfile"
 }
