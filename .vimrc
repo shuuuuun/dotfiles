@@ -92,6 +92,11 @@ inoremap <C-l> <C-o>l
 " insert modeでctrl+dで削除
 inoremap <C-d> <C-o>x
 
+" 削除キーでyankしない
+nnoremap x "_x
+nnoremap d "_d
+nnoremap D "_D
+
 
 "
 " alias
