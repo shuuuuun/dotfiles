@@ -14,7 +14,7 @@ function cd-git-root {
 }
 
 # ウィンドウタイトル（タブ名）を設定
-function set_window_title {
+function set-window-title {
   # echo -en "\033];"$(pwd | sed "s@$HOME@~@")"\007" # current path
   # echo -en "\033];"$(pwd | sed "s@^.*\/@@")"\007" # current directory name
 
@@ -29,12 +29,12 @@ function set_window_title {
 
 # ディレクトリ変更時に毎回呼ばれる関数
 function chpwd {
-  set_window_title
+  set-window-title
 }
-set_window_title
+set-window-title
 
 # PERIOD=5
-# add-zsh-hook periodic set_window_title
+# add-zsh-hook periodic set-window-title
 
 
 # 文字列を置換する
@@ -78,7 +78,7 @@ function rm-ds-store {
 }
 
 # Railsの超簡易Viewをつくる
-function rails_genarate_view {
+function rails-genarate-view {
   # TODO: 第三引数以降をぜんぶactionとして作成
   controller="$1"
   action="$2"
@@ -103,7 +103,7 @@ function rand {
   openssl rand -hex $length
 }
 
-function init-new-project {
+function init-gulp-project {
   # TODO: configやREADMEもproject-nameに置換したい
   name=$1
   repository="git@github.com:shuuuuun/gulp-template.git"
@@ -197,7 +197,7 @@ function erb2slim-recursive {
 # gitで差分ファイルを抽出する
 # cf. http://qiita.com/kaminaly/items/28f9cb4e680deb700833
 # TODO: もう少しカスタマイズしたい,prefixや出力名など
-function git_diff_archive {
+function git-diff-archive {
   local diff=""
   local h="HEAD"
   if [ $# -eq 1 ]; then
@@ -227,7 +227,7 @@ function ranger-cd {
         fi
     command rm -f -- "$tempfile"
 }
-alias rgrcd="ranger-cd"
+alias rgr-cd="ranger-cd"
 
 # 抜けた時のpwdを出力する
 function rgr {
