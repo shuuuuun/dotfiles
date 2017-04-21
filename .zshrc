@@ -325,6 +325,19 @@ function github-commit-page {
   open $commit_url
 }
 
+function ps-pid-copy {
+  # TODO: 改行はいってるぽいので消す（sedだと面倒くさそう、perlとかにしたほうがいいかも） perl -pe 's/\n/ /g'
+  # TODO: 先頭に空白があると取れない
+  # TODO: escのときはコピーしない
+  pid=$(ps | peco --query "$1" | sed -e 's/ .*$//')
+  echo "$pid" | pbcopy
+  echo "copied: $pid"
+}
+
+function ps-peco-kill {
+  # kill
+}
+
 
 # enhancd
 # source ~/.enhancd/zsh/enhancd.mtk.zsh
