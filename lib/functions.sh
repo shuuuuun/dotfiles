@@ -140,12 +140,32 @@ function tigdiff {
   git diff $@ | tig
 }
 
+# TODO: open-localhost
 function open-localhost {
+  open "http://localhost"
   # TODO: .envのPORTを読む
+  # cat .env | ruby -e 'print gets.gsub(/^PORT ?= ?(\d+)/) { $1 }'
+  # ↑これだと1行目しかとれない
+  # dotenvとか使ってちゃんとやるほうがいいかも rubyで
+  # https://github.com/bkeepers/dotenv
 }
 
+# TODO: open-local-ip
+# PORTまわり
 function open-local-ip {
+  open "http://$(local-ip)"
 }
+
+function local-ip {
+  ruby -r socket -e 'puts Socket.getifaddrs.select{|x| x.addr.ipv4?}.last.addr.ip_address'
+  # python -c "import socket;print([(s.connect(('8.8.8.8', 80)), s.getsockname()[0], s.close()) for s in [socket.socket(socket.AF_INET, socket.SOCK_DGRAM)]][0][1])"
+  # ローカルIPアドレスをプログラムで取得するには - Qiita - http://qiita.com/kjunichi/items/8e4967d04c3a1f6af35e
+  # https://github.com/fnobi/koko/blob/master/lib/localIP.js
+  # node.jsでローカルIPアドレスの取得 - Qiita - http://qiita.com/_shimizu/items/b38d1459abf8436f7f1f
+}
+
+# TODO: empty-port
+# https://github.com/fnobi/emptyPort
 
 # TODO: git-current-branch
 # http://qiita.com/sugyan/items/83e060e895fa8ef2038c
