@@ -259,3 +259,17 @@ function rgr {
         fi
     command rm -f -- "$tempfile"
 }
+
+function ruby-string {
+  if [ -p /dev/stdin ]; then
+    str=$(cat -)
+    method=$1
+  else
+    str=$1
+    method=$2
+  fi
+  echo "str: $str"
+  echo "method: $method"
+  echo -n "out: "
+  ruby -e "puts '$str'.send('$method')"
+}
