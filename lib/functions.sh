@@ -273,3 +273,9 @@ function ruby-string {
   echo -n "out: "
   ruby -e "puts '$str'.send('$method')"
 }
+
+function git-wip {
+  branch=$1
+  git checkout -b $branch
+  git commit -m "wip" --allow-empty
+}
