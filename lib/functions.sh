@@ -194,13 +194,12 @@ function ps-peco {
 }
 
 function ps-pid-copy {
-  # TODO: 改行はいってるぽいので消す（sedだと面倒くさそう、perlとかにしたほうがいいかも） perl -pe 's/\n/ /g'
   result=$(ps | peco --query "$1")
   peco_status=$?
   echo "$result"
   if [ $peco_status -eq 0 ]; then
     pid=$(echo "$result" | perl -pe 's/ *(\d+) .*$/$1/')
-    echo "$pid" | pbcopy
+    echo -n "$pid" | pbcopy
     echo "copied: $pid"
   fi
 }
