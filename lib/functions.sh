@@ -196,10 +196,14 @@ function ps-peco {
 function ps-pid-copy {
   # TODO: 改行はいってるぽいので消す（sedだと面倒くさそう、perlとかにしたほうがいいかも） perl -pe 's/\n/ /g'
   # TODO: 先頭に空白があると取れない
-  # TODO: escのときはコピーしない
-  pid=$(ps | peco --query "$1" | sed -e 's/ .*$//')
-  echo "$pid" | pbcopy
-  echo "copied: $pid"
+  result=$(ps | peco --query "$1")
+  peco_status=$?
+  echo "$result"
+  if [ $peco_status -eq 0 ]; then
+    pid=$(echo "$result" | sed -e 's/ .*$//')
+    echo "$pid" | pbcopy
+    echo "copied: $pid"
+  fi
 }
 
 function ps-peco-kill {
