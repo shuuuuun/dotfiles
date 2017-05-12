@@ -189,6 +189,10 @@ function github-commit-page {
   open $commit_url
 }
 
+function ps-peco {
+  ps | peco --query "$1"
+}
+
 function ps-pid-copy {
   # TODO: 改行はいってるぽいので消す（sedだと面倒くさそう、perlとかにしたほうがいいかも） perl -pe 's/\n/ /g'
   # TODO: 先頭に空白があると取れない
