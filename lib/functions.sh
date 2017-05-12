@@ -281,6 +281,8 @@ function ruby-string {
 }
 
 function git-wip {
+  # TODO: unstagedな変更があるときも大丈夫か確認
+  # TODO: checkoutしないバージョンもほしい
   branch=$1
   git checkout -b $branch
   git commit -m "wip" --allow-empty

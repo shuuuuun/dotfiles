@@ -92,6 +92,7 @@ source ~/dotfiles/lib/aliases.sh
 # function
 #
 source ~/dotfiles/lib/functions.sh
+# TODO: autoload使ったほうがいいのかも http://qiita.com/yuku_t/items/77c23390e52168a2754a
 
 
 #
@@ -103,6 +104,11 @@ source ~/.zshrc_local
 #
 # other
 #
+
+# tig
+# cf. https://github.com/jonas/tig/blob/master/contrib/tig-completion.zsh
+# TODO:
+# fpath=($fpath /usr/local/Cellar/tig/2.2.1/share/zsh/site-functions)
 
 # 上矢印で入力中の単語にマッチした履歴を出してくれるやつがほしくてそれだけ書こうとしたけど
 # ちゃんと分からないので
