@@ -91,6 +91,7 @@ source "$HOME/.zsh/aliases.sh"
 #
 # function
 #
+source "$HOME/.zsh/utils.sh"
 source "$HOME/.zsh/functions.sh"
 # TODO: autoload使ったほうがいいのかも http://qiita.com/yuku_t/items/77c23390e52168a2754a
 
