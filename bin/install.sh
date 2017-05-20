@@ -4,7 +4,7 @@
 # const
 #
 REPOSITORY="https://github.com/shuuuuun/dotfiles.git"
-DOTFILES=(.bash_profile .bashrc .gitignore_global .vimrc .zprofile .zshrc)
+DOTFILES=(.bash_profile .bashrc .gitignore_global .vimrc .zprofile .zshrc .zsh)
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE:-$0}")"; pwd)"
 DOTFILES_ROOT="$(cd "$SCRIPT_DIR/../"; pwd)"
 

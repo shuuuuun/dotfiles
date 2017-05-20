@@ -85,13 +85,13 @@ zstyle ':completion:*' matcher-list 'm:{a-zA-Z-_}={A-Za-z_-}' 'r:|[._-]=* r:|=*'
 #
 # alias
 #
-source ~/dotfiles/lib/aliases.sh
+source "$HOME/.zsh/aliases.sh"
 
 
 #
 # function
 #
-source ~/dotfiles/lib/functions.sh
+source "$HOME/.zsh/functions.sh"
 # TODO: autoload使ったほうがいいのかも http://qiita.com/yuku_t/items/77c23390e52168a2754a
 
 
