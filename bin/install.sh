@@ -29,7 +29,7 @@ fi
 echo "doing backup dotfiles..."
 now=$(date "+%Y%m%d%H%M%S")
 for file in ${DOTFILES[@]}; do
-  if [ -e "$HOME/$file" ]; then
+  if [ -L "$HOME/$file" ]; then
     mv "$HOME/$file" "$HOME/$file.$now.bak"
     echo "  backup: $HOME/$file -> $HOME/$file.$now.bak"
   fi
