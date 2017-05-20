@@ -1,7 +1,8 @@
 #
 # alias
 #
-alias ls='ls -G' # color
+# alias ls='ls -G' # color
+alias ls='gls --color' # GNU ls
 alias l='ls -la'
 alias ll='ls -l'
 alias lla='ls -la'

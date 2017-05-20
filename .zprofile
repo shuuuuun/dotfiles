@@ -25,6 +25,11 @@ path=(
 export LESS="-iMRS"
 
 #
+# LS_COLORS
+#
+eval $(gdircolors $HOME/.zsh/lib/seebi/dircolors-solarized/dircolors.ansi-universal)
+
+#
 # Temporary Files
 #
 if [[ ! -d "$TMPDIR" ]]; then
@@ -58,5 +63,3 @@ export GOPATH=$HOME/go
 export EDITOR='vim'
 export VISUAL='vim' 
 export PAGER='less'
-
-
