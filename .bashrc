@@ -1,9 +1,8 @@
+#
+# prompt
+#
 export PROMPT_COMMAND='echo -en "\033];"$(pwd | sed "s@$HOME@~@")"\007"'
 export PS1="\[\e[34m\]\t\[\e[m\]\$ "
-
-
-# fzf
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 
 #
@@ -17,3 +16,11 @@ source "$HOME/.sh/aliases.sh"
 #
 source "$HOME/.sh/utils.sh"
 source "$HOME/.sh/functions.sh"
+
+
+#
+# other
+#
+
+# fzf
+# [ -f ~/.fzf.bash ] && source ~/.fzf.bash
