@@ -21,7 +21,7 @@ function set-window-title {
   # TODO: 
   # git root directory name
   git_root=`git rev-parse --show-toplevel` > /dev/null 2>&1
-  if [[ $git_root == "" ]] git_root=`pwd`
+  if [[ $git_root == "" ]]; then git_root=`pwd`; fi
   dir_name=`echo $git_root | sed "s@^.*\/@@"`
   echo $dir_name
   echo -en "\033];$dir_name\007"
