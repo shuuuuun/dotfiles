@@ -12,3 +12,15 @@ alias les='less'
 # fzf
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
+
+#
+# alias
+#
+source "$HOME/.sh/aliases.sh"
+
+
+#
+# function
+#
+source "$HOME/.sh/utils.sh"
+source "$HOME/.sh/functions.sh"
