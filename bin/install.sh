@@ -16,6 +16,11 @@ echo "dotfiles root path: $DOTFILES_ROOT"
 #
 if [ -e "$DOTFILES_ROOT" ]; then
   echo "'$DOTFILES_ROOT' already exists."
+  cd "$DOTFILES_ROOT"
+  echo "updating dotfiles repository..."
+  git pull
+  echo "update end."
+  cd "$HOME"
 else
   echo "downloading dotfiles from $REPOSITORY..."
   git clone $REPOSITORY $DOTFILES_ROOT
