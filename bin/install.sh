@@ -47,4 +47,11 @@ echo "deploy end."
 # init
 #
 echo "initializing dotfiles..."
+# export DOTFILES_ROOT=$DOTFILES_ROOT
+# TODO: init script
+# .zsh/lib/以下をignoreする？
+# dir="$DOTFILES_ROOT/.zsh/lib/seebi/dircolors-solarized"
+# mkdir -p $dir
+# cd $dir
+# curl https://raw.githubusercontent.com/seebi/dircolors-solarized/master/dircolors.ansi-universal -O
 echo "initialize end."
