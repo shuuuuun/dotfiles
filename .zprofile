@@ -27,7 +27,7 @@ export LESS="-iMRS"
 #
 # LS_COLORS
 #
-eval $(gdircolors $HOME/.zsh/lib/seebi/dircolors-solarized/dircolors.ansi-universal)
+eval $(gdircolors $HOME/.sh/lib/seebi/dircolors-solarized/dircolors.ansi-universal)
 
 #
 # Temporary Files
