@@ -5,6 +5,7 @@
 alias ls='gls --color' # GNU ls
 alias l='ls -la'
 alias ll='ls -l'
+alias la='ls -a'
 alias lla='ls -la'
 alias lns='ln -s'
 alias ls1='ls -1'
