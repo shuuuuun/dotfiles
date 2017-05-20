@@ -4,7 +4,7 @@
 # const
 #
 REPOSITORY="https://github.com/shuuuuun/dotfiles.git"
-DOTFILES=(.bash_profile .bashrc .gitignore_global .vimrc .zprofile .zshrc .zsh)
+DOTFILES=(.bash_profile .bashrc .gitignore_global .vimrc .zprofile .zshrc .sh)
 DOTFILES_ROOT="$HOME/dotfiles"
 
 cd "$HOME"
