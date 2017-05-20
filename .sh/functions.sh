@@ -204,9 +204,9 @@ function ps-pid-copy {
   fi
 }
 
-function ps-peco-kill {
-  # kill
-}
+# function ps-peco-kill {
+#   # kill
+# }
 
 # erbをslimに変換する ディレクトリを指定して再帰的に
 function erb2slim-recursive {
