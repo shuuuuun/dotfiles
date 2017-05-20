@@ -5,16 +5,16 @@
 #
 REPOSITORY="https://github.com/shuuuuun/dotfiles.git"
 DOTFILES=(.bash_profile .bashrc .gitignore_global .vimrc .zprofile .zshrc .zsh)
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE:-$0}")"; pwd)"
-DOTFILES_ROOT="$(cd "$SCRIPT_DIR/../"; pwd)"
+DOTFILES_ROOT="$HOME/dotfiles"
 
+echo "dotfiles root path: $DOTFILES_ROOT"
 
 #
 # download
 #
 echo "downloading dotfiles from $REPOSITORY..."
 cd $HOME
-git clone $REPOSITORY
+git clone $REPOSITORY $DOTFILES_ROOT
 echo "download end."
 
 
