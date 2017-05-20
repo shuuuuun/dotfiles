@@ -1,8 +1,8 @@
 #
 # prompt
 #
-export PROMPT_COMMAND='echo -en "\033];"$(pwd | sed "s@$HOME@~@")"\007"'
-export PS1="\[\e[34m\]\t\[\e[m\]\$ "
+# export PROMPT_COMMAND='echo -en "\033];"$(pwd | sed "s@$HOME@~@")"\007"'
+# export PS1="\[\e[34m\]\t\[\e[m\]\$ "
 
 
 #
