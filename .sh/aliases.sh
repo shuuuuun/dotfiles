@@ -3,8 +3,10 @@
 #
 if type gls > /dev/null 2>&1; then
   alias ls='gls --color' # GNU ls
-else
+elif is_mac || is_bsd; then
   alias ls='ls -G' # color
+else
+  alias ls='ls --color'
 fi
 alias l='ls -la'
 alias ll='ls -l'
