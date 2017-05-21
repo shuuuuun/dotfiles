@@ -31,8 +31,6 @@ function set-window-title {
 function chpwd {
   set-window-title
 }
-set-window-title
-
 # PERIOD=5
 # add-zsh-hook periodic set-window-title
 

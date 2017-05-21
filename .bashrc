@@ -21,6 +21,9 @@ source "$HOME/.sh/functions.sh"
 #
 # other
 #
+if is_mac; then
+  set-window-title
+fi
 
 # fzf
 # [ -f ~/.fzf.bash ] && source ~/.fzf.bash

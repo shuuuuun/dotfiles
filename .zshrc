@@ -105,6 +105,9 @@ source ~/.zshrc_local
 #
 # other
 #
+if is_mac; then
+  set-window-title
+fi
 
 # tig
 # cf. https://github.com/jonas/tig/blob/master/contrib/tig-completion.zsh
