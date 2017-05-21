@@ -6,6 +6,7 @@
 
 # ostype returns the lowercase OS name
 function ostype {
+    # TODO: bash: ${(L):-$(uname)}: bad substitution
     echo ${(L):-$(uname)}
 }
 
