@@ -1,8 +1,11 @@
 #
 # alias
 #
-# alias ls='ls -G' # color
-alias ls='gls --color' # GNU ls
+if type gls > /dev/null 2>&1; then
+  alias ls='gls --color' # GNU ls
+else
+  alias ls='ls -G' # color
+fi
 alias l='ls -la'
 alias ll='ls -l'
 alias la='ls -a'
