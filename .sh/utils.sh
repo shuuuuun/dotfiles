@@ -6,8 +6,10 @@
 
 # ostype returns the lowercase OS name
 function ostype {
-    # TODO: bash: ${(L):-$(uname)}: bad substitution
-    echo ${(L):-$(uname)}
+    # echo ${(L):-$(uname)} # zsh
+    # echo ${$(uname):l} # zsh
+    # echo ${$(uname),,} # bash4.0
+    uname | tr '[:upper:]' '[:lower:]'
 }
 
 # os_detect export the PLATFORM variable as you see fit
