@@ -24,6 +24,7 @@
 	pll = pull
 	psh = push
 	diff-no = diff --name-only
+	log-graph = log --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
 
 [user]
 	name = motoki-shun
