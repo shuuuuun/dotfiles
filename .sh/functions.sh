@@ -309,13 +309,10 @@ function peco-args {
   $cmd $(echo $stdin | peco)
 }
 
-function find-peco-cd {
-  cd $(find-peco-dir)
-}
-
 function find-peco-dir {
   find . \( -name '.git' -prune \) -or \( -type d \) | peco
 }
+alias find-peco-cd='cd $(find-peco-dir)'
 
 function find-peco-file {
   # TODO: gitignoreは１階層だけ表示とか
