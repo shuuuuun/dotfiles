@@ -343,24 +343,23 @@ function mdfind-peco {
   mdfind -onlyin ~ -name ${FILENAME} | peco
 }
 
-
-# pushd
-# alias peco-pushd="pushd +\$(dirs -p -v -l | sort -k 2 -k 1n | uniq -f 1 | sort -n | peco | head -n 1 | awk '{print \$1}')"
-
-
-function peco-history {
-  # historyを番号なし、逆順、最初から表示。
-  # 順番を保持して重複を削除。
-  # カーソルの左側の文字列をクエリにしてpecoを起動
-  # \nを改行に変換
-  # BUFFER="$(history -nr 1 | awk '!a[$0]++' | peco --query "$LBUFFER" | sed 's/\\n/\n/')"
-  BUFFER="$(history -nr 1 | peco --query "$LBUFFER" | sed 's/\\n/\n/')"
-  CURSOR=$#BUFFER             # カーソルを文末に移動
-  zle -R -c                   # refresh
-}
-# zle -N peco-select-history
-# bindkey '^R' peco-select-history
-# function peco-select-history() {
+# TODO: peco-history
+# cf. http://qiita.com/tmsanrinsha/items/72cebab6cd448704e366
+#     http://qiita.com/vintersnow/items/08852df841e8d5faa7c2
+# function peco-history {
+#   # historyを番号なし、逆順、最初から表示。
+#   # 順番を保持して重複を削除。
+#   # カーソルの左側の文字列をクエリにしてpecoを起動
+#   # \nを改行に変換
+#   # BUFFER="$(history -nr 1 | awk '!a[$0]++' | peco --query "$LBUFFER" | sed 's/\\n/\n/')"
+#   BUFFER="$(history -nr 1 | peco --query "$LBUFFER" | sed 's/\\n/\n/')"
+#   CURSOR=$#BUFFER             # カーソルを文末に移動
+#   zle -R -c                   # refresh
+# }
+# zle -N peco-history
+# bindkey '^R' peco-history
+# 
+# function peco-select-history {
 #   BUFFER=$(\history -n -r 1 | peco --query "$LBUFFER")
 #   CURSOR=$#BUFFER
 #   zle clear-screen
@@ -368,6 +367,9 @@ function peco-history {
 # zle -N peco-select-history
 # bindkey '^r' peco-select-history
 
+
+# pushd
+# alias peco-pushd="pushd +\$(dirs -p -v -l | sort -k 2 -k 1n | uniq -f 1 | sort -n | peco | head -n 1 | awk '{print \$1}')"
 
 # 過去移動したディレクトリに移動します。ctrl-xにバインドしています。
 # # ### search a destination from cdr list
