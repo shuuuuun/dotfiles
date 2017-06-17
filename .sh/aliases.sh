@@ -66,13 +66,18 @@ alias gco-peco='git branch | peco | xargs git checkout'
 alias gft-origin-master='git fetch origin master:master'
 alias gft-origin-develop='git fetch origin develop:develop'
 
+alias copy-branch='git symbolic-ref --short HEAD | pbcopy'
+
 alias tg='tig'
 alias tgst='tig status'
 alias tigstatus='tig status'
 alias tigstash='tig stash'
 alias tigrep='tig grep'
+alias tgp='tig grep'
 alias tigmaster='tig master'
 alias tigdevelop='tig develop'
+# TODO: ↓なんか動かない
+# alias tigbranch='git branch | peco | xargs tig'
 
 alias svnupdate='svn update'
 alias svnstatus='svn status'
