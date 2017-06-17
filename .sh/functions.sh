@@ -285,3 +285,148 @@ function git-wip {
   git checkout -b $branch
   git commit -m "wip" --allow-empty
 }
+
+
+#
+# peco
+#
+function peco-pkill() {
+  for pid in `ps aux | peco | awk '{ print $2 }'`
+  do
+    kill $pid
+    echo "Killed ${pid}"
+  done
+}
+
+function peco-pipe {
+  # 引数で渡したコマンドにパイプで渡す
+  # peco-pipe cd
+  # peco | cd
+  # あんま意味ないかな
+}
+
+function find-peco-cd {
+  cd $(find-peco-dir)
+}
+
+function find-peco-dir {
+  find . \( -name '.git' -prune \) -or \( -type d \) | peco
+}
+
+function find-peco-file {
+  # gitignoreは１階層だけ表示とか
+  # ディレクトリの中身が多いときは表示しないとか  
+  # local ignores=(.git .svn node_modules)
+  # local ignore_options=""
+  # for ig in $ignores; do
+  #   ignore_options+=" -name $ig -prune"
+  # done
+  # find . \( -name '.git' -and -prune \) -or \( -type f -and -print \)
+  # find . \( -name '.git' -prune \) -or \( -type f -print \) | peco
+  # echo $ignore_options
+  # find . $ignore_options -or \( -type f -print \) | peco
+  find . -name '.git' -prune \
+         -or -name 'node_modules' -prune \
+         -or \( -type f -print \) | peco
+}
+
+function peco-finder {
+  # ディレクトリを選択したらその中身でpeco
+  # 再帰的に
+}
+
+function peco-mdfind-cd {
+  local FILENAME="$1"
+
+  if [ -z "$FILENAME" ] ; then
+    echo "Usage: peco-mdfind-cd <FILENAME>" >&2
+    return 1
+  fi
+
+  local DIR=$(mdfind -onlyin ~ -name ${FILENAME} | grep -e "/${FILENAME}$" | peco | head -n 1)
+  # local DIR=$(find ~ -maxdepth 5 -name ${FILENAME} | peco | head -n 1)
+
+  if [ -n "$DIR" ] ; then
+    DIR=${DIR%/*}
+    echo "cd \"$DIR\""
+    cd "$DIR"
+  fi
+}
+
+function peco-find-cd {
+  local FILENAME="$1"
+  local MAXDEPTH="${2:-3}"
+  local BASE_DIR="${3:-`pwd`}"
+
+  if [ -z "$FILENAME" ] ; then
+    echo "Usage: peco-find-cd <FILENAME> [<MAXDEPTH> [<BASE_DIR>]]" >&2
+    return 1
+  fi
+
+  local DIR=$(find ${BASE_DIR} -maxdepth ${MAXDEPTH} -name ${FILENAME} | peco | head -n 1)
+
+  if [ -n "$DIR" ] ; then
+    DIR=${DIR%/*}
+    echo "pushd \"$DIR\""
+    pushd "$DIR"
+  fi
+}
+
+function peco-git-cd {
+  peco-find-cd ".git" "$@"
+}
+
+function peco-docker-cd {
+  peco-find-cd "Dockerfile" "$@"
+}
+
+function peco-vagrant-cd {
+  peco-find-cd "Vagrantfile" "$@"
+}
+
+
+# pushd
+# alias peco-pushd="pushd +\$(dirs -p -v -l | sort -k 2 -k 1n | uniq -f 1 | sort -n | peco | head -n 1 | awk '{print \$1}')"
+
+
+function peco-history {
+  # historyを番号なし、逆順、最初から表示。
+  # 順番を保持して重複を削除。
+  # カーソルの左側の文字列をクエリにしてpecoを起動
+  # \nを改行に変換
+  # BUFFER="$(history -nr 1 | awk '!a[$0]++' | peco --query "$LBUFFER" | sed 's/\\n/\n/')"
+  BUFFER="$(history -nr 1 | peco --query "$LBUFFER" | sed 's/\\n/\n/')"
+  CURSOR=$#BUFFER             # カーソルを文末に移動
+  zle -R -c                   # refresh
+}
+# zle -N peco-select-history
+# bindkey '^R' peco-select-history
+# function peco-select-history() {
+#   BUFFER=$(\history -n -r 1 | peco --query "$LBUFFER")
+#   CURSOR=$#BUFFER
+#   zle clear-screen
+# }
+# zle -N peco-select-history
+# bindkey '^r' peco-select-history
+
+
+# 過去移動したディレクトリに移動します。ctrl-xにバインドしています。
+# # ### search a destination from cdr list
+# function peco-get-destination-from-cdr() {
+#   cdr -l | \
+#   sed -e 's/^[[:digit:]]*[[:blank:]]*//' | \
+#   peco --query "$LBUFFER"
+# }
+
+# ### search a destination from cdr list and cd the destination
+# function peco-cdr() {
+#   local destination="$(peco-get-destination-from-cdr)"
+#   if [ -n "$destination" ]; then
+#     BUFFER="cd $destination"
+#     zle accept-line
+#   else
+#     zle reset-prompt
+#   fi
+# }
+# zle -N peco-cdr
+# bindkey '^x' peco-cdr
