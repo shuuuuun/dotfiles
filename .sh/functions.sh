@@ -325,6 +325,8 @@ function find-peco-file {
          -or -type f -print \
     | peco
 }
+alias find-peco-atom='atom $(find-peco-file)'
+alias find-peco-subl='subl $(find-peco-file)'
 
 function peco-finder {
   # ディレクトリを選択したらその中身でpeco
