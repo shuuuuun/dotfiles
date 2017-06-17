@@ -187,25 +187,6 @@ function github-commit-page {
   open $commit_url
 }
 
-function ps-peco {
-  ps | peco --query "$1"
-}
-
-function ps-pid-copy {
-  result=$(ps | peco --query "$1")
-  peco_status=$?
-  echo "$result"
-  if [ $peco_status -eq 0 ]; then
-    pid=$(echo "$result" | perl -pe 's/ *(\d+) .*$/$1/')
-    echo -n "$pid" | pbcopy
-    echo "copied: $pid"
-  fi
-}
-
-# function ps-peco-kill {
-#   # kill
-# }
-
 # erbをslimに変換する ディレクトリを指定して再帰的に
 function erb2slim-recursive {
   # erb2slimコマンドが存在する場合のみ（ガード節にしたいけど書き方がわからん）
@@ -290,11 +271,28 @@ function git-wip {
 #
 # peco
 #
-function peco-pkill() {
-  for pid in `ps aux | peco | awk '{ print $2 }'`
+function ps-peco {
+  ps | peco --query "$1"
+}
+
+function ps-peco-pid-copy {
+  result=$(ps | peco --query "$1")
+  peco_status=$?
+  echo "$result"
+  if [ $peco_status -eq 0 ]; then
+    pid=$(echo "$result" | perl -pe 's/ *(\d+) .*$/$1/')
+    echo -n "$pid" | pbcopy
+    echo "copied: $pid"
+  fi
+}
+
+function ps-peco-kill {
+  result=$(ps | peco --query "$1")
+  echo "$result"
+  for pid in $(echo "$result" | awk '{ print $1 }')
   do
     kill $pid
-    echo "Killed ${pid}"
+    echo "Killed $pid"
   done
 }
 
