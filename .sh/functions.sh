@@ -296,11 +296,17 @@ function ps-peco-kill {
   done
 }
 
-function peco-pipe {
-  # 引数で渡したコマンドにパイプで渡す
-  # peco-pipe cd
-  # peco | cd
-  # あんま意味ないかな
+function peco-args {
+  # usage: find . -type d | peco-args cd
+  #        cd $(find . -type d | peco)
+  if [ -p /dev/stdin ]; then
+    stdin=$(cat -)
+    cmd=$1
+  else
+    echo "Error: stdin required."
+    exit 1
+  fi
+  $cmd $(echo $stdin | peco)
 }
 
 function find-peco-cd {
