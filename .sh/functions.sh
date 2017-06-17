@@ -331,53 +331,17 @@ function peco-finder {
   # 再帰的に
 }
 
-function peco-mdfind-cd {
+function mdfind-peco {
+  # cf. http://qiita.com/yungsang/items/37b548e7a12be28cf01e
+  #     http://qiita.com/yungsang/items/e10ca283a1ceeaa845db
   local FILENAME="$1"
 
   if [ -z "$FILENAME" ] ; then
-    echo "Usage: peco-mdfind-cd <FILENAME>" >&2
+    echo "Usage: mdfind-peco <FILENAME>" >&2
     return 1
   fi
 
-  local DIR=$(mdfind -onlyin ~ -name ${FILENAME} | grep -e "/${FILENAME}$" | peco | head -n 1)
-  # local DIR=$(find ~ -maxdepth 5 -name ${FILENAME} | peco | head -n 1)
-
-  if [ -n "$DIR" ] ; then
-    DIR=${DIR%/*}
-    echo "cd \"$DIR\""
-    cd "$DIR"
-  fi
-}
-
-function peco-find-cd {
-  local FILENAME="$1"
-  local MAXDEPTH="${2:-3}"
-  local BASE_DIR="${3:-`pwd`}"
-
-  if [ -z "$FILENAME" ] ; then
-    echo "Usage: peco-find-cd <FILENAME> [<MAXDEPTH> [<BASE_DIR>]]" >&2
-    return 1
-  fi
-
-  local DIR=$(find ${BASE_DIR} -maxdepth ${MAXDEPTH} -name ${FILENAME} | peco | head -n 1)
-
-  if [ -n "$DIR" ] ; then
-    DIR=${DIR%/*}
-    echo "pushd \"$DIR\""
-    pushd "$DIR"
-  fi
-}
-
-function peco-git-cd {
-  peco-find-cd ".git" "$@"
-}
-
-function peco-docker-cd {
-  peco-find-cd "Dockerfile" "$@"
-}
-
-function peco-vagrant-cd {
-  peco-find-cd "Vagrantfile" "$@"
+  mdfind -onlyin ~ -name ${FILENAME} | peco
 }
 
 
