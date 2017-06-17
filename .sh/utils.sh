@@ -4,6 +4,11 @@
 
 # cf. https://github.com/b4b4r07/dotfiles/blob/master/.zsh/10_utils.zsh
 
+function has {
+    # type command > /dev/null 2>&1
+    type "${1:?too few arguments}" &>/dev/null
+}
+
 # ostype returns the lowercase OS name
 function ostype {
     # echo ${(L):-$(uname)} # zsh
