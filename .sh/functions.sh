@@ -318,20 +318,12 @@ function find-peco-dir {
 }
 
 function find-peco-file {
-  # gitignoreは１階層だけ表示とか
-  # ディレクトリの中身が多いときは表示しないとか  
-  # local ignores=(.git .svn node_modules)
-  # local ignore_options=""
-  # for ig in $ignores; do
-  #   ignore_options+=" -name $ig -prune"
-  # done
-  # find . \( -name '.git' -and -prune \) -or \( -type f -and -print \)
-  # find . \( -name '.git' -prune \) -or \( -type f -print \) | peco
-  # echo $ignore_options
-  # find . $ignore_options -or \( -type f -print \) | peco
+  # TODO: gitignoreは１階層だけ表示とか
+  # TODO: ディレクトリの中身が多いときは表示しないとか  
   find . -name '.git' -prune \
          -or -name 'node_modules' -prune \
-         -or \( -type f -print \) | peco
+         -or -type f -print \
+    | peco
 }
 
 function peco-finder {
