@@ -29,6 +29,7 @@ alias cprf='cp -rf'
 alias top-cpu='top -o cpu'
 alias rsync-copy='rsync -C --filter=":- .gitignore" -av'
 alias purgesudo='sudo purge'
+alias history-all='history -E 1'
 
 # alias vim='env_LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
 
