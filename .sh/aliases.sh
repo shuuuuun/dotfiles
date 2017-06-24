@@ -35,6 +35,9 @@ alias history-all='history -E 1'
 
 alias emacs='emacs -nw' # for GNU emacs (GUIが起動しちゃうのでCLIにする)
 
+alias atom.='atom .'
+alias subl.='subl .'
+
 alias g='git'
 alias gst='git status'
 alias gbr='git branch'
