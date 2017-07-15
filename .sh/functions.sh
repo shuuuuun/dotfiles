@@ -2,6 +2,19 @@
 # function
 #
 
+# TODO: ~/commands, ~/my_commands も取り込もう
+
+function args-sample {
+  echo "\$0=$0"
+  echo "\$#=$#"
+  echo "\$@=$@"
+  echo "\$*=$*"
+  # echo "\$1=$1"
+  for i in $(seq 1 $#); do
+    eval echo "'$'$i=\$$i"
+  done
+}
+
 # cdしたらpwdする
 # http://qiita.com/b4b4r07/items/8cf5d1c8b3fbfcf01a5d
 function cd {
