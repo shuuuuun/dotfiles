@@ -9,6 +9,13 @@ function has {
     type "${1:?too few arguments}" &>/dev/null
 }
 
+function source_if_exist {
+  file="${1:?too few arguments}"
+  if [ -f "$file" ]; then
+    source "$file"
+  fi
+}
+
 # ostype returns the lowercase OS name
 function ostype {
     # echo ${(L):-$(uname)} # zsh

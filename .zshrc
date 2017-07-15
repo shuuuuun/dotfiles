@@ -99,9 +99,7 @@ source "$HOME/.sh/functions.sh"
 #
 # load local settgins
 #
-if [ -f ~/.zshrc_local ]; then
-  source ~/.zshrc_local
-fi
+source_if_exist ~/.zshrc_local
 
 
 #
@@ -119,6 +117,4 @@ fi
 # 上矢印で入力中の単語にマッチした履歴を出してくれるやつがほしくてそれだけ書こうとしたけど
 # ちゃんと分からないので
 # とりあえずoh-my-zshのkey-bindingを読み込む
-if [ -f ~/.oh-my-zsh/lib/key-bindings.zsh ]; then
-  source ~/.oh-my-zsh/lib/key-bindings.zsh
-fi
+source_if_exist ~/.oh-my-zsh/lib/key-bindings.zsh
