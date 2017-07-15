@@ -34,8 +34,7 @@ fi
 echo "doing backup dotfiles..."
 now=$(date "+%Y%m%d%H%M%S")
 for file in ${DOTFILES[@]}; do
-  # TODO: symbolic_linkはbackupしなくていいか
-  if [ -L "$HOME/$file" ]; then
+  if [ -f "$HOME/$file" -a ! -L  "$HOME/$file" ]; then # fileが存在しかつシンボリックリンクでない
     mv "$HOME/$file" "$HOME/$file.$now.bak"
     echo "  backup: $HOME/$file -> $HOME/$file.$now.bak"
   fi
