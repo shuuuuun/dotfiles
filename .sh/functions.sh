@@ -338,10 +338,10 @@ function find-peco-file {
 alias find-peco-atom='atom $(find-peco-file)'
 alias find-peco-subl='subl $(find-peco-file)'
 
-function peco-finder {
-  # ディレクトリを選択したらその中身でpeco
-  # 再帰的に
-}
+# function peco-finder {
+#   # ディレクトリを選択したらその中身でpeco
+#   # 再帰的に
+# }
 
 function mdfind-peco {
   # cf. http://qiita.com/yungsang/items/37b548e7a12be28cf01e
