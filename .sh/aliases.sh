@@ -14,15 +14,16 @@ alias la='ls -a'
 alias lla='ls -la'
 alias lns='ln -s'
 alias ls1='ls -1'
+alias la1='ls -a1'
 alias ls-fullpath='ls -1d $PWD/*'
 alias nanow='nano -w'
 alias les='less'
 alias jxa='osascript -l JavaScript'
 alias desktop='cd ~/Desktop'
 alias cddesktop='cd ~/Desktop'
-alias st='subl'
-alias stc='subl .'
-alias stfolder='subl .'
+# alias st='subl'
+# alias stc='subl .'
+# alias stfolder='subl .'
 alias rmrf='rm -rf'
 alias cprf='cp -rf'
 # alias rm='echo use \`gomi\` command!!; false'
@@ -35,6 +36,8 @@ alias history-all='history -E 1'
 
 alias emacs='emacs -nw' # for GNU emacs (GUIが起動しちゃうのでCLIにする)
 
+alias atm='atom'
+alias atm.='atom .'
 alias atom.='atom .'
 alias subl.='subl .'
 
@@ -82,6 +85,10 @@ alias tigmaster='tig master'
 alias tigdevelop='tig develop'
 # TODO: ↓なんか動かない
 # alias tigbranch='git branch | peco | xargs tig'
+# alias tigbranch='git branch | peco | xargs -I br tig br'
+# function tigbranch { br=$(git branch | peco); echo "$br"; tig "$br" }
+function tigbranch { tig $(git branch | peco) }
+function tigbranch-a { tig $(git branch -a | peco) }
 
 alias svnupdate='svn update'
 alias svnstatus='svn status'
@@ -93,6 +100,8 @@ GITHUB_REPO_NAME_REGEX='/[https?:\/\/|git\@]github\.com[\/|:]([^\/]+)\/([^\/]+)\
 alias open-github='git remote -v | perl -0ne '"'"'print "https://github.com/$1/$2" if ('$GITHUB_REPO_NAME_REGEX')'"'"' | xargs -I url open url'
 alias open-gh-pages='git remote -v | perl -0ne '"'"'print "https://$1.github.io/$2/" if ('$GITHUB_REPO_NAME_REGEX')'"'"' | xargs -I url open url'
 alias push-gh-pages='git subtree push --prefix public/ origin gh-pages'
+alias gh-open='open-gh-pages'
+alias gh-push='push-gh-pages'
 
 alias bundle-install-path-vendor-bundle='bundle install --path vendor/bundle'
 alias bundle-exec='bundle exec'
