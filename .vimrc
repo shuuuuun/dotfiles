@@ -29,7 +29,7 @@ NeoBundle 'scrooloose/nerdtree'
 NeoBundle "slim-template/vim-slim"
 NeoBundle "digitaltoad/vim-pug"
 NeoBundle 'ConradIrwin/vim-bracketed-paste'
-NeoBundle 'wakatime/vim-wakatime'
+NeoBundle 'wakatime/vim-wakatime' " TODO: デフォルトオフに
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 'alvan/vim-closetag'
 

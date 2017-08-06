@@ -49,6 +49,7 @@ alias gstash='git stash'
 alias gad='git add'
 alias gada='git add --all'
 alias gcm='git commit'
+# TODO: オプション意外の引数は全部コメントみたいにしたい
 alias gcmm='git commit -m'
 alias gcmam='git commit --amend'
 alias gcmmbuild='git commit -m "build"'
@@ -64,6 +65,8 @@ alias gpush='git push'
 alias greset='git reset'
 alias grebase='git rebase'
 alias gremotev='git remote -v'
+# TODO: デフォルトをpruneにしちゃってもいいかも
+# TODO: 手元の不要なブランチを消すscriptも作りたい
 alias gpull-prune='git pull --prune'
 alias gpull-rebase='git pull --rebase'
 alias gcomaster='git checkout master'
