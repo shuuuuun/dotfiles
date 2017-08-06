@@ -90,8 +90,8 @@ alias tigdevelop='tig develop'
 # alias tigbranch='git branch | peco | xargs tig'
 # alias tigbranch='git branch | peco | xargs -I br tig br'
 # function tigbranch { br=$(git branch | peco); echo "$br"; tig "$br" }
-function tigbranch { tig $(git branch | peco) }
-function tigbranch-a { tig $(git branch -a | peco) }
+function tigbranch { tig $(git branch | peco); }
+function tigbranch-a { tig $(git branch -a | peco); }
 
 alias svnupdate='svn update'
 alias svnstatus='svn status'
