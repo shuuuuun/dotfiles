@@ -31,7 +31,8 @@ function set-window-title {
   # echo -en "\033];"$(pwd | sed "s@$HOME@~@")"\007" # current path
   # echo -en "\033];"$(pwd | sed "s@^.*\/@@")"\007" # current directory name
 
-  # TODO: 
+  # TODO: ssh時はhost名にしたい
+  # TODO: sshから戻ったときに戻るようにしたい
   # git root directory name
   git_root=`git rev-parse --show-toplevel` > /dev/null 2>&1
   if [[ $git_root == "" ]]; then git_root=`pwd`; fi

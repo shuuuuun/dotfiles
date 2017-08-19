@@ -64,4 +64,19 @@ echo "initializing dotfiles..."
 # mkdir -p $dir
 # cd $dir
 # curl https://raw.githubusercontent.com/seebi/dircolors-solarized/master/dircolors.ansi-universal -O
+# TODO: vim neobundle install
+# https://github.com/Shougo/neobundle.vim
+# curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh | sh
+# TODO: zplug install if zsh
+# https://github.com/zplug/zplug
+# curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh| zsh
 echo "initialize end."
+
+
+#
+# note
+#
+# change login shell
+# chsh -s /bin/zsh
+# installation
+# curl https://raw.githubusercontent.com/shuuuuun/dotfiles/master/bin/install.sh | bash
