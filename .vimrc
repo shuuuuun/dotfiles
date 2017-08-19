@@ -5,6 +5,8 @@ set nocompatible
 filetype off
 
 "NeoBundle Scripts-----------------------------
+if isdirectory($HOME.'/.vim/bundle')
+
 if &compatible
  set nocompatible               " Be iMproved
 endif
@@ -53,6 +55,8 @@ filetype plugin indent on
 " If there are uninstalled bundles found on startup,
 " this will conveniently prompt you to install them.
 NeoBundleCheck
+
+endif
 "End NeoBundle Scripts-------------------------
 
 
