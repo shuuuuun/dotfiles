@@ -114,4 +114,6 @@ alias npm-shrinkwrap='npm shrinkwrap'
 alias npm-install-save-dev='npm install --save-dev'
 alias npm-ls-global='npm ls -g --depth=0'
 
+alias chrome='open -a "/Applications/Google Chrome.app"'
+
 # alias highlight='highlight --style=Moria'
