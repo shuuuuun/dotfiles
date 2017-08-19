@@ -5,7 +5,7 @@ set nocompatible
 filetype off
 
 " NeoBundle
-if isdirectory($HOME.'/.vim/bundle')
+if isdirectory(expand('~/.vim/bundle'))
 
   "NeoBundle Scripts-----------------------------
   if &compatible
