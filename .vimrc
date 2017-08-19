@@ -7,54 +7,54 @@ filetype off
 "NeoBundle Scripts-----------------------------
 if isdirectory($HOME.'/.vim/bundle')
 
-if &compatible
- set nocompatible               " Be iMproved
-endif
+  if &compatible
+    set nocompatible               " Be iMproved
+  endif
 
-" Required:
-set runtimepath^=~/.vim/bundle/neobundle.vim/
+  " Required:
+  set runtimepath^=~/.vim/bundle/neobundle.vim/
 
-" Required:
-call neobundle#begin(expand('~/.vim/bundle'))
+  " Required:
+  call neobundle#begin(expand('~/.vim/bundle'))
 
-" Let NeoBundle manage NeoBundle
-" Required:
-NeoBundleFetch 'Shougo/neobundle.vim'
-
-
-" Add or remove your Bundles here:
-" NeoBundle 'Shougo/neosnippet.vim'
-" NeoBundle 'Shougo/neosnippet-snippets'
-" NeoBundle 'tpope/vim-fugitive'
-" NeoBundle 'ctrlpvim/ctrlp.vim'
-NeoBundle 'scrooloose/nerdtree'
-NeoBundle "slim-template/vim-slim"
-NeoBundle "digitaltoad/vim-pug"
-NeoBundle 'ConradIrwin/vim-bracketed-paste'
-NeoBundle 'wakatime/vim-wakatime' " TODO: デフォルトオフに
-NeoBundle 'mattn/emmet-vim'
-NeoBundle 'alvan/vim-closetag'
-
-" color scheme
-" NeoBundle 'w0ng/vim-hybrid'
-" NeoBundle 'nanotech/jellybeans.vim'
-" NeoBundle 'tomasr/molokai'
-" NeoBundle 'sjl/badwolf'
-NeoBundle 'morhetz/gruvbox'
+  " Let NeoBundle manage NeoBundle
+  " Required:
+  NeoBundleFetch 'Shougo/neobundle.vim'
 
 
-" You can specify revision/branch/tag.
-" NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
+  " Add or remove your Bundles here:
+  " NeoBundle 'Shougo/neosnippet.vim'
+  " NeoBundle 'Shougo/neosnippet-snippets'
+  " NeoBundle 'tpope/vim-fugitive'
+  " NeoBundle 'ctrlpvim/ctrlp.vim'
+  NeoBundle 'scrooloose/nerdtree'
+  NeoBundle "slim-template/vim-slim"
+  NeoBundle "digitaltoad/vim-pug"
+  NeoBundle 'ConradIrwin/vim-bracketed-paste'
+  NeoBundle 'wakatime/vim-wakatime' " TODO: デフォルトオフに
+  NeoBundle 'mattn/emmet-vim'
+  NeoBundle 'alvan/vim-closetag'
 
-" Required:
-call neobundle#end()
+  " color scheme
+  " NeoBundle 'w0ng/vim-hybrid'
+  " NeoBundle 'nanotech/jellybeans.vim'
+  " NeoBundle 'tomasr/molokai'
+  " NeoBundle 'sjl/badwolf'
+  NeoBundle 'morhetz/gruvbox'
 
-" Required:
-filetype plugin indent on
 
-" If there are uninstalled bundles found on startup,
-" this will conveniently prompt you to install them.
-NeoBundleCheck
+  " You can specify revision/branch/tag.
+  " NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
+
+  " Required:
+  call neobundle#end()
+
+  " Required:
+  filetype plugin indent on
+
+  " If there are uninstalled bundles found on startup,
+  " this will conveniently prompt you to install them.
+  NeoBundleCheck
 
 endif
 "End NeoBundle Scripts-------------------------
@@ -138,4 +138,3 @@ set backspace=indent,eol,start
 set directory=~/.vim/backup
 set backupdir=~/.vim/backup
 set undodir=~/.vim/backup
-
