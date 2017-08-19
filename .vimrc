@@ -4,9 +4,10 @@ syntax on
 set nocompatible
 filetype off
 
-"NeoBundle Scripts-----------------------------
+" NeoBundle
 if isdirectory($HOME.'/.vim/bundle')
 
+  "NeoBundle Scripts-----------------------------
   if &compatible
     set nocompatible               " Be iMproved
   endif
@@ -55,27 +56,29 @@ if isdirectory($HOME.'/.vim/bundle')
   " If there are uninstalled bundles found on startup,
   " this will conveniently prompt you to install them.
   NeoBundleCheck
+  " End NeoBundle Scripts-------------------------
 
+
+  " Depending on NeoBundle
+
+  " color scheme
+  autocmd ColorScheme * highlight Normal ctermbg=none
+  colorscheme gruvbox
+  
+  " 隠しファイルをデフォルトで表示させる
+  let NERDTreeShowHidden = 1
+  
+  " デフォルトでツリーを表示させる
+  "autocmd VimEnter * execute 'NERDTree'
+
+  " Ctrl+eでNERDTreeをトグル
+  nnoremap <silent><C-e> :NERDTreeToggle<CR>
 endif
-"End NeoBundle Scripts-------------------------
-
-
-" color scheme
-autocmd ColorScheme * highlight Normal ctermbg=none
-colorscheme gruvbox
-
-" 隠しファイルをデフォルトで表示させる
-let NERDTreeShowHidden = 1
-
-" デフォルトでツリーを表示させる
-"autocmd VimEnter * execute 'NERDTree'
 
 
 "
 " keymap
 "
-" Ctrl+eでNERDTreeをトグル
-nnoremap <silent><C-e> :NERDTreeToggle<CR>
 
 " normal & visual modeでの行頭行末移動
 noremap 6 ^
