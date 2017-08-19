@@ -138,6 +138,9 @@ set whichwrap=b,s,h,l,<,>,[,],~
 set backspace=indent,eol,start
 
 " バックアップファイル（hoge.swpやhoge~やhoge.un~）を１箇所にまとめる
+if !isdirectory(expand('~/.vim/backup'))
+  call mkdir(expand('~/.vim/backup'), 'p')
+endif
 set directory=~/.vim/backup
 set backupdir=~/.vim/backup
 set undodir=~/.vim/backup

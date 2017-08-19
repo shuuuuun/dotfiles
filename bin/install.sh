@@ -57,8 +57,6 @@ echo "deploy end."
 # init
 #
 echo "initializing dotfiles..."
-# for vim
-mkdir -p ~/.vim/backup
 # export DOTFILES_ROOT=$DOTFILES_ROOT
 # TODO: init script
 # .zsh/lib/以下をignoreする？
