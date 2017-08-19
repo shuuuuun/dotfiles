@@ -83,17 +83,17 @@ zstyle ':completion:*' matcher-list 'm:{a-zA-Z-_}={A-Za-z_-}' 'r:|[._-]=* r:|=*'
 
 
 #
-# alias
-#
-source "$HOME/.sh/aliases.sh"
-
-
-#
 # function
 #
 source "$HOME/.sh/utils.sh"
 source "$HOME/.sh/functions.sh"
 # TODO: autoload使ったほうがいいのかも http://qiita.com/yuku_t/items/77c23390e52168a2754a
+
+
+#
+# alias
+#
+source "$HOME/.sh/aliases.sh"
 
 
 #

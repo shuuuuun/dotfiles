@@ -16,16 +16,16 @@ fi
 
 
 #
-# alias
-#
-source "$HOME/.sh/aliases.sh"
-
-
-#
 # function
 #
 source "$HOME/.sh/utils.sh"
 source "$HOME/.sh/functions.sh"
+
+
+#
+# alias
+#
+source "$HOME/.sh/aliases.sh"
 
 
 #
