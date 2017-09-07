@@ -8,10 +8,10 @@ elif is_mac || is_bsd; then
 else
   alias ls='ls --color'
 fi
-alias l='ls -la'
-alias ll='ls -l'
+alias l='ls -lah --time-style=long-iso'
+alias ll='ls -lh --time-style=long-iso'
 alias la='ls -a'
-alias lla='ls -la'
+alias lla='ls -lah --time-style=long-iso'
 alias lns='ln -s'
 alias ls1='ls -1'
 alias la1='ls -a1'
