@@ -40,7 +40,6 @@ fi
 TMPPREFIX="${TMPDIR%/}/zsh"
 
 
-
 #
 # anyenv
 #
@@ -50,18 +49,24 @@ if type anyenv > /dev/null 2>&1; then
 fi
 
 
-# ------------------
-export DISPLAY=':0.0'
-
-
-# PATH ----------
+#
+# PATH
+#
 export PATH=$PATH:/usr/local/sbin
 export PATH=$PATH:/usr/local/share/git-core/contrib/diff-highlight
 export PATH=$PATH:~/Library/Python/2.7/bin
 export GOPATH=$HOME/go
 
 
-# Editors ----------
+#
+# Editors
+#
 export EDITOR='vim'
 export VISUAL='vim' 
 export PAGER='less'
+
+
+#
+# Others
+#
+export DISPLAY=':0.0'
