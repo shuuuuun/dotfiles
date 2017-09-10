@@ -281,6 +281,36 @@ function git-wip {
   git commit -m "wip" --allow-empty
 }
 
+function contains {
+  [[ $1 =~ (^|[[:space:]])$2($|[[:space:]]) ]] && return 0 || return 1
+}
+
+function git-prune-all {
+  # TODO: dryrun
+  # prune_log=$(git fetch --prune)
+  # echo $prune_log
+  # branch=$(echo $prune_log | grep deleted | awk '{ sub("origin/", "", $5); print $5 }')
+  # git branch -d $branch
+  git fetch --prune
+  # git branch --merged
+  local_branches=(`git branch --list | sed -e 's/^ *\** *//g' | tr '\n' ' '`)
+  remote_branches=(`git branch --remotes | sed -e 's/^ *origin\///g' | tr '\n' ' '`)
+  # diff <(echo $local_branches) <(echo $remote_branches)
+  echo "local: $local_branches"
+  echo "remote: $remote_branches"
+  for local_br in $local_branches; do
+    # echo $local_br
+    # if contains "$local_branches" $local_br; then echo 'local'; fi
+    # if contains "$remote_branches" $local_br; then echo 'remote'; fi
+    # echo '--'
+    if ! contains "$remote_branches" $local_br; then
+      # remoteになくてlocalにあるブランチ
+      # 差分があると削除できないので安心
+      echo "deleting: $local_br"
+      git branch -d $local_br
+    fi
+  done
+}
 
 #
 # peco
