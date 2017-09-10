@@ -113,7 +113,7 @@ fi
 # tig
 # cf. https://github.com/jonas/tig/blob/master/contrib/tig-completion.zsh
 # fpath=($fpath /usr/local/Cellar/tig/*/share/zsh/site-functions)
-source /usr/local/Cellar/tig/*/share/zsh/site-functions/tig-completion.bash
+source_if_exist /usr/local/Cellar/tig/*/share/zsh/site-functions/tig-completion.bash
 
 # 上矢印で入力中の単語にマッチした履歴を出してくれるやつがほしくてそれだけ書こうとしたけど
 # ちゃんと分からないので
