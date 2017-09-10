@@ -288,9 +288,7 @@ function contains {
 function git-prune-all {
   # TODO: dryrun
   # prune_log=$(git fetch --prune)
-  # echo $prune_log
   # branch=$(echo $prune_log | grep deleted | awk '{ sub("origin/", "", $5); print $5 }')
-  # git branch -d $branch
   git fetch --prune
   # git branch --merged
   local_branches=(`git branch --list | sed -e 's/^ *\** *//g' | tr '\n' ' '`)
@@ -299,10 +297,6 @@ function git-prune-all {
   echo "local: $local_branches"
   echo "remote: $remote_branches"
   for local_br in $local_branches; do
-    # echo $local_br
-    # if contains "$local_branches" $local_br; then echo 'local'; fi
-    # if contains "$remote_branches" $local_br; then echo 'remote'; fi
-    # echo '--'
     if ! contains "$remote_branches" $local_br; then
       # remoteになくてlocalにあるブランチ
       # 差分があると削除できないので安心
