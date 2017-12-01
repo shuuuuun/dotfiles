@@ -40,6 +40,10 @@ alias atm='atom'
 alias atm.='atom .'
 alias atom.='atom .'
 alias subl.='subl .'
+alias vscode='code'
+alias vsc='code'
+alias code.='code .'
+alias vsc.='code .'
 
 alias g='git'
 alias gst='git status'
@@ -47,6 +51,7 @@ alias gbr='git branch'
 alias gbra='git branch -a'
 alias gstash='git stash'
 alias gad='git add'
+alias gad.='git add .'
 alias gada='git add --all'
 alias gcm='git commit'
 # TODO: オプション意外の引数は全部コメントみたいにしたい
@@ -75,6 +80,7 @@ alias git-root='git rev-parse --show-toplevel'
 alias gco-peco='git branch | peco | xargs git checkout'
 alias gft-origin-master='git fetch origin master:master'
 alias gft-origin-develop='git fetch origin develop:develop'
+function gft-origin() { git fetch origin $1:$1 }
 
 alias copy-branch='git symbolic-ref --short HEAD | pbcopy'
 
