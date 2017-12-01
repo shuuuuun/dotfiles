@@ -89,6 +89,17 @@ function rm-ds-store {
   fi
 }
 
+# TODO: backupコマンド
+# function buckup {
+# }
+
+# TODO: uniq-pbpaste function
+# function uniq-pbpaste {
+#   cat << EOS | sort | uniq
+#   EOS
+# }
+
+
 # Railsの超簡易Viewをつくる
 function rails-genarate-view {
   # TODO: 第三引数以降をぜんぶactionとして作成

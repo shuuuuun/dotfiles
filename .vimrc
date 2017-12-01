@@ -105,6 +105,10 @@ inoremap <C-d> <C-o>x
 " nnoremap D "_D
 
 
+" noremap : ;
+" noremap ; :
+
+
 "
 " alias
 "
