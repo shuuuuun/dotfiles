@@ -4,7 +4,7 @@
 # const
 #
 REPOSITORY="https://github.com/shuuuuun/dotfiles.git"
-DOTFILES=(.bash_profile .bashrc .gitignore_global .vimrc .zprofile .zshrc .sh)
+DOTFILES=(.bash_profile .bashrc .gitignore_global .vimrc .sh)
 DOTFILES_ROOT="$HOME/dotfiles"
 
 cd "$HOME"
@@ -59,17 +59,6 @@ echo "deploy end."
 echo "initializing dotfiles..."
 # export DOTFILES_ROOT=$DOTFILES_ROOT
 # TODO: init script
-# .zsh/lib/以下をignoreする？
-# dir="$DOTFILES_ROOT/.zsh/lib/seebi/dircolors-solarized"
-# mkdir -p $dir
-# cd $dir
-# curl https://raw.githubusercontent.com/seebi/dircolors-solarized/master/dircolors.ansi-universal -O
-# TODO: vim neobundle install
-# https://github.com/Shougo/neobundle.vim
-# curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh | sh
-# TODO: zplug install if zsh
-# https://github.com/zplug/zplug
-# curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh| zsh
 echo "initialize end."
 
 
