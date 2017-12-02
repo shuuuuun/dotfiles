@@ -1,81 +1,3 @@
-set number
-syntax on
-
-set nocompatible
-filetype off
-
-" NeoBundle
-if isdirectory(expand('~/.vim/bundle'))
-
-  "NeoBundle Scripts-----------------------------
-  if &compatible
-    set nocompatible               " Be iMproved
-  endif
-
-  " Required:
-  set runtimepath^=~/.vim/bundle/neobundle.vim/
-
-  " Required:
-  call neobundle#begin(expand('~/.vim/bundle'))
-
-  " Let NeoBundle manage NeoBundle
-  " Required:
-  NeoBundleFetch 'Shougo/neobundle.vim'
-
-
-  " Add or remove your Bundles here:
-  " NeoBundle 'Shougo/neosnippet.vim'
-  " NeoBundle 'Shougo/neosnippet-snippets'
-  " NeoBundle 'tpope/vim-fugitive'
-  " NeoBundle 'ctrlpvim/ctrlp.vim'
-  NeoBundle 'scrooloose/nerdtree'
-  NeoBundle "slim-template/vim-slim"
-  NeoBundle "digitaltoad/vim-pug"
-  NeoBundle 'ConradIrwin/vim-bracketed-paste'
-  NeoBundle 'wakatime/vim-wakatime' " TODO: デフォルトオフに
-  NeoBundle 'mattn/emmet-vim'
-  NeoBundle 'alvan/vim-closetag'
-
-  " color scheme
-  " NeoBundle 'w0ng/vim-hybrid'
-  " NeoBundle 'nanotech/jellybeans.vim'
-  " NeoBundle 'tomasr/molokai'
-  " NeoBundle 'sjl/badwolf'
-  NeoBundle 'morhetz/gruvbox'
-
-
-  " You can specify revision/branch/tag.
-  " NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
-
-  " Required:
-  call neobundle#end()
-
-  " Required:
-  filetype plugin indent on
-
-  " If there are uninstalled bundles found on startup,
-  " this will conveniently prompt you to install them.
-  NeoBundleCheck
-  " End NeoBundle Scripts-------------------------
-
-
-  " Depending on NeoBundle
-
-  " color scheme
-  autocmd ColorScheme * highlight Normal ctermbg=none
-  colorscheme gruvbox
-  
-  " 隠しファイルをデフォルトで表示させる
-  let NERDTreeShowHidden = 1
-  
-  " デフォルトでツリーを表示させる
-  "autocmd VimEnter * execute 'NERDTree'
-
-  " Ctrl+eでNERDTreeをトグル
-  nnoremap <silent><C-e> :NERDTreeToggle<CR>
-endif
-
-
 "
 " keymap
 "
@@ -99,15 +21,7 @@ inoremap <C-l> <C-o>l
 " insert modeでctrl+dで削除
 inoremap <C-d> <C-o>x
 
-" 削除キーでyankしない
-" nnoremap x "_x
-" nnoremap d "_d
-" nnoremap D "_D
 
-
-"
-" alias
-"
 " 終了コマンドをエイリアス
 :command Q q
 
@@ -119,6 +33,12 @@ inoremap <C-d> <C-o>x
 "
 " settings
 "
+set number
+syntax on
+
+set nocompatible
+filetype off
+
 set expandtab
 set tabstop=2
 set shiftwidth=2
