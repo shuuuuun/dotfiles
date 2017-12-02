@@ -34,6 +34,3 @@ source "$HOME/.sh/aliases.sh"
 if is_mac; then
   set-window-title
 fi
-
-# fzf
-# [ -f ~/.fzf.bash ] && source ~/.fzf.bash
