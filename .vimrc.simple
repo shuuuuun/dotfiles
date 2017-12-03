@@ -1,36 +1,4 @@
 "
-" keymap
-"
-
-" normal & visual modeでの行頭行末移動
-noremap 6 ^
-noremap 4 $
-noremap 1 ^
-noremap 9 $
-
-" insert modeでの行頭行末移動
-inoremap <C-a> <C-o>^
-inoremap <C-e> <C-o>$
-
-" insert modeでのカーソル移動
-inoremap <C-j> <C-g>j
-inoremap <C-k> <C-g>k
-inoremap <C-h> <C-o>h
-inoremap <C-l> <C-o>l
-
-" insert modeでctrl+dで削除
-inoremap <C-d> <C-o>x
-
-
-" 終了コマンドをエイリアス
-:command Q q
-
-" wもよく大文字にしちゃうので
-:command W w
-:command Wq wq
-
-
-"
 " settings
 "
 set number
@@ -64,3 +32,34 @@ endif
 set directory=~/.vim/backup
 set backupdir=~/.vim/backup
 set undodir=~/.vim/backup
+
+
+"
+" keymap
+"
+
+" normal & visual modeでの行頭行末移動
+noremap 6 ^
+noremap 4 $
+noremap 1 ^
+noremap 9 $
+
+" insert modeでの行頭行末移動
+inoremap <C-a> <C-o>^
+inoremap <C-e> <C-o>$
+
+" insert modeでのカーソル移動
+inoremap <C-j> <C-g>j
+inoremap <C-k> <C-g>k
+inoremap <C-h> <C-o>h
+inoremap <C-l> <C-o>l
+
+" insert modeでctrl+dで削除
+inoremap <C-d> <C-o>x
+
+" 終了コマンドをエイリアス
+:command Q q
+
+" wもよく大文字にしちゃうので
+:command W w
+:command Wq wq
