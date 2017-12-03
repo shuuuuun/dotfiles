@@ -55,22 +55,29 @@ inoremap <C-h> <C-o>h
 inoremap <C-l> <C-o>l
 
 " insert modeでctrl+dで削除
-inoremap <C-d> <C-o>x
+" inoremap <C-d> <C-o>x
+inoremap <C-d> <C-o>"_x
 
+" 削除キーでyankしない
+" nnoremap x "_x
+" nnoremap d "_d
+" nnoremap D "_D
+vnoremap d "_d
+
+" normalモードで:;入れ替え
+noremap : ;
+noremap ; :
+
+
+"
+" command
+"
 " 終了コマンドをエイリアス
 :command Q q
 
 " wもよく大文字にしちゃうので
 :command W w
 :command Wq wq
-
-" 削除キーでyankしない
-" nnoremap x "_x
-" nnoremap d "_d
-" nnoremap D "_D
-
-" noremap : ;
-" noremap ; :
 
 
 "
@@ -143,5 +150,6 @@ if isdirectory(expand('~/.vim/bundle'))
   "autocmd VimEnter * execute 'NERDTree'
 
   " Ctrl+eでNERDTreeをトグル
-  nnoremap <silent><C-e> :NERDTreeToggle<CR>
+  " nnoremap <silent><C-e> :NERDTreeToggle<CR>
+  nnoremap <silent><C-w> :NERDTreeToggle<CR>
 endif

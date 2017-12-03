@@ -57,6 +57,10 @@ inoremap <C-l> <C-o>l
 " insert modeでctrl+dで削除
 inoremap <C-d> <C-o>x
 
+
+"
+" command
+"
 " 終了コマンドをエイリアス
 :command Q q
 
