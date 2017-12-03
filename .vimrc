@@ -11,6 +11,7 @@ set expandtab
 set tabstop=2
 set shiftwidth=2
 
+" 不可視文字を表示
 set list
 set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
 
@@ -18,6 +19,12 @@ set cursorline
 
 " set clipboard=unnamed,autoselect
 set clipboard=unnamed
+
+" 検索時に大文字を含んでいたら大/小を区別
+set smartcase
+
+" 新しい行を作ったときに自動インデント
+set smartindent
 
 " 左右のカーソル移動で行間移動可能にする
 set whichwrap=b,s,h,l,<,>,[,],~
