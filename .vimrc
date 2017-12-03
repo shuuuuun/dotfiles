@@ -65,8 +65,8 @@ inoremap <C-d> <C-o>"_x
 vnoremap d "_d
 
 " normalモードで:;入れ替え
-noremap : ;
-noremap ; :
+" noremap : ;
+" noremap ; :
 
 
 "
