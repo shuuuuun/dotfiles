@@ -76,6 +76,12 @@ setopt HIST_SAVE_NO_DUPS         # Do not write a duplicate event to the history
 setopt HIST_VERIFY               # Do not execute immediately upon history expansion.
 setopt HIST_BEEP                 # Beep when accessing non-existent history.
 
+# cd
+setopt AUTO_CD                  # ディレクトリ名と一致した場合 cd
+setopt AUTO_PUSHD               # ディレクトリをスタックに自動追加する
+setopt PUSHD_IGNORE_DUPS        # 同じディレクトリは追加しない
+cdpath=(~/works)
+
 
 #
 # zstyle
