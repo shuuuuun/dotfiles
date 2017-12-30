@@ -107,6 +107,8 @@ source_if_exist ~/.zshrc_local
 #
 # other
 #
+bindkey -e
+
 if is_mac; then
   set-window-title
 fi
