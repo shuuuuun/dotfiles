@@ -23,7 +23,7 @@ if ! zplug check --verbose; then
 fi
 
 # load
-zplug load --verbose
+zplug load
 
 # if zplug check "zsh-users/zsh-history-substring-search"; then
 #     bindkey '^P' history-substring-search-up
