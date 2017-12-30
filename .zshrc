@@ -10,7 +10,7 @@ zplug "mafredri/zsh-async" # need for pure prompt
 zplug "shuuuuun/pure" # prompt
 # zplug "nksoff/muslim" # prompt
 # zplug "isqua/bureau" # prompt
-zplug "zsh-users/zsh-syntax-highlighting", nice:10
+zplug "zsh-users/zsh-syntax-highlighting", defer:10
 zplug "zsh-users/zsh-completions"
 # zplug "zsh-users/zsh-history-substring-search"
 
