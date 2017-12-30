@@ -194,6 +194,9 @@ function local-ip {
 # http://qiita.com/sugyan/items/83e060e895fa8ef2038c
 # http://ikm.hatenablog.jp/entry/2012/11/28/114146
 
+# TODO: git-push-u-current-branch
+# git push -u origin current-branch
+
 function github-file-page {
   filename=$1
   github_repo_name_regexp='/[https?:\/\/|git\@]github\.com[\/|:]([^\/]+)\/([^\/]+)\.git/'
@@ -313,6 +316,7 @@ function git-prune-all {
       # 差分があると削除できないので安心
       echo "deleting: $local_br"
       git branch -d $local_br
+      # TODO: うるさいのでdeleteできないときはログを出さない
     fi
   done
 }
