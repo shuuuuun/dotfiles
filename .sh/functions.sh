@@ -49,6 +49,16 @@ function chpwd {
 # add-zsh-hook periodic set-window-title
 
 
+function br {
+  if [ $# -eq 0 ]; then
+    printf "\n\n\n\n\n\n\n\n\n\n"
+  else
+    for i in $(seq $1); do
+      printf "\n"
+    done
+  fi
+}
+
 # 文字列を置換する
 # ex. agreplace hoge fuga
 function agreplace {
