@@ -31,6 +31,7 @@ alias top-cpu='top -o cpu'
 alias rsync-copy='rsync -C --filter=":- .gitignore" -av'
 alias purgesudo='sudo purge'
 alias history-all='history -E 1'
+alias now='date +"%Y%m%d_%H%M%S"'
 
 # alias vim='env_LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
 
@@ -67,6 +68,7 @@ alias gpll='git pull'
 alias gpsh='git push'
 alias gpull='git pull'
 alias gpush='git push'
+alias gclone='git clone'
 alias greset='git reset'
 alias grebase='git rebase'
 alias gremotev='git remote -v'
@@ -81,6 +83,7 @@ alias gco-peco='git branch | peco | xargs git checkout'
 alias gft-origin-master='git fetch origin master:master'
 alias gft-origin-develop='git fetch origin develop:develop'
 function gft-origin() { git fetch origin $1:$1 }
+alias git-empty-commit='git commit --allow-empty'
 
 alias copy-branch='git symbolic-ref --short HEAD | pbcopy'
 
@@ -109,6 +112,7 @@ GITHUB_REPO_NAME_REGEX='/[https?:\/\/|git\@]github\.com[\/|:]([^\/]+)\/([^\/]+)\
 alias open-github='git remote -v | perl -0ne '"'"'print "https://github.com/$1/$2" if ('$GITHUB_REPO_NAME_REGEX')'"'"' | xargs -I url open url'
 alias open-gh-pages='git remote -v | perl -0ne '"'"'print "https://$1.github.io/$2/" if ('$GITHUB_REPO_NAME_REGEX')'"'"' | xargs -I url open url'
 alias push-gh-pages='git subtree push --prefix public/ origin gh-pages'
+alias github='open-github'
 alias gh-open='open-gh-pages'
 alias gh-push='push-gh-pages'
 
