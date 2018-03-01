@@ -37,5 +37,6 @@
 	log = diff-highlight | less
 	show = diff-highlight | less
 	diff = diff-highlight | less
+	branch = cat
 [diff]
 	compactionHeuristic = true
