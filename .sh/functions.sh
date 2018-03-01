@@ -169,6 +169,14 @@ function init-rails-project {
   git commit -m "init"
 }
 
+function static-website-cfn-clone {
+  dir="./server"
+  repository="git@github.com:shuuuuun/static-website-cfn.git"
+  branch="master"
+  git clone --depth 1 -b $branch $repository $dir
+  rm -rf $dir/.git
+}
+
 function tigdiff {
   git diff $@ | tig
 }
@@ -297,6 +305,11 @@ function ruby-string {
   ruby -e "puts '$str'.send('$method')"
 }
 
+function git-init {
+  git init # 既存のrepoでは何もしないので大丈夫(Reinitialized existing Git repository とか出るので不安になるけど)
+  git commit -m "init" --allow-empty
+}
+
 function git-wip {
   # TODO: unstagedな変更があるときも大丈夫か確認
   # TODO: checkoutしないバージョンもほしい
@@ -358,6 +371,7 @@ function ps-peco-kill {
     echo "Killed $pid"
   done
 }
+alias pskill="ps-peco-kill"
 
 function peco-args {
   # usage: find . -type d | peco-args cd
