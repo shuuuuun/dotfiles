@@ -160,5 +160,7 @@ if isdirectory(expand('~/.vim/bundle'))
 
   " Ctrl+eでNERDTreeをトグル
   " nnoremap <silent><C-e> :NERDTreeToggle<CR>
-  nnoremap <silent><C-w> :NERDTreeToggle<CR>
+  " nnoremap <silent><C-w> :NERDTreeToggle<CR>
+  " map <C-n> :NERDTreeToggle<CR>
+  nnoremap nd :NERDTreeToggle<CR>
 endif
