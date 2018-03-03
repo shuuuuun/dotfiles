@@ -117,9 +117,11 @@ if isdirectory(expand('~/.vim/bundle'))
   NeoBundle "slim-template/vim-slim"
   NeoBundle "digitaltoad/vim-pug"
   NeoBundle 'ConradIrwin/vim-bracketed-paste'
-  NeoBundle 'wakatime/vim-wakatime' " TODO: デフォルトオフに
   NeoBundle 'mattn/emmet-vim'
   NeoBundle 'alvan/vim-closetag'
+  if filereadable(expand('~/.wakatime.cfg'))
+    NeoBundle 'wakatime/vim-wakatime'
+  endif
 
   " color scheme
   " NeoBundle 'w0ng/vim-hybrid'
