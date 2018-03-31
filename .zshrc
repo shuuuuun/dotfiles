@@ -119,6 +119,9 @@ if is_mac; then
   set-window-title
 fi
 
+REPORTTIME=3
+
+
 # tig
 # cf. https://github.com/jonas/tig/blob/master/contrib/tig-completion.zsh
 # fpath=($fpath /usr/local/Cellar/tig/*/share/zsh/site-functions)
