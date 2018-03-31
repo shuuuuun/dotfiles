@@ -19,7 +19,6 @@ fi
 # function
 #
 source "$HOME/.sh/utils.sh"
-source "$HOME/.sh/functions.sh"
 
 
 #
