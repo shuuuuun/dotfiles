@@ -32,5 +32,5 @@ source "$HOME/.sh/aliases.sh"
 #
 export HISTSIZE=10000
 export HISTCONTROL=ignoredups # 重複を無視
-export HISTIGNORE="fg*:bg*:history*" # 履歴に不要なコマンドを除外
+# export HISTIGNORE="fg*:bg*:history*" # 履歴に不要なコマンドを除外
 export HISTTIMEFORMAT="%Y-%m-%d %T " # 使用時刻を表示

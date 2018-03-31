@@ -24,8 +24,12 @@ alias cprf='cp -rf'
 # alias rm='echo use \`gomi\` command!!; false'
 alias top-cpu='top -o cpu'
 alias rsync-copy='rsync -C --filter=":- .gitignore" -av'
-alias history-all='history -E 1'
 alias now='date +"%Y%m%d_%H%M%S"'
+
+if [ "$SHELL" = "/bin/zsh" ]; then
+  alias history='history -i' # 使用時刻を表示
+  alias history-all='history -i 1'
+fi
 
 if is_mac; then
   alias jxa='osascript -l JavaScript'
