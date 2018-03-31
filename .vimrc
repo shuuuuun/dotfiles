@@ -29,7 +29,7 @@ set smartindent
 " 左右のカーソル移動で行間移動可能にする
 set whichwrap=b,s,h,l,<,>,[,],~
 
-" いつのまにかdelete(backspace)がうまく効かなくなったので設定
+" delete(backspace)
 set backspace=indent,eol,start
 
 " バックアップファイル（hoge.swpやhoge~やhoge.un~）を１箇所にまとめる
