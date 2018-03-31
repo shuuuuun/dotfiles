@@ -138,6 +138,7 @@ if isdirectory(expand('~/.vim/bundle'))
   NeoBundle 'scrooloose/nerdtree'
   NeoBundle "slim-template/vim-slim"
   NeoBundle "digitaltoad/vim-pug"
+  NeoBundle 'posva/vim-vue'
   NeoBundle 'ConradIrwin/vim-bracketed-paste'
   NeoBundle 'mattn/emmet-vim'
   NeoBundle 'alvan/vim-closetag'
