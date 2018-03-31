@@ -1,17 +1,25 @@
 #!/bin/bash
 
-set -eu
+set -e
+
+#
+# param
+#
+MODE=$1
 
 #
 # const
 #
 REPOSITORY="https://github.com/shuuuuun/dotfiles.git"
-# DOTFILES=(.bash_profile .bashrc .gitignore_global .vimrc .zprofile .zshrc .sh)
 DOTFILES=(.bash_profile .bashrc .gitignore_global .gitconfig.simple .vimrc.simple .sh)
 DOTFILES_ROOT="$HOME/dotfiles"
+if [ "$MODE" = "main" ]; then
+  DOTFILES=(.bash_profile .bashrc .gitignore_global .gitconfig .vimrc .sh .zprofile .zshrc)
+fi
 
 cd "$HOME"
 echo "dotfiles root path: $DOTFILES_ROOT"
+echo "dotfiles: ${DOTFILES[@]}"
 
 
 #
