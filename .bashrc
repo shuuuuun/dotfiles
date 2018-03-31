@@ -27,10 +27,3 @@ source "$HOME/.sh/functions.sh"
 #
 source "$HOME/.sh/aliases.sh"
 
-
-#
-# other
-#
-if is_mac; then
-  set-window-title
-fi
