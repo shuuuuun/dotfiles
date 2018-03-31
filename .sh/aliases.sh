@@ -24,7 +24,6 @@ alias cprf='cp -rf'
 # alias rm='echo use \`gomi\` command!!; false'
 alias top-cpu='top -o cpu'
 alias rsync-copy='rsync -C --filter=":- .gitignore" -av'
-alias purgesudo='sudo purge'
 alias history-all='history -E 1'
 alias now='date +"%Y%m%d_%H%M%S"'
 
@@ -45,6 +44,19 @@ if is_mac; then
   alias vsc.='code .'
 
   alias chrome='open -a "/Applications/Google Chrome.app"'
+
+  alias purgesudo='sudo purge'
+
+  alias copy-branch='git symbolic-ref --short HEAD | pbcopy'
+
+  GITHUB_REPO_NAME_REGEX='/[https?:\/\/|git\@]github\.com[\/|:]([^\/]+)\/([^\/]+)\.git/'
+  # TODO: URLをechoしときたい
+  alias open-github='git remote -v | perl -0ne '"'"'print "https://github.com/$1/$2" if ('$GITHUB_REPO_NAME_REGEX')'"'"' | xargs -I url open url'
+  alias open-gh-pages='git remote -v | perl -0ne '"'"'print "https://$1.github.io/$2/" if ('$GITHUB_REPO_NAME_REGEX')'"'"' | xargs -I url open url'
+  alias push-gh-pages='git subtree push --prefix public/ origin gh-pages'
+  alias github='open-github'
+  alias gh-open='open-gh-pages'
+  alias gh-push='push-gh-pages'
 fi
 
 alias g='git'
@@ -80,13 +92,13 @@ alias gpull-rebase='git pull --rebase'
 alias gcomaster='git checkout master'
 alias gcodevelop='git checkout develop'
 alias git-root='git rev-parse --show-toplevel'
-alias gco-peco='git branch | peco | xargs git checkout'
 alias gft-origin-master='git fetch origin master:master'
 alias gft-origin-develop='git fetch origin develop:develop'
 function gft-origin() { git fetch origin $1:$1 }
 alias git-empty-commit='git commit --allow-empty'
-
-alias copy-branch='git symbolic-ref --short HEAD | pbcopy'
+if has peco; then
+  alias gco-peco='git branch | peco | xargs git checkout'
+fi
 
 if has tig; then
   alias tg='tig'
@@ -97,12 +109,10 @@ if has tig; then
   alias tgp='tig grep'
   alias tigmaster='tig master'
   alias tigdevelop='tig develop'
-  # TODO: ↓なんか動かない
-  # alias tigbranch='git branch | peco | xargs tig'
-  # alias tigbranch='git branch | peco | xargs -I br tig br'
-  # function tigbranch { br=$(git branch | peco); echo "$br"; tig "$br" }
-  function tigbranch { tig $(git branch | peco); }
-  function tigbranch-a { tig $(git branch -a | peco); }
+  if has peco; then
+    function tigbranch { tig $(git branch | peco); }
+    function tigbranch-a { tig $(git branch -a | peco); }
+  fi
 fi
 
 if has svn; then
@@ -111,15 +121,6 @@ if has svn; then
   alias svndiff='svn diff | less'
   alias svnlog='svn log | less'
 fi
-
-GITHUB_REPO_NAME_REGEX='/[https?:\/\/|git\@]github\.com[\/|:]([^\/]+)\/([^\/]+)\.git/'
-# TODO: URLをechoしときたい
-alias open-github='git remote -v | perl -0ne '"'"'print "https://github.com/$1/$2" if ('$GITHUB_REPO_NAME_REGEX')'"'"' | xargs -I url open url'
-alias open-gh-pages='git remote -v | perl -0ne '"'"'print "https://$1.github.io/$2/" if ('$GITHUB_REPO_NAME_REGEX')'"'"' | xargs -I url open url'
-alias push-gh-pages='git subtree push --prefix public/ origin gh-pages'
-alias github='open-github'
-alias gh-open='open-gh-pages'
-alias gh-push='push-gh-pages'
 
 if has bundle; then
   alias bundle-install-path-vendor-bundle='bundle install --path vendor/bundle'
