@@ -98,7 +98,7 @@ alias gcodevelop='git checkout develop'
 alias git-root='git rev-parse --show-toplevel'
 alias gft-origin-master='git fetch origin master:master'
 alias gft-origin-develop='git fetch origin develop:develop'
-function gft-origin() { git fetch origin $1:$1 }
+function gft-origin() { git fetch origin $1:$1; }
 alias git-empty-commit='git commit --allow-empty'
 if has peco; then
   alias gco-peco='git branch | peco | xargs git checkout'
