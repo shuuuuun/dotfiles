@@ -90,6 +90,6 @@ echo "initialize end."
 # note
 #
 # change login shell
-# chsh -s /bin/zsh
+#   chsh -s /bin/zsh
 # installation
-# curl https://raw.githubusercontent.com/shuuuuun/dotfiles/master/bin/install.sh | bash
+#   curl https://raw.githubusercontent.com/shuuuuun/dotfiles/master/bin/install.sh | bash
