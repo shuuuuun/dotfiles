@@ -1,7 +1,7 @@
 #
 # alias
 #
-if type gls > /dev/null 2>&1; then
+if has gls; then
   alias ls='gls --color' # GNU ls
 elif is_mac || is_bsd; then
   alias ls='ls -G' # color
@@ -18,12 +18,7 @@ alias la1='ls -a1'
 alias ls-fullpath='ls -1d $PWD/*'
 alias nanow='nano -w'
 alias les='less'
-alias jxa='osascript -l JavaScript'
-alias desktop='cd ~/Desktop'
-alias cddesktop='cd ~/Desktop'
-# alias st='subl'
-# alias stc='subl .'
-# alias stfolder='subl .'
+
 alias rmrf='rm -rf'
 alias cprf='cp -rf'
 # alias rm='echo use \`gomi\` command!!; false'
@@ -33,18 +28,24 @@ alias purgesudo='sudo purge'
 alias history-all='history -E 1'
 alias now='date +"%Y%m%d_%H%M%S"'
 
-# alias vim='env_LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
+if is_mac; then
+  alias jxa='osascript -l JavaScript'
 
-alias emacs='emacs -nw' # for GNU emacs (GUIが起動しちゃうのでCLIにする)
+  # alias vim='env_LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
+  alias emacs='emacs -nw' # for GNU emacs (GUIが起動しちゃうのでCLIにする)
+  # alias st='subl'
+  # alias stc='subl .'
+  alias atm='atom'
+  alias atm.='atom .'
+  alias atom.='atom .'
+  alias subl.='subl .'
+  alias vscode='code'
+  alias vsc='code'
+  alias code.='code .'
+  alias vsc.='code .'
 
-alias atm='atom'
-alias atm.='atom .'
-alias atom.='atom .'
-alias subl.='subl .'
-alias vscode='code'
-alias vsc='code'
-alias code.='code .'
-alias vsc.='code .'
+  alias chrome='open -a "/Applications/Google Chrome.app"'
+fi
 
 alias g='git'
 alias gst='git status'
@@ -87,25 +88,29 @@ alias git-empty-commit='git commit --allow-empty'
 
 alias copy-branch='git symbolic-ref --short HEAD | pbcopy'
 
-alias tg='tig'
-alias tgst='tig status'
-alias tigstatus='tig status'
-alias tigstash='tig stash'
-alias tigrep='tig grep'
-alias tgp='tig grep'
-alias tigmaster='tig master'
-alias tigdevelop='tig develop'
-# TODO: ↓なんか動かない
-# alias tigbranch='git branch | peco | xargs tig'
-# alias tigbranch='git branch | peco | xargs -I br tig br'
-# function tigbranch { br=$(git branch | peco); echo "$br"; tig "$br" }
-function tigbranch { tig $(git branch | peco); }
-function tigbranch-a { tig $(git branch -a | peco); }
+if has tig; then
+  alias tg='tig'
+  alias tgst='tig status'
+  alias tigstatus='tig status'
+  alias tigstash='tig stash'
+  alias tigrep='tig grep'
+  alias tgp='tig grep'
+  alias tigmaster='tig master'
+  alias tigdevelop='tig develop'
+  # TODO: ↓なんか動かない
+  # alias tigbranch='git branch | peco | xargs tig'
+  # alias tigbranch='git branch | peco | xargs -I br tig br'
+  # function tigbranch { br=$(git branch | peco); echo "$br"; tig "$br" }
+  function tigbranch { tig $(git branch | peco); }
+  function tigbranch-a { tig $(git branch -a | peco); }
+fi
 
-alias svnupdate='svn update'
-alias svnstatus='svn status'
-alias svndiff='svn diff | less'
-alias svnlog='svn log | less'
+if has svn; then
+  alias svnupdate='svn update'
+  alias svnstatus='svn status'
+  alias svndiff='svn diff | less'
+  alias svnlog='svn log | less'
+fi
 
 GITHUB_REPO_NAME_REGEX='/[https?:\/\/|git\@]github\.com[\/|:]([^\/]+)\/([^\/]+)\.git/'
 # TODO: URLをechoしときたい
@@ -116,14 +121,16 @@ alias github='open-github'
 alias gh-open='open-gh-pages'
 alias gh-push='push-gh-pages'
 
-alias bundle-install-path-vendor-bundle='bundle install --path vendor/bundle'
-alias bundle-exec='bundle exec'
-alias be='bundle exec'
+if has bundle; then
+  alias bundle-install-path-vendor-bundle='bundle install --path vendor/bundle'
+  alias bundle-exec='bundle exec'
+  alias be='bundle exec'
+fi
 
-alias npm-shrinkwrap='npm shrinkwrap'
-alias npm-install-save-dev='npm install --save-dev'
-alias npm-ls-global='npm ls -g --depth=0'
-
-alias chrome='open -a "/Applications/Google Chrome.app"'
+if has npm; then
+  alias npm-shrinkwrap='npm shrinkwrap'
+  alias npm-install-save-dev='npm install --save-dev'
+  alias npm-ls-global='npm ls -g --depth=0'
+fi
 
 # alias highlight='highlight --style=Moria'
