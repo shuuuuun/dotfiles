@@ -75,6 +75,28 @@ vnoremap d "_d
 " noremap : ;
 " noremap ; :
 
+" 画面分割・タブページまわり
+" ref. https://qiita.com/tekkoc/items/98adcadfa4bdc8b5a6ca
+nnoremap s <Nop>
+nnoremap sj <C-w>j
+nnoremap sk <C-w>k
+nnoremap sl <C-w>l
+nnoremap sh <C-w>h
+nnoremap sJ <C-w>J
+nnoremap sK <C-w>K
+nnoremap sL <C-w>L
+nnoremap sH <C-w>H
+nnoremap sr <C-w>r
+nnoremap s= <C-w>=
+nnoremap sw <C-w>w
+nnoremap so <C-w>_<C-w>|
+nnoremap sO <C-w>=
+nnoremap sn gt
+nnoremap sp gT
+nnoremap st :<C-u>tabnew<CR>
+nnoremap ss :<C-u>split<CR>
+nnoremap sv :<C-u>vsplit<CR>
+
 
 "
 " command
