@@ -371,6 +371,7 @@ function ps-peco-kill {
     echo "Killed $pid"
   done
 }
+alias ps-kill="ps-peco-kill"
 alias pskill="ps-peco-kill"
 
 function peco-args {
