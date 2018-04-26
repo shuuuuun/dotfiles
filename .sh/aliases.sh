@@ -103,6 +103,7 @@ alias gft-origin-master='git fetch origin master:master'
 alias gft-origin-develop='git fetch origin develop:develop'
 function gft-origin() { git fetch origin $1:$1; }
 alias git-empty-commit='git commit --allow-empty'
+alias git-clone-shallow='git clone --depth 1 --single-branch'
 if has peco; then
   alias gco-peco='git branch | peco | xargs git checkout'
 fi
