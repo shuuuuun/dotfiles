@@ -121,6 +121,9 @@ fi
 
 REPORTTIME=3
 
+if has direnv; then
+  eval "$(direnv hook zsh)"
+fi
 
 # tig
 # cf. https://github.com/jonas/tig/blob/master/contrib/tig-completion.zsh
