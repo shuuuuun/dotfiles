@@ -331,15 +331,17 @@ function git-prune-all {
   local_branches=(`git branch --list | sed -e 's/^ *\** *//g' | tr '\n' ' '`)
   remote_branches=(`git branch --remotes | sed -e 's/^ *origin\///g' | tr '\n' ' '`)
   # diff <(echo $local_branches) <(echo $remote_branches)
-  echo "local: $local_branches"
-  echo "remote: $remote_branches"
+  # echo "local: $local_branches"
+  # echo "remote: $remote_branches"
   for local_br in $local_branches; do
     if ! contains "$remote_branches" $local_br; then
       # remoteになくてlocalにあるブランチ
       # 差分があると削除できないので安心
       echo "deleting: $local_br"
-      git branch -d $local_br
-      # TODO: うるさいのでdeleteできないときはログを出さない
+      git branch -d $local_br 2> /dev/null
+      if [ $? -eq 0 ]; then
+        echo "deleted: $local_br"
+      fi
     fi
   done
 }
