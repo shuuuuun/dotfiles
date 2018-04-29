@@ -35,6 +35,8 @@ if [ "$SHELL" = "/bin/zsh" ]; then
 fi
 
 if is_mac; then
+  alias open.='open .'
+
   alias jxa='osascript -l JavaScript'
 
   # alias vim='env_LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
@@ -104,6 +106,7 @@ alias gft-origin-develop='git fetch origin develop:develop'
 function gft-origin() { git fetch origin $1:$1; }
 alias git-empty-commit='git commit --allow-empty'
 alias git-clone-shallow='git clone --depth 1 --single-branch'
+alias git-commit-date='git --no-pager log --pretty=format:%ci -n 1'
 if has peco; then
   alias gco-peco='git branch | peco | xargs git checkout'
 fi
