@@ -12,7 +12,8 @@ EOF
 cat <<EOF >> ~/.bashrc
 
 export HISTSIZE=10000
-export HISTCONTROL=ignoredups
+export HISTCONTROL=ignoredups # 連続した重複を無視
+# export HISTCONTROL=erasedups # 重複を削除
 
 alias l='ls -lah --time-style=long-iso'
 alias ll='ls -lh --time-style=long-iso'
