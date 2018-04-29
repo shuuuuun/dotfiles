@@ -29,6 +29,9 @@ alias top-cpu='top -o cpu'
 alias rsync-copy='rsync -C --filter=":- .gitignore" -av'
 alias now='date +"%Y%m%d_%H%M%S"'
 
+alias psgrep='ps aux | grep -v grep | grep'
+alias psag='ps aux | ag -v ag | ag'
+
 if [ "$SHELL" = "/bin/zsh" ]; then
   alias history='history -i' # 使用時刻を表示
   alias history-all='history -i 1'
