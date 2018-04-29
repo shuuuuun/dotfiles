@@ -1,10 +1,14 @@
 #!/bin/sh
 
+
+# bash_profile
 cat <<EOF >> ~/.bash_profile
 
 export LESS="-iMRS"
 EOF
 
+
+# bashrc
 cat <<EOF >> ~/.bashrc
 
 export HISTSIZE=10000
@@ -20,6 +24,8 @@ alias psgrep='ps aux | grep -v grep | grep'
 alias psag='ps aux | ag -v ag | ag'
 EOF
 
+
+# gitconfig
 cat <<EOF >> ~/.gitconfig
 
 [alias]
@@ -42,6 +48,8 @@ cat <<EOF >> ~/.gitconfig
 	log-graph = log --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
 EOF
 
+
+# vimrc
 cat <<EOF >> ~/.vimrc
 
 :command Q q
