@@ -35,6 +35,9 @@ alias psag='ps aux | ag -v ag | ag'
 if [ "$SHELL" = "/bin/zsh" ]; then
   alias history='history -i' # 使用時刻を表示
   alias history-all='history -i 1'
+  if has peco; then
+    alias history-peco='history -i 1 | peco'
+  fi
 fi
 
 if is_mac; then
