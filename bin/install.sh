@@ -14,7 +14,7 @@ REPOSITORY="https://github.com/shuuuuun/dotfiles.git"
 DOTFILES=(.bash_profile .bashrc .gitignore_global .gitconfig.simple .vimrc.simple .sh)
 DOTFILES_ROOT="$HOME/dotfiles"
 if [ "$MODE" = "main" ]; then
-  DOTFILES=(.bash_profile .bashrc .gitignore_global .gitconfig .vimrc .sh .zprofile .zshrc)
+  DOTFILES=(.bash_profile .bashrc .gitignore_global .gitconfig .vimrc .sh .zprofile .zshrc .tigrc)
 fi
 
 cd "$HOME"
