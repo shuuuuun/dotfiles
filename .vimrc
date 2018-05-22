@@ -136,6 +136,7 @@ if isdirectory(expand('~/.vim/bundle'))
   " NeoBundle 'tpope/vim-fugitive'
   " NeoBundle 'ctrlpvim/ctrlp.vim'
   NeoBundle 'scrooloose/nerdtree'
+  NeoBundle 'jistr/vim-nerdtree-tabs'
   NeoBundle "slim-template/vim-slim"
   NeoBundle "digitaltoad/vim-pug"
   NeoBundle 'posva/vim-vue'
@@ -185,5 +186,6 @@ if isdirectory(expand('~/.vim/bundle'))
   " nnoremap <silent><C-e> :NERDTreeToggle<CR>
   " nnoremap <silent><C-w> :NERDTreeToggle<CR>
   " map <C-n> :NERDTreeToggle<CR>
-  nnoremap nd :NERDTreeToggle<CR>
+  " nnoremap nd :NERDTreeToggle<CR>
+  nnoremap nd :NERDTreeTabsToggle<CR>
 endif
