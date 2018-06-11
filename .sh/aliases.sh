@@ -143,6 +143,7 @@ if has bundle; then
   alias bundle-install-path-vendor-bundle='bundle install --path vendor/bundle'
   alias bundle-exec='bundle exec'
   alias be='bundle exec'
+  alias rails-server='bundle exec rails server -b 0.0.0.0 -p ${PORT:-3000}'
 fi
 
 if has npm; then
