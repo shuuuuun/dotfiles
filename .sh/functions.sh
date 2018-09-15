@@ -341,7 +341,7 @@ function git-prune-all {
     if ! contains "$remote_branches" $local_br; then
       # remoteになくてlocalにあるブランチ
       # 差分があると削除できないので安心
-      echo "deleting: $local_br"
+      # echo "deleting: $local_br"
       git branch -d $local_br 2> /dev/null
       if [ $? -eq 0 ]; then
         echo "deleted: $local_br"
@@ -369,9 +369,9 @@ function ps-peco-pid-copy {
 }
 
 function ps-peco-kill {
-  result=$(ps | peco --query "$1")
+  result=$(ps aux | peco --query "$1")
   echo "$result"
-  for pid in $(echo "$result" | awk '{ print $1 }')
+  for pid in $(echo "$result" | awk '{ print $2 }')
   do
     kill $pid
     echo "Killed $pid"
