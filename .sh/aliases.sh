@@ -32,6 +32,8 @@ alias now='date +"%Y%m%d_%H%M%S"'
 alias psgrep='ps aux | grep -v grep | grep'
 alias psag='ps aux | ag -v ag | ag'
 
+alias tailf='tail -f'
+
 if [ "$SHELL" = "/bin/zsh" ]; then
   alias history='history -i' # 使用時刻を表示
   alias history-all='history -i 1'
@@ -100,6 +102,7 @@ alias gclone='git clone'
 alias greset='git reset'
 alias grebase='git rebase'
 alias gremotev='git remote -v'
+# git remote get-url
 # TODO: デフォルトをpruneにしちゃってもいいかも
 # TODO: 手元の不要なブランチを消すscriptも作りたい
 alias gpull-prune='git pull --prune'
@@ -144,6 +147,7 @@ if has bundle; then
   alias bundle-exec='bundle exec'
   alias be='bundle exec'
   alias rails-server='bundle exec rails server -b 0.0.0.0 -p ${PORT:-3000}'
+  alias rails-console='bundle exec rails console'
 fi
 
 if has npm; then
