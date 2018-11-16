@@ -37,7 +37,7 @@ alias tailf='tail -f'
 
 if is_zsh; then
   alias history='history -i' # 使用時刻を表示
-  alias history-all='history -i 1'
+  alias history-all='history -i 1 | less'
   if has peco; then
     alias history-peco='history -i 1 | peco'
   fi
