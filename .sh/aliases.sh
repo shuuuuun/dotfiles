@@ -156,4 +156,8 @@ if has npm; then
   alias npm-ls-global='npm ls -g --depth=0'
 fi
 
+if has redis-server; then
+  alias redis-server='redis-server /usr/local/etc/redis.conf'
+fi
+
 # alias highlight='highlight --style=Moria'
