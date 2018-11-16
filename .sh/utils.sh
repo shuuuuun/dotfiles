@@ -75,3 +75,12 @@ function get_os {
         fi
     done
 }
+
+function is_zsh {
+  # which zsh &>/dev/null && [ "$SHELL" = `which zsh` ]
+  if echo $SHELL | grep -qs zsh; then
+    return 0
+  else
+    return 1
+  fi
+}

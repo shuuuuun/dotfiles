@@ -1,6 +1,7 @@
 #
 # alias
 #
+
 if has gls; then
   alias ls='gls --color' # GNU ls
 elif is_mac || is_bsd; then
@@ -34,7 +35,7 @@ alias psag='ps aux | ag -v ag | ag'
 
 alias tailf='tail -f'
 
-if [ "$SHELL" = "/bin/zsh" ]; then
+if is_zsh; then
   alias history='history -i' # 使用時刻を表示
   alias history-all='history -i 1'
   if has peco; then
