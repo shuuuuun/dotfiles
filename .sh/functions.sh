@@ -380,6 +380,16 @@ function ps-peco-kill {
 alias ps-kill="ps-peco-kill"
 alias pskill="ps-peco-kill"
 
+function brew-upgrade-peco {
+  result=$(brew outdated | peco --query "$1")
+  peco_status=$?
+  echo "$result"
+  if [ $peco_status -eq 0 ]; then
+    brew upgrade $result
+    echo "brew upgraded: $result"
+  fi
+}
+
 function peco-args {
   # usage: find . -type d | peco-args cd
   #        cd $(find . -type d | peco)
