@@ -309,6 +309,10 @@ function ruby-string {
   ruby -e "puts '$str'.send('$method')"
 }
 
+function shuffle {
+  ruby -e "puts '$1'.split('').shuffle.join('')"
+}
+
 function git-init {
   git init # 既存のrepoでは何もしないので大丈夫(Reinitialized existing Git repository とか出るので不安になるけど)
   git commit -m "init" --allow-empty
