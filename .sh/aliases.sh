@@ -19,6 +19,7 @@ alias ls1='ls -1'
 alias la1='ls -a1'
 alias ls-fullpath='ls -1d $PWD/*'
 alias lsfull=ls-fullpath
+
 alias lns='ln -s'
 alias nanow='nano -w'
 alias les='less'
@@ -159,6 +160,23 @@ fi
 
 if has redis-server; then
   alias redis-server='redis-server /usr/local/etc/redis.conf'
+fi
+
+if has pg_ctl; then
+  alias postgres-start='pg_ctl start -D /usr/local/var/postgres -l /usr/local/var/log/postgres.log'
+fi
+
+if has docker-compose; then
+  alias dc='docker-compose'
+fi
+
+if has jq; then
+  alias npm-scripts='cat package.json | jq .scripts'
+fi
+
+if has ruby; then
+  alias yaml2json='ruby -ryaml -rjson -e "puts YAML.load(STDIN.read).to_json"'
+  alias json2yaml='ruby -ryaml -rjson -e "puts JSON.parse(STDIN.read).to_yaml"'
 fi
 
 # alias highlight='highlight --style=Moria'
