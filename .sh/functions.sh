@@ -49,6 +49,7 @@ function chpwd {
 # add-zsh-hook periodic set-window-title
 
 
+# なんか画面に改行を空けたいときに
 function br {
   if [ $# -eq 0 ]; then
     printf "\n\n\n\n\n\n\n\n\n\n"
@@ -96,11 +97,12 @@ function rm-ds-store {
   # targetFile="./**/.DS_Store" # なんか変数に入れるとうまくいかない
   ls -l ./**/.DS_Store
   # if [ -x /usr/local/bin/gomi ]; then
-  if type gomi > /dev/null 2>&1; then
-    gomi ./**/.DS_Store
-  else
-    rm ./**/.DS_Store
-  fi
+  # if type gomi > /dev/null 2>&1; then
+  #   gomi ./**/.DS_Store
+  # else
+  #   rm ./**/.DS_Store
+  # fi
+  rm ./**/.DS_Store
 }
 
 # TODO: backupコマンド
@@ -181,6 +183,7 @@ function static-website-cfn-clone {
   rm -rf $dir/.git
 }
 
+# tigdiff branch とすると現在のブランチとそのブランチの差分が見れる
 function tigdiff {
   git diff $@ | tig
 }
@@ -295,6 +298,10 @@ function rgr {
     command rm -f -- "$tempfile"
 }
 
+# rubyのStringに生えてるメソッドを実行する
+# irbを起動するのも面倒なときに使う
+# ex. $ ruby-string hoge reverse
+# ex. $ echo hoge | ruby-string reverse
 function ruby-string {
   if [ -p /dev/stdin ]; then
     str=$(cat -)
@@ -330,6 +337,8 @@ function contains {
   [[ $1 =~ (^|[[:space:]])$2($|[[:space:]]) ]] && return 0 || return 1
 }
 
+# fetchしてremoteで削除されたブランチをローカルでも削除する
+# 差分があれば削除されないので安心
 function git-prune-all {
   # TODO: dryrun
   # prune_log=$(git fetch --prune)
@@ -387,6 +396,7 @@ alias pskill="ps-peco-kill"
 function brew-upgrade-peco {
   result=$(brew outdated | peco --query "$1")
   peco_status=$?
+  # TODO: 選択しなくてもpeco_status 0になるかも
   echo "$result"
   if [ $peco_status -eq 0 ]; then
     brew upgrade $result
