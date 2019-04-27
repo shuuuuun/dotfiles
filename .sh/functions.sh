@@ -37,7 +37,7 @@ function set-window-title {
   git_root=`git rev-parse --show-toplevel` > /dev/null 2>&1
   if [[ $git_root == "" ]]; then git_root=`pwd`; fi
   dir_name=`echo $git_root | sed "s@^.*\/@@"`
-  echo $dir_name
+  # echo $dir_name
   echo -en "\033];$dir_name\007"
 }
 
@@ -45,8 +45,8 @@ function set-window-title {
 function chpwd {
   set-window-title
 }
-# PERIOD=5
-# add-zsh-hook periodic set-window-title
+PERIOD=30
+add-zsh-hook periodic set-window-title
 
 
 # なんか画面に改行を空けたいときに
