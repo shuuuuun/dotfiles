@@ -4,6 +4,7 @@
 
 if has gls; then
   alias ls='gls --color' # GNU ls
+  alias lscopy='gls -a | pbcopy'
 elif is_mac || is_bsd; then
   alias ls='ls -G' # color
 else
