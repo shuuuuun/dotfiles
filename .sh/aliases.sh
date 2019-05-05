@@ -43,6 +43,15 @@ if is_zsh; then
   if has peco; then
     alias history-peco='history -i 1 | peco'
   fi
+  if has rg; then
+    alias history-rg='history -i 1 | rg'
+  fi
+  if has ag; then
+    alias history-ag='history -i 1 | ag'
+  fi
+  if has grep; then
+    alias history-grep='history -i 1 | grep'
+  fi
 fi
 
 if is_mac; then
