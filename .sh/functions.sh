@@ -394,13 +394,12 @@ alias ps-kill="ps-peco-kill"
 alias pskill="ps-peco-kill"
 
 function brew-upgrade-peco {
-  result=$(brew outdated | peco --query "$1")
-  peco_status=$?
-  # TODO: 選択しなくてもpeco_status 0になるかも
+  result=$(brew outdated --verbose | peco --query "$1")
   echo "$result"
-  if [ $peco_status -eq 0 ]; then
-    brew upgrade $result
-    echo "brew upgraded: $result"
+  if [ -n "$result" ]; then
+    lib="$(echo "$result" | awk '{ print $1 }')"
+    brew upgrade $lib
+    echo "brew upgraded: $lib"
   fi
 }
 
