@@ -193,6 +193,7 @@ fi
 
 if has rg; then
   alias rgTODO='rg TODO'
+  alias rg-hidden='rg --glob "!.git" --hidden'
 fi
 
 if has colordiff; then
