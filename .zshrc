@@ -88,6 +88,8 @@ cdpath=(~/works)
 #
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' # 補完で大文字小文字を区別しない
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z-_}={A-Za-z_-}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*' # あいまい検索 cf. ~/.oh-my-zsh/lib/completion.zsh
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS} # 補完候補をカラー表示
+zstyle ':completion:*:default' menu select=2 # 補完をメニュー選択モードに. (選択されてるものがハイライト, 左右キーで移動)
 
 
 #
