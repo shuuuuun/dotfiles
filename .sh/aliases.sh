@@ -191,6 +191,10 @@ if has ruby; then
   alias json2yaml='ruby -ryaml -rjson -e "puts JSON.parse(STDIN.read).to_yaml"'
 fi
 
+if has rg; then
+  alias rgTODO='rg TODO'
+fi
+
 if has colordiff; then
   alias diff='colordiff -u'
   function diffless { colordiff -u $@ | less; }
