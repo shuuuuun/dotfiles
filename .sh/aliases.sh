@@ -37,6 +37,8 @@ alias psag='ps aux | ag -v ag | ag'
 
 alias tailf='tail -f'
 
+alias relogin='exec $SHELL -l'
+
 if is_zsh; then
   alias history='history -i' # 使用時刻を表示
   alias history-all='history -i 1 | less'
