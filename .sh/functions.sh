@@ -81,6 +81,10 @@ function agvim {
   vim $(ag $@ | peco --query "$LBUFFER" | awk -F : '{print "-c " $2 " " $1}')
 }
 
+function rgvim {
+  vim $(rg --line-number $@ | peco --query "$LBUFFER" | awk -F : '{print "-c " $2 " " $1}')
+}
+
 # クリップボードにコピー
 # ex. copy hoge fuga
 function copy {
