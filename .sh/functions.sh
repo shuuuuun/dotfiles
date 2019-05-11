@@ -78,11 +78,17 @@ function agcount {
 # }
 
 function agvim {
-  vim $(ag $@ | peco --query "$LBUFFER" | awk -F : '{print "-c " $2 " " $1}')
+  line=$(ag $@ | peco --query "$LBUFFER")
+  if [ -n "$line" ]; then
+    vim $(echo "$line" | awk -F : '{print "-c " $2 " " $1}')
+  fi
 }
 
 function rgvim {
-  vim $(rg --line-number $@ | peco --query "$LBUFFER" | awk -F : '{print "-c " $2 " " $1}')
+  line=$(rg --line-number $@ | peco --query "$LBUFFER")
+  if [ -n "$line" ]; then
+    vim $(echo "$line" | awk -F : '{print "-c " $2 " " $1}')
+  fi
 }
 
 # クリップボードにコピー
