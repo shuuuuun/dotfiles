@@ -193,7 +193,7 @@ fi
 
 if has colordiff; then
   alias diff='colordiff -u'
-  function diffless { colordiff -u $@ | less }
+  function diffless { colordiff -u $@ | less; }
 fi
 alias gitdiff='git diff --no-index'
 # vimdiff というのもある
