@@ -101,6 +101,7 @@ function copy {
 function mkdir-cd {
   mkdir $1 && cd $1
 }
+alias mkdircd='mkdir-cd'
 
 # カレントディレクトリ以下の.DS_Storeを消す
 function rm-ds-store {
