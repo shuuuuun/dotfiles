@@ -202,6 +202,10 @@ if has nkf; then
   alias nkf-guess='nkf --guess' # 文字コードを表示
 fi
 
+if has zip; then
+  alias zipr='zip -r' # recursive
+fi
+
 if has colordiff; then
   alias diff='colordiff -u'
   function diffless { colordiff -u $@ | less; }
