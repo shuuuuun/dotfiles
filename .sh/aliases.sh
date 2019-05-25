@@ -162,6 +162,8 @@ if has bundle; then
   alias be='bundle exec'
   alias rails-server='bundle exec rails server -b 0.0.0.0 -p ${PORT:-3000}'
   alias rails-console='bundle exec rails console'
+  # see. bundle exec rails new --help
+  alias rails-new-simple='bundle exec rails new --database=mysql --skip-action-mailer --skip-action-mailbox --skip-action-cable --skip-sprockets --skip-spring --skip-listen --skip-turbolinks --skip-bundle --skip-git'
 fi
 
 if has npm; then
