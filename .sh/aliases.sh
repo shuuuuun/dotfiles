@@ -206,6 +206,11 @@ if has zip; then
   alias zipr='zip -r' # recursive
 fi
 
+if has awslogs; then
+  alias awslogs-get='awslogs get --timestamp --no-group --no-stream'
+  alias awslogs-get-watch='awslogs get --timestamp --no-group --no-stream --watch'
+fi
+
 if has colordiff; then
   alias diff='colordiff -u'
   function diffless { colordiff -u $@ | less; }
