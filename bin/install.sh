@@ -83,6 +83,11 @@ echo "initializing dotfiles..."
 # TODO: zplug install if zsh
 # https://github.com/zplug/zplug
 # curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh| zsh
+# TODO: brew installing
+# install: brew bundle
+# dump: brew bundle dump --describe --force
+# check: brew bundle check --verbose
+# ref. https://github.com/Homebrew/homebrew-bundle
 echo "initialize end."
 
 
