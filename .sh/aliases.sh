@@ -191,6 +191,7 @@ fi
 if has ruby; then
   alias yaml2json='ruby -ryaml -rjson -e "puts YAML.load(STDIN.read).to_json"'
   alias json2yaml='ruby -ryaml -rjson -e "puts JSON.parse(STDIN.read).to_yaml"'
+  alias yamlsort='ruby -ryaml -e "puts YAML.load(STDIN.read).sort.to_h.to_yaml"'
 fi
 
 if has rg; then
