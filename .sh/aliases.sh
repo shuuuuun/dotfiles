@@ -39,6 +39,10 @@ alias tailf='tail -f'
 
 alias relogin='exec $SHELL -l'
 
+if has greadlink; then
+  alias readlink='greadlink'
+fi
+
 if is_zsh; then
   alias history='history -i' # 使用時刻を表示
   alias history-all='history -i 1 | less'
@@ -132,6 +136,7 @@ alias git-clone-shallow='git clone --depth 1 --single-branch'
 alias git-commit-date='git --no-pager log --pretty=format:%ci -n 1'
 if has peco; then
   alias gco-peco='git branch | peco | xargs git checkout'
+  alias gcopeco='gco-peco'
 fi
 
 if has tig; then
@@ -182,6 +187,7 @@ fi
 
 if has docker-compose; then
   alias dc='docker-compose'
+  alias dce='docker-compose exec'
 fi
 
 if has jq; then
