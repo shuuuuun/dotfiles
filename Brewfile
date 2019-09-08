@@ -1,4 +1,5 @@
 tap "aws/tap"
+tap "eugenmayer/dockersync"
 tap "go-delve/delve"
 tap "homebrew/bundle"
 tap "homebrew/cask"
@@ -10,7 +11,6 @@ tap "homebrew/services"
 tap "homebrew/versions"
 tap "railwaycat/emacsmacport"
 tap "remind101/formulae"
-tap "shuuuuun/eb-ssh"
 tap "tkengo/highway"
 # Apache Portable Runtime library
 brew "apr"
@@ -28,18 +28,20 @@ brew "python"
 brew "azure-cli"
 # Collection of portable C++ source libraries
 brew "boost"
-# GNU internationalization (i18n) and localization (l10n) library
-brew "gettext"
+# Install RubyGems as Homebrew formulae
+brew "brew-gem"
 # Core application library for C
 brew "glib"
+# Vector graphics library with cross-device output support
+brew "cairo"
 # Decentralized dependency manager for Cocoa
 brew "carthage"
+# Cross-platform make
+brew "cmake"
 # Computational Geometry Algorithm Library
 brew "cgal"
 # Enables you to reproduce the CircleCI environment locally
 brew "circleci"
-# Cross-platform make
-brew "cmake"
 # Console Matrix
 brew "cmatrix"
 # Color-highlighted diff(1) output
@@ -52,22 +54,50 @@ brew "go"
 brew "dep"
 # Load/unload environment variables based on $PWD
 brew "direnv"
+# Image manipulation library
+brew "jpeg"
+# Cryptography and SSL/TLS Toolkit
+brew "openssl@1.1"
+# Functional metaprogramming aware language built on Erlang VM
+brew "elixir"
+# Asynchronous event library
+brew "libevent"
+# International domain name library (IDNA2008, Punycode and TR46)
+brew "libidn2"
 # GNU Emacs text editor
 brew "emacs"
 # Perl lib for reading and writing EXIF metadata
 brew "exiftool"
-# Image manipulation library
-brew "jpeg"
+# OpenType text shaping engine
+brew "harfbuzz"
+# Play, record, convert, and stream audio and video
+brew "ffmpeg"
+# Geometry Engine
+brew "geos"
 # Library for manipulating JPEG-2000 images
 brew "jasper"
 # GNOME XML library
 brew "libxml2", link: true
+# Postgres C API library
+brew "libpq"
 # Interpreted, interactive, object-oriented programming language
 brew "python@2"
 # Package for scientific computing with Python
 brew "numpy"
+# PDF rendering library (based on the xpdf-3.0 code base)
+brew "poppler"
 # Geospatial Data Abstraction Library
 brew "gdal"
+# Toolkit for image loading and pixel buffer manipulation
+brew "gdk-pixbuf"
+# Powerful, clean, object-oriented scripting language
+brew "ruby"
+brew "gem-irep"
+brew "gem-pry"
+brew "gem-rails-erd"
+brew "gem-rebi"
+# Remote repository management made easy
+brew "ghq"
 # Access GitHub's .gitignore boilerplates
 brew "gibo"
 # Distributed revision control system
@@ -100,12 +130,20 @@ brew "httpd"
 brew "httpie"
 # Add GitHub support to git on the command-line
 brew "hub"
+# USB multiplexor daemon for iPhone and iPod Touch devices
+brew "usbmuxd", args: ["HEAD"]
+# Library to communicate with iOS devices natively
+brew "libimobiledevice", args: ["HEAD"]
+# Cross-platform library for communicating with iOS devices
+brew "ideviceinstaller"
 # OpenEXR ILM Base libraries (high dynamic-range image file format)
 brew "ilmbase"
 # Tools and libraries to manipulate images in many formats
 brew "imagemagick", link: false
 # Tools and libraries to manipulate images in many formats
 brew "imagemagick@6", link: true
+# Install and debug iPhone apps from the command-line
+brew "ios-deploy"
 # Tool to measure maximum TCP and UDP bandwidth
 brew "iperf"
 # Load testing and performance measurement application
@@ -116,8 +154,6 @@ brew "jpegoptim"
 brew "jq"
 # CSS parsing and manipulation toolkit for GNOME
 brew "libcroco"
-# International domain name library (IDNA2008, Punycode and TR46)
-brew "libidn2"
 # Allows SpatiaLite to support ST_MakeValid() like PostGIS
 brew "liblwgeom"
 # Library to render SVG files using Cairo
@@ -135,7 +171,7 @@ brew "mitmproxy"
 # Improved JPEG encoder
 brew "mozjpeg"
 # Open source relational database management system
-brew "mysql"
+brew "mysql@5.7", link: true
 # HTTP(S) server and reverse proxy, and IMAP/POP3 proxy server
 brew "nginx"
 # Network Kanji code conversion Filter (NKF)
@@ -144,8 +180,6 @@ brew "nkf"
 brew "node", link: false
 # Open source computer vision library
 brew "opencv"
-# Cryptography and SSL/TLS Toolkit
-brew "openssl@1.1"
 # PNG file optimizer
 brew "optipng"
 # Swiss-army knife of markup format conversion
@@ -172,8 +206,6 @@ brew "rename"
 brew "ripgrep"
 # Utility that provides fast incremental file transfer
 brew "rsync"
-# Powerful, clean, object-oriented scripting language
-brew "ruby"
 # Command-line tool for the Amazon S3 service
 brew "s3cmd"
 # Prints a steam locomotive if you type sl instead of ls
@@ -188,6 +220,8 @@ brew "tig"
 brew "tmux"
 # Display directories as trees (with optional color/HTML output)
 brew "tree"
+# File synchronization tool for OSX
+brew "unison"
 # Google's open source JavaScript engine
 brew "v8@3.15"
 # Vi 'workalike' with many additional features
@@ -200,14 +234,19 @@ brew "watch"
 brew "wget"
 # Command-line interface for WordPress
 brew "wp-cli"
+# Fast CSV toolkit written in Rust
+brew "xsv"
 # JavaScript package manager
 brew "yarn"
 # UNIX shell (command interpreter)
 brew "zsh"
+# A layer for unison-fsmonitor arround either macfsevents or watchdog for usage with unison
+brew "eugenmayer/dockersync/unox"
 # Easily assume AWS roles in your terminal
 brew "remind101/formulae/assume-role"
 # High performance source code search tool.
 brew "tkengo/highway/highway"
 cask "hyper"
+cask "ngrok"
 cask "vagrant"
 cask "xquartz"
