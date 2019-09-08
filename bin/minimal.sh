@@ -59,6 +59,21 @@ EOF
 # vimrc
 cat <<EOF >> ~/.vimrc
 
+set number
+set expandtab
+set tabstop=2
+set shiftwidth=2
+set smartcase
+set smartindent
+
+inoremap <C-a> <C-o>^
+inoremap <C-e> <C-o>$
+inoremap <C-j> <C-g>j
+inoremap <C-k> <C-g>k
+inoremap <C-h> <C-o>h
+inoremap <C-l> <C-o>l
+inoremap <C-d> <C-o>x
+
 :command Q q
 :command W w
 :command Wq wq
