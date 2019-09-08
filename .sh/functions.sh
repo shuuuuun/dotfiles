@@ -509,3 +509,12 @@ function mdfind-peco {
 # }
 # zle -N peco-cdr
 # bindkey '^x' peco-cdr
+
+# cd repo directory with ghq and peco
+function cd-repo {
+  local path=$(ghq list -p | peco --query "$LBUFFER")
+  if [ -n "$path" ]; then
+    cd "${path}"
+    echo "jump to ${path}"
+  fi
+}
