@@ -510,11 +510,12 @@ function mdfind-peco {
 # zle -N peco-cdr
 # bindkey '^x' peco-cdr
 
-alias convert-home-directory='perl -pe "s@^/Users/(.+?)/@~/@g"'
+alias home2tilde='perl -pe "s@^$HOME@~@g"'
+alias tilde2home='perl -pe "s@^~@$HOME@g"'
 
 # cd repo directory with ghq and peco
 function cd-repo {
-  local path=$(ghq list -p | convert-home-directory | peco --query "$LBUFFER")
+  local path=$(ghq list -p | home2tilde | peco --query "$LBUFFER" | tilde2home)
   if [ -n "$path" ]; then
     cd ${path}
     echo "jump to ${path}"
@@ -526,8 +527,9 @@ function cd-works {
   local path=$(find ~/works -name '.git' -prune \
                       -or -type d \
                       -maxdepth 2 \
-               | convert-home-directory \
-               | peco --query "$LBUFFER")
+               | home2tilde \
+               | peco --query "$LBUFFER" \
+               | tilde2home)
   if [ -n "$path" ]; then
     cd ${path}
     echo "jump to ${path}"
