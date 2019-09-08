@@ -4,7 +4,14 @@
 # bash_profile
 cat <<EOF >> ~/.bash_profile
 
+if [ -f ~/.bashrc ]; then
+  . ~/.bashrc
+fi
+
 export LESS="-iMRS"
+export EDITOR='vim'
+export VISUAL='vim'
+export PAGER='less'
 EOF
 
 
@@ -13,7 +20,6 @@ cat <<EOF >> ~/.bashrc
 
 export HISTSIZE=10000
 export HISTCONTROL=ignoredups # 連続した重複を無視
-# export HISTCONTROL=erasedups # 重複を削除
 
 alias l='ls -lah --time-style=long-iso'
 alias ll='ls -lh --time-style=long-iso'
