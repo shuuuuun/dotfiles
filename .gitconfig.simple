@@ -22,9 +22,12 @@
 
 [merge]
 	tool = vimdiff
+
 [push]
 	default = simple
+
 [pager]
 	branch = cat
+
 [diff]
 	compactionHeuristic = true
