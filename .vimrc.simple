@@ -4,9 +4,6 @@
 set number
 syntax on
 
-set nocompatible
-filetype off
-
 set expandtab
 set tabstop=2
 set shiftwidth=2
@@ -61,9 +58,6 @@ inoremap <C-d> <C-o>x
 "
 " command
 "
-" 終了コマンドをエイリアス
 :command Q q
-
-" wもよく大文字にしちゃうので
 :command W w
 :command Wq wq
