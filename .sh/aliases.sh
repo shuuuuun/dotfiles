@@ -203,6 +203,10 @@ fi
 if has rg; then
   alias rgTODO='rg TODO'
   alias rg-hidden='rg --glob "!.git" --hidden'
+  # $ rg --files | rg ripgrep
+  # $ rg --files --glob '**/*ripgrep*/**' --glob '*ripgrep*'
+  alias rg-files='rg --files | rg'
+  # function rg-files { rg --files --glob "**/*$@*/**" --glob "*$@*"; }
 fi
 
 if has nkf; then
