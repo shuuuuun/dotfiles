@@ -47,3 +47,7 @@
 	process = git-lfs filter-process
 [fetch]
 	prune = true
+
+[ghq]
+	root = ~/repo/src
+	root = ~/go/src
