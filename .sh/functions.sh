@@ -518,3 +518,15 @@ function cd-repo {
     echo "jump to ${path}"
   fi
 }
+
+# cd works directory with peco
+function cd-works {
+  local path=$(find ~/works -name '.git' -prune \
+                      -or -type d \
+                      -maxdepth 2 \
+               | peco --query "$LBUFFER")
+  if [ -n "$path" ]; then
+    cd "${path}"
+    echo "jump to ${path}"
+  fi
+}
