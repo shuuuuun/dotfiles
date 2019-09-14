@@ -143,6 +143,7 @@ if isdirectory(expand('~/.vim/bundle'))
   NeoBundle 'ConradIrwin/vim-bracketed-paste'
   NeoBundle 'mattn/emmet-vim'
   NeoBundle 'alvan/vim-closetag'
+  NeoBundle 'elixir-editors/vim-elixir'
   if filereadable(expand('~/.wakatime.cfg'))
     NeoBundle 'wakatime/vim-wakatime'
   endif
