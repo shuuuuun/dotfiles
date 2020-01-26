@@ -57,6 +57,7 @@ fi
 #
 export PATH=$PATH:/usr/local/sbin
 export PATH=$PATH:/usr/local/share/git-core/contrib/diff-highlight
+export PATH=$PATH:~/.mix/escripts # elixir, erlang
 export PATH=$PATH:~/Library/Python/2.7/bin
 export PATH=$PATH:~/lib/flutter/bin
 # export GOPATH=$HOME/go
@@ -76,3 +77,4 @@ export PAGER='less'
 # Others
 #
 export DISPLAY=':0.0'
+export ERL_AFLAGS='-kernel shell_history enabled' # elixir iex
