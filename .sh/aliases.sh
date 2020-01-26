@@ -39,6 +39,9 @@ alias tailf='tail -f'
 
 alias relogin='exec $SHELL -l'
 
+alias curl-header='curl -D - -s -o /dev/null'
+alias authorize-ssh-keys='curl https://github.com/shuuuuun.keys >> ~/.ssh/authorized_keys'
+
 if has greadlink; then
   alias readlink='greadlink'
 fi
@@ -148,6 +151,7 @@ if has tig; then
   alias tgp='tig grep'
   alias tigmaster='tig master'
   alias tigdevelop='tig develop'
+  alias tig-follow='tig --follow'
   if has peco; then
     function tigbranch { tig $(git branch | peco); }
     function tigbranch-a { tig $(git branch -a | peco); }
@@ -168,7 +172,7 @@ if has bundle; then
   alias rails-server='bundle exec rails server -b 0.0.0.0 -p ${PORT:-3000}'
   alias rails-console='bundle exec rails console'
   # see. bundle exec rails new --help
-  alias rails-new-simple='bundle exec rails new --database=mysql --skip-action-mailer --skip-action-mailbox --skip-action-cable --skip-sprockets --skip-spring --skip-listen --skip-turbolinks --skip-bundle --skip-git'
+  alias rails-new-simple='bundle exec rails new --database=mysql --skip-action-mailer --skip-action-mailbox --skip-action-cable --skip-sprockets --skip-spring --skip-listen --skip-turbolinks --skip-yarn --skip-bundle --skip-git'
 fi
 
 if has npm; then
@@ -183,6 +187,10 @@ fi
 
 if has pg_ctl; then
   alias postgres-start='pg_ctl start -D /usr/local/var/postgres -l /usr/local/var/log/postgres.log'
+fi
+
+if has docker; then
+  alias docker-container-stop-all='docker container stop $(docker container ls -q)'
 fi
 
 if has docker-compose; then
@@ -202,6 +210,7 @@ fi
 
 if has rg; then
   alias rgTODO='rg TODO'
+  alias rgtodo='rg TODO'
   alias rg-hidden='rg --glob "!.git" --hidden'
   # $ rg --files | rg ripgrep
   # $ rg --files --glob '**/*ripgrep*/**' --glob '*ripgrep*'
