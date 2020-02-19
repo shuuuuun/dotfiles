@@ -42,6 +42,8 @@ alias relogin='exec $SHELL -l'
 alias curl-header='curl -D - -s -o /dev/null'
 alias authorize-ssh-keys='curl https://github.com/shuuuuun.keys >> ~/.ssh/authorized_keys'
 
+alias nc-server='while true; do ( echo "HTTP/1.0 200 Ok"; echo; echo "Hello World" ) | nc -l 8080; [ $? != 0 ] && break; done'
+
 if has greadlink; then
   alias readlink='greadlink'
 fi
@@ -81,7 +83,8 @@ if is_mac; then
   alias code.='code .'
   alias vsc.='code .'
 
-  alias chrome='open -a "/Applications/Google Chrome.app"'
+  alias open-chrome='open -a "/Applications/Google Chrome.app"'
+  alias chrome='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome'
 
   alias purgesudo='sudo purge'
 
