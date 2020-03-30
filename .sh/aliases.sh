@@ -222,6 +222,7 @@ if has rg; then
   # $ rg --files --glob '**/*ripgrep*/**' --glob '*ripgrep*'
   alias rg-files='rg --files | rg'
   # function rg-files { rg --files --glob "**/*$@*/**" --glob "*$@*"; }
+  alias git-diff-todo='git diff --diff-filter=ACMR origin/develop..HEAD | rg TODO'
 fi
 
 if has nkf; then
