@@ -15,6 +15,18 @@ function args-sample {
   done
 }
 
+function make-Makefile {
+  if [ -e Makefile ]; then
+    return
+  fi
+  TAB="$(printf '\t')"
+  cat <<-EOF > Makefile
+.PHONY: hoge
+hoge:
+${TAB}echo "hoge"
+EOF
+}
+
 # cdしたらpwdする
 # http://qiita.com/b4b4r07/items/8cf5d1c8b3fbfcf01a5d
 function cd {
