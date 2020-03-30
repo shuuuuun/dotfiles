@@ -14,6 +14,7 @@
 	ada = add --all
 	st = status
 	co = checkout
+	sw = switch
 	br = branch
 	bra = branch -a
 	cm = commit

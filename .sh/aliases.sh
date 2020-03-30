@@ -133,6 +133,8 @@ alias gpull-prune='git pull --prune'
 alias gpull-rebase='git pull --rebase'
 alias gcomaster='git checkout master'
 alias gcodevelop='git checkout develop'
+alias gswmaster='git switch master'
+alias gswdevelop='git switch develop'
 alias git-root='git rev-parse --show-toplevel'
 alias gft-origin-master='git fetch origin master:master'
 alias gft-origin-develop='git fetch origin develop:develop'
@@ -143,6 +145,7 @@ alias git-commit-date='git --no-pager log --pretty=format:%ci -n 1'
 if has peco; then
   alias gco-peco='git branch | peco | xargs git checkout'
   alias gcopeco='gco-peco'
+  alias gswpeco='git branch | peco | xargs git switch'
 fi
 
 if has tig; then
