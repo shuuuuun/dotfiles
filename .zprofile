@@ -78,3 +78,4 @@ export PAGER='less'
 #
 export DISPLAY=':0.0'
 export ERL_AFLAGS='-kernel shell_history enabled' # elixir iex
+export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
