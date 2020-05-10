@@ -1,5 +1,6 @@
 tap "aws/tap"
 tap "eugenmayer/dockersync"
+tap "fujiwara/tap"
 tap "github/gh"
 tap "go-delve/delve"
 tap "homebrew/bundle"
@@ -29,14 +30,16 @@ brew "autoconf"
 brew "automake"
 # Library for command-line editing
 brew "readline"
+# Official Amazon AWS command-line interface
+brew "awscli"
+# Official Amazon AWS command-line interface
+brew "awscli@1"
 # Microsoft Azure CLI 2.0
 brew "azure-cli"
 # Collection of portable C++ source libraries
 brew "boost"
 # Install RubyGems as Homebrew formulae
 brew "brew-gem"
-# Interpreted, interactive, object-oriented programming language
-brew "python", link: false
 # Core application library for C
 brew "glib"
 # Vector graphics library with cross-device output support
@@ -45,6 +48,10 @@ brew "cairo"
 brew "carthage"
 # Cross-platform make
 brew "cmake"
+# Interpreted, interactive, object-oriented programming language
+brew "python"
+# C++ library for large-scale optimization
+brew "ceres-solver"
 # Computational Geometry Algorithms Library
 brew "cgal"
 # Enables you to reproduce the CircleCI environment locally
@@ -63,6 +70,10 @@ brew "dep"
 brew "direnv"
 # Image manipulation library
 brew "jpeg"
+# Cross-platform C++ GUI toolkit (wxWidgets for macOS)
+brew "wxmac"
+# Programming language for highly scalable real-time systems
+brew "erlang"
 # Functional metaprogramming aware language built on Erlang VM
 brew "elixir"
 # Asynchronous event library
@@ -79,22 +90,38 @@ brew "exiftool"
 brew "harfbuzz"
 # Play, record, convert, and stream audio and video
 brew "ffmpeg"
+# Graphics library to dynamically manipulate images
+brew "gd"
 # Geometry Engine
 brew "geos"
 # Library for manipulating JPEG-2000 images
 brew "jasper"
+# Network authentication protocol
+brew "krb5"
 # GNOME XML library
 brew "libxml2", link: true
+# Framework for scientific data networking
+brew "libdap"
+# Cartographic Projections Library
+brew "proj"
+# Library and tools for dealing with GeoTIFF
+brew "libgeotiff"
 # Postgres C API library
 brew "libpq"
 # Package for scientific computing with Python
 brew "numpy"
+# Cross-platform application and UI framework
+brew "qt"
 # PDF rendering library (based on the xpdf-3.0 code base)
 brew "poppler"
+# Validating XML parser
+brew "xerces-c"
 # Geospatial Data Abstraction Library
 brew "gdal"
 # Toolkit for image loading and pixel buffer manipulation
 brew "gdk-pixbuf"
+# YAML Parser
+brew "libyaml"
 # Powerful, clean, object-oriented scripting language
 brew "ruby"
 brew "gem-docker-sync"
@@ -118,10 +145,14 @@ brew "git-secrets"
 brew "gnu-sed"
 # GNU Pretty Good Privacy (PGP) package
 brew "gnupg"
+# Manage compile and link flags for libraries
+brew "pkg-config"
 # Generate introspection data for GObject libraries
 brew "gobject-introspection"
 # Image processing tools collection
 brew "graphicsmagick"
+# Image manipulation
+brew "netpbm"
 # Graph visualization software from AT&T and Bell Labs
 brew "graphviz"
 # Perceptual JPEG encoder
@@ -132,6 +163,10 @@ brew "lua"
 brew "highlight"
 # The mind to rule processes of your development environment
 brew "hivemind"
+# Platform built on V8 to build network applications
+brew "node", link: false
+# Simple zero-configuration command-line HTTP server
+brew "http-server"
 # Apache HTTP server
 brew "httpd"
 # User-friendly cURL replacement (command-line HTTP client)
@@ -156,6 +191,8 @@ brew "iperf"
 brew "jmeter"
 # Utility to optimize JPEG files
 brew "jpegoptim"
+# Regular expressions library
+brew "oniguruma"
 # Lightweight and flexible command-line JSON processor
 brew "jq"
 # Terminal file manager
@@ -166,6 +203,8 @@ brew "libcroco"
 brew "liblwgeom"
 # Library to render SVG files using Cairo
 brew "librsvg"
+# NaCl networking and cryptography library
+brew "libsodium"
 # USB multiplexor library for iOS devices
 brew "libusbmuxd", args: ["HEAD"]
 # C XSLT library for GNOME
@@ -176,18 +215,20 @@ brew "mcrypt"
 brew "mecab"
 # IPA dictionary compiled for MeCab
 brew "mecab-ipadic"
+# Protocol buffers (Google's data interchange format)
+brew "protobuf"
 # Intercept, modify, replay, save HTTP/S traffic
 brew "mitmproxy"
 # Improved JPEG encoder
 brew "mozjpeg"
 # Open source relational database management system
 brew "mysql@5.7", link: true
-# Platform built on V8 to build network applications
-brew "node", link: false
 # Wrap web apps natively
 brew "nativefier"
 # HTTP(S) server and reverse proxy, and IMAP/POP3 proxy server
 brew "nginx"
+# Statically typed compiled systems programming language
+brew "nim"
 # Network Kanji code conversion Filter (NKF)
 brew "nkf"
 # Tiny, lightning fast, feature-packed file manager
@@ -262,6 +303,7 @@ brew "yarn"
 brew "zsh"
 # A layer for unison-fsmonitor arround either macfsevents or watchdog for usage with unison
 brew "eugenmayer/dockersync/unox"
+brew "fujiwara/tap/lambroll"
 # GitHub CLI
 brew "github/gh/gh"
 brew "kayac/tap/ecspresso"
