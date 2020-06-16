@@ -586,3 +586,21 @@ function cd-works {
     echo "jump to ${path}"
   fi
 }
+
+function ebenv2dotenv {
+  env_name="$1"
+  if [ -z "$env_name" ]; then
+    echo 'EBの環境名を指定してね！'
+    return 1
+  fi
+  result=`eb printenv ${env_name}`
+  echo $result
+  env_str=`echo $result | grep '=' | gsed -r 's@^\s*(.+)\s=\s(.+)$@\1=\2@g'`
+  if [ -z "$env_str" ]; then
+    echo '環境変数が見つかりませんでした！'
+    return 1
+  fi
+  output=".env.${env_name}"
+  echo ${env_str} > "${output}"
+  echo "printed to ${output}"
+}
