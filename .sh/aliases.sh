@@ -175,6 +175,7 @@ if has bundle; then
   alias bundle-install-path-vendor-bundle='bundle install --path vendor/bundle'
   alias bundle-exec='bundle exec'
   alias be='bundle exec'
+  alias bundle-gem='bundle gem --bin --coc --mit --no-git'
   alias rails-server='bundle exec rails server -b 0.0.0.0 -p ${PORT:-3000}'
   alias rails-console='bundle exec rails console'
   # see. bundle exec rails new --help
