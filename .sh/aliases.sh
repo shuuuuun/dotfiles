@@ -131,10 +131,10 @@ alias gremotev='git remote -v'
 # TODO: 手元の不要なブランチを消すscriptも作りたい
 alias gpull-prune='git pull --prune'
 alias gpull-rebase='git pull --rebase'
-alias gcomaster='git checkout master'
-alias gcodevelop='git checkout develop'
-alias gswmaster='git switch master'
-alias gswdevelop='git switch develop'
+# alias gcomaster='git checkout master'
+# alias gcodevelop='git checkout develop'
+# alias gswmaster='git switch master'
+# alias gswdevelop='git switch develop'
 alias git-root='git rev-parse --show-toplevel'
 alias gft-origin-master='git fetch origin master:master'
 alias gft-origin-develop='git fetch origin develop:develop'
@@ -179,7 +179,21 @@ if has bundle; then
   alias rails-server='bundle exec rails server -b 0.0.0.0 -p ${PORT:-3000}'
   alias rails-console='bundle exec rails console'
   # see. bundle exec rails new --help
-  alias rails-new-simple='bundle exec rails new --database=mysql --skip-action-mailer --skip-action-mailbox --skip-action-cable --skip-sprockets --skip-spring --skip-listen --skip-turbolinks --skip-yarn --skip-bundle --skip-git'
+  # alias rails-new-simple='bundle exec rails new --database=mysql --skip-action-mailer --skip-action-mailbox --skip-action-cable --skip-sprockets --skip-spring --skip-listen --skip-turbolinks --skip-yarn --skip-bundle --skip-git'
+  alias rails-new-simple='bundle exec rails new . --database=mysql \
+    --skip-action-mailer \
+    --skip-action-mailbox \
+    --skip-action-text \
+    --skip-active-storage \
+    --skip-action-cable \
+    --skip-sprockets \
+    --skip-spring \
+    --skip-listen \
+    --skip-javascript \
+    --skip-turbolinks \
+    --skip-test \
+    --skip-system-test \
+    --skip-bootsnap'
 fi
 
 if has npm; then

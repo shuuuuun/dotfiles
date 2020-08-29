@@ -207,9 +207,10 @@ function static-website-cfn-clone {
 }
 
 # tigdiff branch とすると現在のブランチとそのブランチの差分が見れる
-function tigdiff {
-  git diff $@ | tig
-}
+# tigの仕様が変わった？動かなくなった
+# function tigdiff {
+#   git diff $@ | tig
+# }
 
 # TODO: open-localhost
 function open-localhost {
