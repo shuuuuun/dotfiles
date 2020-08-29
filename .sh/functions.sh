@@ -588,6 +588,41 @@ function cd-works {
   fi
 }
 
+function docker-volumes-backup {
+  now=$(date +"%Y%m%d_%H%M%S")
+  backup_path="${HOME}/tmp/docker-volumes-backup/${now}"
+  volume_names=($(docker volume ls -q))
+  echo "backup_path: ${backup_path}"
+  echo "volume_names: ${volume_names}"
+  mkdir -p "${backup_path}"
+  for volume_name in ${volume_names}; do
+    docker run --rm \
+      -v ${volume_name}:/data \
+      -v ${backup_path}:/backup \
+      alpine \
+      tar cvf /backup/${volume_name}.tar /data
+  done
+  echo "complete!"
+}
+
+function docker-volumes-restore {
+  root_backup_path="${HOME}/tmp/docker-volumes-backup"
+  # \ls でデフォルトのlsを使いcolorが付かないようにする
+  backup_paths=($(\ls -d ${root_backup_path}/* | sort))
+  backup_path=$backup_paths[-1]
+  volume_names=($(\ls "${backup_path}" | sed -e "s/\.tar//"))
+  echo "backup_path: ${backup_path}"
+  echo "volume_names: ${volume_names}"
+  for volume_name in ${volume_names}; do
+    docker volume create --name ${volume_name}
+    docker run --rm \
+      -v ${volume_name}:/data \
+      -v ${backup_path}/${volume_name}.tar:/backup/backup.tar \
+      alpine sh -c "cd /data && tar xvf /backup/backup.tar --strip 1"
+  done
+  echo "complete!"
+}
+
 function ebenv2dotenv {
   env_name="$1"
   if [ -z "$env_name" ]; then
