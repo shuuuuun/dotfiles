@@ -1,0 +1,27 @@
+#!/usr/bin/env ruby
+
+# patchバージョンのみ更新されてるものすべてをアップグレード
+
+# TODO: brew コマンドがないと動かないようにする
+# require_cmd "brew"
+
+exec "brew update"
+
+# TODO: exec って結果取れるっけ
+outdated = exec "brew outdated --verbose"
+puts "outdated:\n#{outdated}"
+
+targets = outdated.map do |line|
+  name, current_vers, new_ver = line.chomp.match(/\A(.+) \((.+)\) < (.+)\z/)&.captures
+  current_ver = current_vers.split(', ').last
+  is_same_major_minor = current_ver.split('.').slice(0, 2) == new_ver.split('.').slice(0, 2)
+  is_same_major_minor ? name : nil
+end.compact.join(' ')
+
+targets.each do |lib|
+  puts ""
+  puts "brew upgrading: #{lib}"
+  exec "brew upgrade #{lib}"
+  puts "brew upgraded: #{lib}"
+end
+

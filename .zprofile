@@ -63,6 +63,7 @@ export PATH=$PATH:~/lib/flutter/bin
 # export GOPATH=$HOME/go
 export GOPATH=$HOME/repo
 export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:~/.sh/commands
 
 
 #
