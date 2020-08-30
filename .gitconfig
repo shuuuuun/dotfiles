@@ -54,5 +54,6 @@
 	prune = true
 
 [ghq]
-	root = ~/repo/src
+	root = ~/ghq
 	root = ~/go/src
+	root = ~/repo/src
