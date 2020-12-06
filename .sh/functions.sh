@@ -160,9 +160,20 @@ function rand {
   arg=$1
   length=$(( arg / 2 ))
   if [[ -z "$arg" ]]; then
-    length=8
+    length=16
   fi
   openssl rand -hex $length
+}
+
+function rand64 {
+  arg=$1
+  length=$arg
+  if [[ -z "$arg" ]]; then
+    length=16
+  fi
+  # openssl rand -base64 $length
+  base64 /dev/urandom | tr -d -c '[:alnum:]' | head -c $length
+  echo
 }
 
 function init-gulp-project {
