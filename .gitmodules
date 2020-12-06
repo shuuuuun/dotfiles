@@ -1,0 +1,3 @@
+[submodule "mitamae/plugins/itamae-plugin-recipe-tmux"]
+	path = mitamae/plugins/itamae-plugin-recipe-tmux
+	url = git@github.com:sue445/itamae-plugin-recipe-tmux.git
