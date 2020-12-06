@@ -212,6 +212,7 @@ fi
 
 if has docker; then
   alias docker-container-stop-all='docker container stop $(docker container ls -q)'
+  alias docker-volume-ls-dangling='docker volume ls --filter dangling=true'
 fi
 
 if has docker-compose; then
