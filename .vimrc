@@ -214,6 +214,27 @@ if isdirectory(expand('~/.cache/dein'))
     " Add or remove your plugins here like this:
     "call dein#add('Shougo/neosnippet.vim')
     "call dein#add('Shougo/neosnippet-snippets')
+    " call dein#add('tpope/vim-fugitive')
+    " call dein#add('ctrlpvim/ctrlp.vim')
+    call dein#add('scrooloose/nerdtree')
+    call dein#add('jistr/vim-nerdtree-tabs')
+    call dein#add('slim-template/vim-slim')
+    call dein#add('digitaltoad/vim-pug')
+    call dein#add('posva/vim-vue')
+    call dein#add('ConradIrwin/vim-bracketed-paste')
+    call dein#add('mattn/emmet-vim')
+    call dein#add('alvan/vim-closetag')
+    call dein#add('elixir-editors/vim-elixir')
+    if filereadable(expand('~/.wakatime.cfg'))
+      call dein#add('wakatime/vim-wakatime')
+    endif
+    " color scheme
+    " call dein#add('w0ng/vim-hybrid')
+    " call dein#add('nanotech/jellybeans.vim')
+    " call dein#add('tomasr/molokai')
+    " call dein#add('sjl/badwolf')
+    call dein#add('morhetz/gruvbox')
+
 
     " Required:
     call dein#end()
@@ -230,4 +251,24 @@ if isdirectory(expand('~/.cache/dein'))
   endif
   
   "End dein Scripts-------------------------
+
+
+  " Depending on dein
+
+  " color scheme
+  autocmd ColorScheme * highlight Normal ctermbg=none
+  colorscheme gruvbox
+  
+  " 隠しファイルをデフォルトで表示させる
+  let NERDTreeShowHidden = 1
+  
+  " デフォルトでツリーを表示させる
+  "autocmd VimEnter * execute 'NERDTree'
+
+  " Ctrl+eでNERDTreeをトグル
+  " nnoremap <silent><C-e> :NERDTreeToggle<CR>
+  " nnoremap <silent><C-w> :NERDTreeToggle<CR>
+  " map <C-n> :NERDTreeToggle<CR>
+  " nnoremap nd :NERDTreeToggle<CR>
+  nnoremap nd :NERDTreeTabsToggle<CR>
 endif
