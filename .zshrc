@@ -1,85 +1,49 @@
 #
 # Zinit
 #
-if [ -e ~/.zinit ]; then
-  ### Added by Zinit's installer
-  if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
-      print -P "%F{33}▓▒░ %F{220}Installing %F{33}DHARMA%F{220} Initiative Plugin Manager (%F{33}zdharma/zinit%F{220})…%f"
-      command mkdir -p "$HOME/.zinit" && command chmod g-rwX "$HOME/.zinit"
-      command git clone https://github.com/zdharma/zinit "$HOME/.zinit/bin" && \
-          print -P "%F{33}▓▒░ %F{34}Installation successful.%f%b" || \
-          print -P "%F{160}▓▒░ The clone has failed.%f%b"
-  fi
-
-  source "$HOME/.zinit/bin/zinit.zsh"
-  autoload -Uz _zinit
-  (( ${+_comps} )) && _comps[zinit]=_zinit
-
-  # Load a few important annexes, without Turbo
-  # (this is currently required for annexes)
-  zinit light-mode for \
-      zinit-zsh/z-a-rust \
-      zinit-zsh/z-a-as-monitor \
-      zinit-zsh/z-a-patch-dl \
-      zinit-zsh/z-a-bin-gem-node
-
-  ### End of Zinit's installer chunk
-
-  # plugins
-  # zinit load momo-lab/zsh-abbrev-alias # 略語を展開する
-  # zinit load zsh-users/zsh-syntax-highlighting # 実行可能なコマンドに色付け
-  # zinit load zsh-users/zsh-completions # 補完
-  # zinit ice wait'!0'; zinit load zsh-users/zsh-syntax-highlighting # 実行可能なコマンドに色付け
-  zinit ice wait'!0'; zinit load zsh-users/zsh-completions # 補完
-
-  zinit light zsh-users/zsh-autosuggestions
-  zinit light zdharma/fast-syntax-highlighting
-  zinit load zdharma/history-search-multi-word
-  # zinit load zsh-users/zsh-history-substring-search
-
-  # prompt
-  zinit load mafredri/zsh-async # need for pure prompt
-  # zinit load sindresorhus/pure
-  zinit load shuuuuun/pure
-  # zinit load nksoff/muslim
-  # zinit load isqua/bureau
-
-  # zinit wait lucid atload"zicompinit; zicdreplay" blockf for zsh-users/zsh-completions
+### Added by Zinit's installer
+if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
+    print -P "%F{33}▓▒░ %F{220}Installing %F{33}DHARMA%F{220} Initiative Plugin Manager (%F{33}zdharma/zinit%F{220})…%f"
+    command mkdir -p "$HOME/.zinit" && command chmod g-rwX "$HOME/.zinit"
+    command git clone https://github.com/zdharma/zinit "$HOME/.zinit/bin" && \
+        print -P "%F{33}▓▒░ %F{34}Installation successful.%f%b" || \
+        print -P "%F{160}▓▒░ The clone has failed.%f%b"
 fi
 
-#
-# zplug (Zsh Plugin Manager) https://github.com/zplug/zplug
-#
-if [ -e ~/.zplug ]; then
-  source ~/.zplug/init.zsh
+source "$HOME/.zinit/bin/zinit.zsh"
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
 
-  # plugins
-  zplug "mafredri/zsh-async" # need for pure prompt
-  # zplug "sindresorhus/pure" # prompt
-  # zplug "~/personal/prompt/pure", from:local # prompt
-  zplug "shuuuuun/pure" # prompt
-  # zplug "nksoff/muslim" # prompt
-  # zplug "isqua/bureau" # prompt
-  zplug "zsh-users/zsh-syntax-highlighting", defer:2
-  zplug "zsh-users/zsh-completions"
-  # zplug "zsh-users/zsh-history-substring-search"
+# Load a few important annexes, without Turbo
+# (this is currently required for annexes)
+zinit light-mode for \
+    zinit-zsh/z-a-rust \
+    zinit-zsh/z-a-as-monitor \
+    zinit-zsh/z-a-patch-dl \
+    zinit-zsh/z-a-bin-gem-node
 
-  # install
-  if ! zplug check --verbose; then
-    printf "Install? [y/N]: "
-    if read -q; then
-        echo; zplug install
-    fi
-  fi
+### End of Zinit's installer chunk
 
-  # load
-  zplug load
+# plugins
+# zinit load momo-lab/zsh-abbrev-alias # 略語を展開する
+# zinit load zsh-users/zsh-syntax-highlighting # 実行可能なコマンドに色付け
+# zinit load zsh-users/zsh-completions # 補完
+# zinit ice wait'!0'; zinit load zsh-users/zsh-syntax-highlighting # 実行可能なコマンドに色付け
+zinit ice wait'!0'; zinit load zsh-users/zsh-completions # 補完
 
-  # if zplug check "zsh-users/zsh-history-substring-search"; then
-  #     bindkey '^P' history-substring-search-up
-  #     bindkey '^N' history-substring-search-down
-  # fi
-fi
+zinit light zsh-users/zsh-autosuggestions
+zinit light zdharma/fast-syntax-highlighting
+zinit load zdharma/history-search-multi-word
+# zinit load zsh-users/zsh-history-substring-search
+
+# prompt
+zinit load mafredri/zsh-async # need for pure prompt
+# zinit load sindresorhus/pure
+zinit load shuuuuun/pure
+# zinit load nksoff/muslim
+# zinit load isqua/bureau
+
+# zinit wait lucid atload"zicompinit; zicdreplay" blockf for zsh-users/zsh-completions
 
 
 #
