@@ -46,8 +46,8 @@ TMPPREFIX="${TMPDIR%/}/zsh"
 #
 # anyenv
 #
-export PATH="$HOME/.anyenv/bin:$PATH"
 if type anyenv > /dev/null 2>&1; then
+  export PATH="$HOME/.anyenv/bin:$PATH"
   eval "$(anyenv init -)"
 fi
 
@@ -71,7 +71,7 @@ export PATH=$PATH:~/.sh/commands
 # Editors
 #
 export EDITOR='vim'
-export VISUAL='vim' 
+export VISUAL='vim'
 export PAGER='less'
 
 

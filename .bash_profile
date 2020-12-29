@@ -21,13 +21,9 @@ export PATH="$PATH:$HOME/.local/bin:$HOME/bin"
 
 
 #
-# xxenv
+# anyenv
 #
-if [ -d ${HOME}/.rbenv  ] ; then
-  export PATH="$HOME/.rbenv/bin:$PATH"
-  eval "$(rbenv init -)"
-fi
-if [ -d ${HOME}/.ndenv  ] ; then
-  export PATH="$HOME/.ndenv/bin:$PATH"
-  eval "$(ndenv init -)"
+if type anyenv > /dev/null 2>&1; then
+  export PATH="$HOME/.anyenv/bin:$PATH"
+  eval "$(anyenv init -)"
 fi
