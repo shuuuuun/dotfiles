@@ -43,7 +43,7 @@ PURE_PROMPT_SYMBOL_ERROR_COLOR='red'
 PURE_DISABLE_SET_TITLE=true
 # PURE_GIT_PULL=0
 PURE_PREPROMPT_DIRECTORY_COLOR='cyan'
-prompt_pure_setup
+type prompt_pure_setup > /dev/null 2>&1 && prompt_pure_setup
 
 # autoload -U promptinit
 # promptinit
@@ -130,7 +130,7 @@ fi
 # tig
 # cf. https://github.com/jonas/tig/blob/master/contrib/tig-completion.zsh
 # fpath=($fpath /usr/local/Cellar/tig/*/share/zsh/site-functions)
-source_if_exist /usr/local/Cellar/tig/*/share/zsh/site-functions/tig-completion.bash
+source_if_exist "/usr/local/Cellar/tig/*/share/zsh/site-functions/tig-completion.bash"
 
 # 上矢印で入力中の単語にマッチした履歴を出してくれるやつ
 # ref. https://github.com/ohmyzsh/ohmyzsh/blob/master/lib/key-bindings.zsh
