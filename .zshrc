@@ -25,16 +25,13 @@ zinit light-mode for \
 ### End of Zinit's installer chunk
 
 # plugins
-# zinit light momo-lab/zsh-abbrev-alias # 略語を展開する
-# zinit light zsh-users/zsh-syntax-highlighting # 実行可能なコマンドに色付け
-# zinit light zsh-users/zsh-completions # 補完
-# zinit ice wait'!0'; zinit light zsh-users/zsh-syntax-highlighting # 実行可能なコマンドに色付け
+zinit ice wait'!0'; zinit light zsh-users/zsh-autosuggestions
+# zinit ice wait'!0'; zinit light zsh-users/zsh-syntax-highlighting
+zinit ice wait'!0'; zinit light zdharma/fast-syntax-highlighting
 zinit ice wait'!0'; zinit light zsh-users/zsh-completions # 補完
-
-zinit light zsh-users/zsh-autosuggestions
-zinit light zdharma/fast-syntax-highlighting
-zinit light zdharma/history-search-multi-word
+# zinit light zdharma/history-search-multi-word
 # zinit light zsh-users/zsh-history-substring-search
+# zinit light momo-lab/zsh-abbrev-alias # 略語を展開する
 
 # prompt
 zinit light mafredri/zsh-async # need for pure prompt
