@@ -55,6 +55,7 @@ fi
 #
 # PATH
 #
+export PATH=$PATH:/opt/homebrew/bin
 export PATH=$PATH:/usr/local/sbin
 export PATH=$PATH:/usr/local/share/git-core/contrib/diff-highlight
 export PATH=$PATH:~/.mix/escripts # elixir, erlang
