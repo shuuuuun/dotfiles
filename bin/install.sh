@@ -3,19 +3,11 @@
 set -e
 
 #
-# param
-#
-MODE=$1
-
-#
 # const
 #
 REPOSITORY="https://github.com/shuuuuun/dotfiles.git"
-DOTFILES=(.bash_profile .bashrc .gitignore_global .gitconfig.simple .vimrc.simple .sh)
+DOTFILES=(.bash_profile .bashrc .gitignore_global .gitconfig .vimrc .sh .zprofile .zshrc .tigrc)
 DOTFILES_ROOT="$HOME/dotfiles"
-if [ "$MODE" = "main" ]; then
-  DOTFILES=(.bash_profile .bashrc .gitignore_global .gitconfig .vimrc .sh .zprofile .zshrc .tigrc)
-fi
 
 cd "$HOME"
 echo "dotfiles root path: $DOTFILES_ROOT"
@@ -45,7 +37,6 @@ fi
 echo "doing backup dotfiles..."
 now=$(date "+%Y%m%d%H%M%S")
 for file in ${DOTFILES[@]}; do
-  file=`echo $file | sed -e 's/\.simple$//g'`
   if [ -f "$HOME/$file" -a ! -L  "$HOME/$file" ]; then # fileが存在しかつシンボリックリンクでない
     mv "$HOME/$file" "$HOME/$file.$now.bak"
     echo "  backup: $HOME/$file -> $HOME/$file.$now.bak"
@@ -59,9 +50,8 @@ echo "backup end."
 #
 echo "deploying dotfiles to $HOME..."
 for file in ${DOTFILES[@]}; do
-  destfile=`echo $file | sed -e 's/\.simple$//g'`
-  ln -s "$DOTFILES_ROOT/$file" "$HOME/$destfile" && \
-    echo "  symbolic_link: $DOTFILES_ROOT/$file -> $HOME/$destfile"
+  ln -s "$DOTFILES_ROOT/$file" "$HOME/$file" && \
+    echo "  symbolic_link: $DOTFILES_ROOT/$file -> $HOME/$file"
 done
 echo "deploy end."
 
