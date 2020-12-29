@@ -25,6 +25,7 @@ if [ -e ~/.zinit ]; then
 
   ### End of Zinit's installer chunk
 
+  # plugins
   # zinit load momo-lab/zsh-abbrev-alias # 略語を展開する
   # zinit load zsh-users/zsh-syntax-highlighting # 実行可能なコマンドに色付け
   # zinit load zsh-users/zsh-completions # 補完
@@ -34,9 +35,14 @@ if [ -e ~/.zinit ]; then
   zinit light zsh-users/zsh-autosuggestions
   zinit light zdharma/fast-syntax-highlighting
   zinit load zdharma/history-search-multi-word
+  # zinit load zsh-users/zsh-history-substring-search
 
-  # zinit ice from"gh-r" as"program"
-  # zinit load junegunn/fzf-bin
+  # prompt
+  zinit load mafredri/zsh-async # need for pure prompt
+  # zinit load sindresorhus/pure
+  zinit load shuuuuun/pure
+  # zinit load nksoff/muslim
+  # zinit load isqua/bureau
 
   # zinit wait lucid atload"zicompinit; zicdreplay" blockf for zsh-users/zsh-completions
 fi
