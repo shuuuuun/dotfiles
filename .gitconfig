@@ -29,11 +29,19 @@
 	diff-no = diff --name-only
 	log-graph = log --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
 
+[user]
+	name = shuuuuuny
+	email = shuuuuuny@gmail.com
+
 [merge]
 	tool = vimdiff
 
 [push]
 	default = simple
+
+[pull]
+	# rebase = true
+	rebase = false
 
 [pager]
 	log = diff-highlight | less
