@@ -101,10 +101,8 @@ nnoremap sv :<C-u>vsplit<CR>
 "
 " command
 "
-" 終了コマンドをエイリアス
+" よく大文字にしちゃうやつ
 :command Q q
-
-" wもよく大文字にしちゃうので
 :command W w
 :command Wq wq
 
@@ -190,6 +188,7 @@ if isdirectory(expand('~/.vim/bundle'))
   " nnoremap nd :NERDTreeToggle<CR>
   nnoremap nd :NERDTreeTabsToggle<CR>
 endif
+
 
 "
 " dein
