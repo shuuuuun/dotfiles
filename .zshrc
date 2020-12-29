@@ -25,23 +25,23 @@ zinit light-mode for \
 ### End of Zinit's installer chunk
 
 # plugins
-# zinit load momo-lab/zsh-abbrev-alias # 略語を展開する
-# zinit load zsh-users/zsh-syntax-highlighting # 実行可能なコマンドに色付け
-# zinit load zsh-users/zsh-completions # 補完
-# zinit ice wait'!0'; zinit load zsh-users/zsh-syntax-highlighting # 実行可能なコマンドに色付け
-zinit ice wait'!0'; zinit load zsh-users/zsh-completions # 補完
+# zinit light momo-lab/zsh-abbrev-alias # 略語を展開する
+# zinit light zsh-users/zsh-syntax-highlighting # 実行可能なコマンドに色付け
+# zinit light zsh-users/zsh-completions # 補完
+# zinit ice wait'!0'; zinit light zsh-users/zsh-syntax-highlighting # 実行可能なコマンドに色付け
+zinit ice wait'!0'; zinit light zsh-users/zsh-completions # 補完
 
 zinit light zsh-users/zsh-autosuggestions
 zinit light zdharma/fast-syntax-highlighting
-zinit load zdharma/history-search-multi-word
-# zinit load zsh-users/zsh-history-substring-search
+zinit light zdharma/history-search-multi-word
+# zinit light zsh-users/zsh-history-substring-search
 
 # prompt
-zinit load mafredri/zsh-async # need for pure prompt
-# zinit load sindresorhus/pure
-zinit load shuuuuun/pure
-# zinit load nksoff/muslim
-# zinit load isqua/bureau
+zinit light mafredri/zsh-async # need for pure prompt
+# zinit light sindresorhus/pure
+zinit light shuuuuun/pure
+# zinit light nksoff/muslim
+# zinit light isqua/bureau
 
 # zinit wait lucid atload"zicompinit; zicdreplay" blockf for zsh-users/zsh-completions
 
