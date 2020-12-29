@@ -176,10 +176,10 @@ if isdirectory(expand('~/.vim/bundle'))
   " color scheme
   autocmd ColorScheme * highlight Normal ctermbg=none
   colorscheme gruvbox
-  
+
   " 隠しファイルをデフォルトで表示させる
   let NERDTreeShowHidden = 1
-  
+
   " デフォルトでツリーを表示させる
   "autocmd VimEnter * execute 'NERDTree'
 
@@ -194,23 +194,28 @@ endif
 "
 " dein
 "
-if isdirectory(expand('~/.cache/dein'))
+let s:dein_dir = expand('~/.cache/dein')
+let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
+if isdirectory(s:dein_dir)
   "dein Scripts-----------------------------
   if &compatible
     set nocompatible               " Be iMproved
   endif
-  
+
+  " dein.vim がなければインストール
+  if !isdirectory(s:dein_repo_dir)
+    execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
+  endif
+  execute 'set runtimepath+=' . s:dein_repo_dir
+
   " Required:
-  set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
-  
-  " Required:
-  if dein#load_state('~/.cache/dein')
-    call dein#begin('~/.cache/dein')
-  
+  if dein#load_state(s:dein_dir)
+    call dein#begin(s:dein_dir)
+
     " Let dein manage dein
     " Required:
-    call dein#add('~/.cache/dein/repos/github.com/Shougo/dein.vim')
-  
+    call dein#add(s:dein_repo_dir)
+
     " Add or remove your plugins here like this:
     "call dein#add('Shougo/neosnippet.vim')
     "call dein#add('Shougo/neosnippet-snippets')
@@ -240,16 +245,16 @@ if isdirectory(expand('~/.cache/dein'))
     call dein#end()
     call dein#save_state()
   endif
-  
+
   " Required:
   filetype plugin indent on
   syntax enable
-  
+
   " If you want to install not installed plugins on startup.
   if dein#check_install()
     call dein#install()
   endif
-  
+
   "End dein Scripts-------------------------
 
 
@@ -258,10 +263,10 @@ if isdirectory(expand('~/.cache/dein'))
   " color scheme
   autocmd ColorScheme * highlight Normal ctermbg=none
   colorscheme gruvbox
-  
+
   " 隠しファイルをデフォルトで表示させる
   let NERDTreeShowHidden = 1
-  
+
   " デフォルトでツリーを表示させる
   "autocmd VimEnter * execute 'NERDTree'
 
