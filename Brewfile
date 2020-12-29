@@ -1,4 +1,5 @@
 tap "aws/tap"
+tap "b4b4r07/tap"
 tap "caskroom/cask"
 tap "eugenmayer/dockersync"
 tap "fujiwara/tap"
@@ -112,6 +113,8 @@ brew "exiftool"
 brew "gobject-introspection"
 # OpenType text shaping engine
 brew "harfbuzz"
+# NaCl networking and cryptography library
+brew "libsodium"
 # Play, record, convert, and stream audio and video
 brew "ffmpeg"
 # Graphics library to dynamically manipulate images
@@ -235,8 +238,6 @@ brew "libcroco"
 brew "liblwgeom"
 # Library to render SVG files using Cairo
 brew "librsvg"
-# NaCl networking and cryptography library
-brew "libsodium"
 # C XSLT library for GNOME
 brew "libxslt"
 # Replacement for the old crypt package and crypt(1) command
@@ -341,6 +342,8 @@ brew "xsv"
 brew "yarn"
 # UNIX shell (command interpreter)
 brew "zsh"
+# Replacement for UNIX rm command!
+brew "b4b4r07/tap/gomi"
 # A layer for unison-fsmonitor arround either macfsevents or watchdog for usage with unison
 brew "eugenmayer/dockersync/unox"
 brew "fujiwara/tap/aswrap"
@@ -358,8 +361,6 @@ brew "remind101/formulae/assume-role"
 brew "shuuuuun/tap/brew-npm"
 # High performance source code search tool.
 brew "tkengo/highway/highway"
-cask "cacher"
-cask "hyper"
 cask "ngrok"
 cask "nosql-workbench-for-amazon-dynamodb"
 cask "session-manager-plugin"
