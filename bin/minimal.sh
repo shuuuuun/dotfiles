@@ -24,11 +24,6 @@ export HISTCONTROL=ignoredups
 alias l='ls -lah --time-style=long-iso'
 alias ll='ls -lh --time-style=long-iso'
 alias la='ls -a'
-
-alias be='bundle exec'
-
-alias psgrep='ps aux | grep -v grep | grep'
-alias psag='ps aux | ag -v ag | ag'
 EOF
 
 
