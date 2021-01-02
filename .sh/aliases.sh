@@ -239,6 +239,7 @@ if has rg; then
   alias rg-files='rg --files | rg'
   # function rg-files { rg --files --glob "**/*$@*/**" --glob "*$@*"; }
   alias git-diff-todo='git diff --diff-filter=ACMR origin/develop..HEAD | rg TODO'
+  alias rg-all='rg --no-ignore --hidden'
 fi
 
 if has nkf; then
