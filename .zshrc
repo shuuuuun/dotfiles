@@ -177,3 +177,9 @@ if [[ -n "${terminfo[kcud1]}" ]]; then
   bindkey -M viins "${terminfo[kcud1]}" down-line-or-beginning-search
   bindkey -M vicmd "${terminfo[kcud1]}" down-line-or-beginning-search
 fi
+
+
+# Zsh Profiling
+if (which zprof > /dev/null 2>&1); then
+  zprof | cat
+fi
