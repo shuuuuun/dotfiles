@@ -663,3 +663,10 @@ function ebenv2dotenv {
   echo ${env_str} > "${output}"
   echo "printed to ${output}"
 }
+
+function tmux-peco {
+  name=`tmux ls | peco --query "$1" | awk -F: '{print $1}'`
+  [ -z "$name" ] && return
+  echo $name
+  tmux -CC new -A -s $name
+}

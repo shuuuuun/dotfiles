@@ -44,6 +44,23 @@ alias authorize-ssh-keys='curl https://github.com/shuuuuun.keys >> ~/.ssh/author
 
 alias nc-server='while true; do ( echo "HTTP/1.0 200 Ok"; echo; echo "Hello World" ) | nc -l 8080; [ $? != 0 ] && break; done'
 
+# alias ssh-tmux-example='ssh -A -t example.com ". ~/.bash_profile; tmux -CC new -A -s main"'
+function ssh-tmux { ssh -A -t "$1" '. ~/.bash_profile; tmux -CC new -A -s main' }
+
+if has tmux; then
+  alias tmux-main='tmux -CC new -A -s main'
+  alias tmux-new='tmux -CC new -A -s'
+  alias tmux-attach='tmux -CC new -A -s'
+  alias attach='tmux -CC new -A -s'
+  alias tmux-detach='tmux detach'
+  alias detach='tmux detach'
+  # alias tmux-start='tmux start'
+  alias tmux-start='tmux start-server \; source-file ~/.tmux.conf'
+  alias tmux-reload-conf='tmux source-file ~/.tmux.conf'
+  alias tmux-list-commands='tmux list-commands'
+  alias tmux-save='~/.tmux/plugins/tmux-resurrect/scripts/save.sh'
+fi
+
 if has greadlink; then
   alias readlink='greadlink'
 fi
