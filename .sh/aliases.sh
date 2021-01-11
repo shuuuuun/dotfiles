@@ -162,7 +162,8 @@ alias git-commit-date='git --no-pager log --pretty=format:%ci -n 1'
 if has peco; then
   alias gco-peco='git branch | peco | xargs git checkout'
   alias gcopeco='gco-peco'
-  alias gswpeco='git branch | peco | xargs git switch'
+  # alias gswpeco='git branch | peco | xargs git switch'
+  function gswpeco { git branch | peco --query "$1" | xargs git switch }
 fi
 
 if has tig; then
