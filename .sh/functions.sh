@@ -634,6 +634,18 @@ function docker-volumes-restore {
   echo "complete!"
 }
 
+function docker-images-remove {
+  local selected=$(docker image ls | tail +2 | sort | peco --prompt 'DOCKER IMAGES>' --query "$1")
+  echo $selected
+  local images=($(echo -n $selected | awk '{print $3}' ORS=' '))
+  if [ -z "$images" ]; then
+    echo "no images selected."
+    return
+  fi
+  # echo "images:$images;"
+  docker image rm $images && echo "docker images removed: $images"
+}
+
 function ebenv2dotenv {
   env_name="$1"
   if [ -z "$env_name" ]; then
