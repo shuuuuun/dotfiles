@@ -44,7 +44,6 @@ function is_mac {
         return 1
     fi
 }
-alias is_osx=is_mac
 
 # is_linux returns true if running OS is GNU/Linux
 function is_linux {
