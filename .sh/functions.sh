@@ -599,6 +599,12 @@ function cd-works {
   fi
 }
 
+function get-repo-cd {
+  local repo=$1
+  ghq get $repo
+  cd $(ghq list --full-path --exact $repo)
+}
+
 function docker-volumes-backup {
   now=$(date +"%Y%m%d_%H%M%S")
   backup_path="${HOME}/tmp/docker-volumes-backup/${now}"
