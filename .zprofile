@@ -44,18 +44,9 @@ TMPPREFIX="${TMPDIR%/}/zsh"
 
 
 #
-# anyenv
-#
-if [ -d ${HOME}/.anyenv  ]; then
-  export PATH="$HOME/.anyenv/bin:$PATH"
-  eval "$(anyenv init -)"
-fi
-
-
-#
 # PATH
 #
-export PATH=$PATH:/opt/homebrew/bin
+export PATH=/opt/homebrew/bin:$PATH
 export PATH=$PATH:/usr/local/sbin
 export PATH=$PATH:/usr/local/share/git-core/contrib/diff-highlight
 export PATH=$PATH:~/.mix/escripts # elixir, erlang
@@ -65,6 +56,15 @@ export PATH=$PATH:~/lib/flutter/bin
 export GOPATH=$HOME/repo
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:~/.sh/commands
+
+
+#
+# anyenv
+#
+if [ -d ${HOME}/.anyenv  ]; then
+  export PATH="$HOME/.anyenv/bin:$PATH"
+  eval "$(anyenv init -)"
+fi
 
 
 #
