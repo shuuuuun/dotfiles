@@ -605,6 +605,13 @@ function get-repo-cd {
   cd $(ghq list --full-path --exact $repo)
 }
 
+function ghq-create-shuuuuun {
+  local repo=shuuuuun/$1
+  ghq create $repo
+  cd $(ghq list --full-path --exact $repo)
+  git-init
+}
+
 function docker-volumes-backup {
   now=$(date +"%Y%m%d_%H%M%S")
   backup_path="${HOME}/tmp/docker-volumes-backup/${now}"
