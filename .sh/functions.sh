@@ -599,11 +599,12 @@ function cd-works {
   fi
 }
 
-function get-repo-cd {
+function ghq-get-repo-cd {
   local repo=$1
   ghq get $repo
   cd $(ghq list --full-path --exact $repo)
 }
+alias get-repo-cd='ghq-get-repo-cd'
 
 function ghq-create-shuuuuun {
   local repo=shuuuuun/$1
