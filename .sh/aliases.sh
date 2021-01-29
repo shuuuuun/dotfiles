@@ -58,7 +58,8 @@ if has tmux; then
   alias tmux-start='tmux start-server \; source-file ~/.tmux.conf'
   alias tmux-reload-conf='tmux source-file ~/.tmux.conf'
   alias tmux-list-commands='tmux list-commands'
-  alias tmux-save='~/.tmux/plugins/tmux-resurrect/scripts/save.sh'
+  alias tmux-save='~/.tmux/plugins/tmux-resurrect/scripts/save.sh && ls -lt ~/.tmux/resurrect/last'
+  alias tmux-restore='~/.tmux/plugins/tmux-resurrect/scripts/restore.sh'
 fi
 
 if has greadlink; then
