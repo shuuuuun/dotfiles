@@ -65,3 +65,9 @@
 	root = ~/ghq
 	root = ~/go/src
 	root = ~/repo/src
+
+[url "git@github.com:"]
+	pushInsteadOf = git://github.com/
+	pushInsteadOf = https://github.com/
+# [url "git://github.com/"]
+# 	insteadOf = https://github.com/
