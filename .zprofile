@@ -59,15 +59,6 @@ export PATH=$PATH:~/.sh/commands
 
 
 #
-# anyenv
-#
-if [ -d ${HOME}/.anyenv  ]; then
-  export PATH="$HOME/.anyenv/bin:$PATH"
-  eval "$(anyenv init -)"
-fi
-
-
-#
 # Editors
 #
 export EDITOR='vim'

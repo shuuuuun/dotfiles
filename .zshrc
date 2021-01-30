@@ -139,6 +139,16 @@ if has direnv; then
   eval "$(direnv hook zsh)"
 fi
 
+if [ -d ${HOME}/.anyenv ]; then
+  export PATH="$HOME/.anyenv/bin:$PATH"
+  if [ -d $(anyenv root)/plugins/anyenv-lazyload ]; then
+    eval "$(anyenv lazyload --no-rehash)"
+  else
+    # eval "$(anyenv init -)"
+    eval "$(anyenv init - --no-rehash)"
+  fi
+fi
+
 # tig
 # cf. https://github.com/jonas/tig/blob/master/contrib/tig-completion.zsh
 # fpath=($fpath /usr/local/Cellar/tig/*/share/zsh/site-functions)
