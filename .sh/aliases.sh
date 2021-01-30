@@ -38,6 +38,7 @@ alias psag='ps aux | ag -v ag | ag'
 alias tailf='tail -f'
 
 alias relogin='exec $SHELL -l'
+alias showPATH='echo $PATH | tr ":" "\n"'
 
 alias curl-header='curl -D - -s -o /dev/null'
 alias authorize-ssh-keys='curl https://github.com/shuuuuun.keys >> ~/.ssh/authorized_keys'
