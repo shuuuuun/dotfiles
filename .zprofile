@@ -46,7 +46,9 @@ TMPPREFIX="${TMPDIR%/}/zsh"
 #
 # PATH
 #
-export PATH=/opt/homebrew/bin:$PATH
+if [ -d /opt/homebrew  ]; then
+  export PATH=/opt/homebrew/bin:$PATH
+fi
 export PATH=$PATH:/usr/local/sbin
 export PATH=$PATH:/usr/local/share/git-core/contrib/diff-highlight
 export PATH=$PATH:~/.mix/escripts # elixir, erlang
