@@ -31,6 +31,7 @@ alias cprf='cp -rf'
 alias top-cpu='top -o cpu'
 alias rsync-copy='rsync -C --filter=":- .gitignore" -av'
 alias now='date +"%Y%m%d_%H%M%S"'
+alias date-iso8601='date "+%Y-%m-%dT%H:%M:%S%z"'
 
 alias psgrep='ps aux | grep -v grep | grep'
 alias psag='ps aux | ag -v ag | ag'
@@ -39,6 +40,10 @@ alias tailf='tail -f'
 
 alias relogin='exec $SHELL -l'
 alias showPATH='echo $PATH | tr ":" "\n"'
+
+if has gecho; then
+  alias echo='gecho' # GNU echo
+fi
 
 alias curl-header='curl -D - -s -o /dev/null'
 alias authorize-ssh-keys='curl https://github.com/shuuuuun.keys >> ~/.ssh/authorized_keys'
@@ -60,6 +65,7 @@ if has tmux; then
   alias tmux-reload-conf='tmux source-file ~/.tmux.conf'
   alias tmux-list-commands='tmux list-commands'
   alias tmux-save='~/.tmux/plugins/tmux-resurrect/scripts/save.sh && ls -lt ~/.tmux/resurrect/last'
+  alias tmux-save-list='ls -t ~/.tmux/resurrect/ | head'
   alias tmux-restore='~/.tmux/plugins/tmux-resurrect/scripts/restore.sh'
 fi
 
