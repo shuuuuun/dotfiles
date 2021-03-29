@@ -6,3 +6,5 @@
 .envrc
 
 .direnv/
+
+worktrees/
