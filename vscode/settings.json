@@ -1,4 +1,3 @@
-// 既定の設定を上書きするには、このファイル内に設定を挿入します
 {
     "workbench.colorTheme": "Slime",
     "editor.wordSeparators": "`~!@#$%^&*()=+[{]}\\|;:'\",.<>/?",
@@ -10,20 +9,19 @@
     },
     "editor.multiCursorModifier": "ctrlCmd",
     "atomKeymap.promptV3Features": true,
-    "editor.formatOnPaste": true,
     "editor.fontFamily": "'Anonymous Pro', Menlo, Monaco, 'Courier New', monospace",
-    "window.zoomLevel": 0,
     "editor.fontSize": 13,
     "editor.wordWrap": "off",
-    "explorer.openEditors.visible": 0,
+    "explorer.openEditors.visible": 3,
     "editor.scrollBeyondLastLine": false,
     "workbench.startupEditor": "newUntitledFile",
-    "workbench.iconTheme": "vscode-seedling-icon-theme",
     "explorer.autoReveal": false,
     "files.trimTrailingWhitespace": true,
+    "[markdown]": {
+        "files.trimTrailingWhitespace": false
+    },
     "files.insertFinalNewline": true,
     "files.trimFinalNewlines": true,
-    "git.alwaysShowStagedChangesResourceGroup": true,
     "[elixir]": {
         "editor.defaultFormatter": "sammkj.vscode-elixir-formatter"
     },
@@ -33,5 +31,88 @@
     "workbench.tree.indent": 15,
     "workbench.tree.renderIndentGuides": "always",
     "window.restoreWindows": "all",
-    "markdown.marp.enableHtml": true
+    "markdown.marp.enableHtml": true,
+    "workbench.editor.untitled.labelFormat": "name",
+    "explorer.confirmDragAndDrop": false,
+    "git.alwaysShowStagedChangesResourceGroup": true,
+    "hediet.vscode-drawio.local-storage": "eyIuZHJhd2lvLWNvbmZpZyI6IntcImxhbmd1YWdlXCI6XCJcIixcImN1c3RvbUZvbnRzXCI6W10sXCJsaWJyYXJpZXNcIjpcImdlbmVyYWxcIixcImN1c3RvbUxpYnJhcmllc1wiOltcIkwuc2NyYXRjaHBhZFwiXSxcInBsdWdpbnNcIjpbXSxcInJlY2VudENvbG9yc1wiOltdLFwiZm9ybWF0V2lkdGhcIjoyNDAsXCJjcmVhdGVUYXJnZXRcIjpmYWxzZSxcInBhZ2VGb3JtYXRcIjp7XCJ4XCI6MCxcInlcIjowLFwid2lkdGhcIjoxMTAwLFwiaGVpZ2h0XCI6ODUwfSxcInNlYXJjaFwiOnRydWUsXCJzaG93U3RhcnRTY3JlZW5cIjp0cnVlLFwiZ3JpZENvbG9yXCI6XCIjZDBkMGQwXCIsXCJkYXJrR3JpZENvbG9yXCI6XCIjNmU2ZTZlXCIsXCJhdXRvc2F2ZVwiOnRydWUsXCJyZXNpemVJbWFnZXNcIjpudWxsLFwib3BlbkNvdW50ZXJcIjowLFwidmVyc2lvblwiOjE4LFwidW5pdFwiOjEsXCJpc1J1bGVyT25cIjpmYWxzZSxcInVpXCI6XCJcIn0ifQ==",
+    "workbench.iconTheme": "vscode-seedling-icon-theme",
+    "customizeUI.titleBar": "frameless",
+    "customizeUI.activityBar": "bottom",
+    "window.titleBarStyle": "native",
+    "editor.tabSize": 2,
+    "workbench.colorCustomizations": {
+        // ref. https://code.visualstudio.com/api/references/theme-color
+
+        // "activityBar.background": "#20252c", // アクティビティバーの背景色
+        "activityBar.background": "#212527", // アクティビティバーの背景色
+        "activityBar.foreground": "#626C83", // アイコンの色
+        // "activityBar.border": "", // アクティビティバーとサイドバーの境界線の色
+        "activityBarBadge.background": "#567", // 通知バッジの背景色
+        // "activityBarBadge.foreground": "", // 通知バッジの文字色
+        "badge.background": "#20252c", // バッジ（検索結果とかで数字が表示されるやつ）の背景色
+        // "button.background": "#e0bb55", // ボタンの背景色
+
+        // "editor.background": "#26292c", // エディタの背景色
+        "editor.background": "#212527", // エディタの背景色
+        // "editor.foreground": "エディタの前景色",
+        // "editor.selectionBackground": "", // エディタカーソルの背景色
+        // "editorGroup.border": "", // 複数のエディタを横に並べた時の境界線の色
+        // "editorGroupHeader.tabsBackground": "", // タブの背景色
+        "editorGutter.background": "#212527", // エディタの行番号の背景色
+        // "editorLineNumber.foreground": "#444", // エディタの行番号の文字色
+        "editorLineNumber.activeForeground": "#999", // エディタの行番号の文字色
+        // "errorForeground": "", // エラーメッセージの全体的な前景色
+        "foreground": "#999",
+        "gitDecoration.ignoredResourceForeground": "#5B6270",
+        // "input.background": "", // 入力ボックスの背景
+        // "input.border": "", // 入力ボックスの枠線
+        // "input.placeholderForeground": "", // プレースホルダ
+        // "list.activeSelectionBackground": "", // 選択された項目のリスト/ツリー背景色
+        // "list.hoverBackground": "", // ホバー時のリスト/ツリーの背景
+        // "list.invalidItemForeground": "", // 無効な項目のリスト/ツリーの文字色
+        "list.inactiveFocusForeground": "#444",
+        // "sideBarSectionHeader.background": "#20252c",
+        "statusBar.background": "#20252c", // ワークスペースが開いていない時のステータスバー背景色
+        // "statusBar.border": "ステータスバーの枠線",
+        "statusBar.debuggingBackground": "#511f1f", // プログラムをデバッグしている時の背景色
+        // "statusBar.foreground": "", // ワークスペースが開いていない時のステータスバー前景色
+        "statusBar.noFolderBackground": "#222225", // フォルダーが開いていない時のステータスバー背景色
+        // "statusBarItem.prominentBackground": "", // ステータスバー内で目立たせる項目に対する背景色
+        // "scrollbarSlider.background": "", // スクロールバー背景色
+        // "scrollbarSlider.hoverBackground": "", // ホバー時のスクロールバー背景色
+        // "sideBar.border": "#26292c", // サイドバーとエディターの境界線の色
+        // "sideBar.background": "#26292c", // サイドバーの背景色
+        "sideBar.background": "#212527", // サイドバーの背景色
+        // "sideBar.foreground": "", // サイドバーの文字色
+        // "sideBarTitle.foreground": "", // サイドバータイトルの前景色
+        // "sideBarSectionHeader.background": "#26292c",
+        "tab.activeBorder": "#ffbb00", // アクティブなタブの下の線
+        // "tab.activeBackground": "", // アクティブなタブの背景色
+        // "tab.activeForeground": "", // アクティブなタブの文字色
+        // "tab.border": "", // タブを区切るための境界線
+        // "tab.inactiveBackground": "", // 非アクティブな色の背景色
+        // "tab.inactiveForeground": "", // 非アクティブなタブの文字色
+
+        "terminal.ansiBlue": "#5DADF1",
+        "terminal.ansiCyan": "#51B6C3",
+        "terminal.ansiGreen": "#96C475",
+        "terminal.ansiMagenta": "#C774DF",
+        "terminal.ansiRed": "#E26B73",
+        "terminal.ansiYellow": "#E5C076",
+        "terminal.foreground": "#999",
+
+        "_comment": ""
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "vetur.format.defaultFormatter.js": "none",
+    "workbench.editorAssociations": [
+        {
+            "viewType": "jupyter.notebook.ipynb",
+            "filenamePattern": "*.ipynb"
+        }
+    ],
+    "python.showStartPage": false
 }
