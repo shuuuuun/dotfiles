@@ -5,6 +5,8 @@
 .env.*
 .envrc
 
+.docker-sync/
+
 .direnv/
 
 worktrees/
