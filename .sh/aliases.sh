@@ -107,6 +107,7 @@ if is_mac; then
   alias vsc='code'
   alias code.='code .'
   alias vsc.='code .'
+  alias vsc-git-root='code `git rev-parse --show-toplevel`'
 
   alias open-chrome='open -a "/Applications/Google Chrome.app"'
   alias chrome='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome'
@@ -160,6 +161,7 @@ alias gpull-rebase='git pull --rebase'
 # alias gcodevelop='git checkout develop'
 # alias gswmaster='git switch master'
 # alias gswdevelop='git switch develop'
+alias gsw-='git switch -'
 alias git-root='git rev-parse --show-toplevel'
 alias gft-origin-master='git fetch origin master:master'
 alias gft-origin-develop='git fetch origin develop:develop'
@@ -167,6 +169,8 @@ function gft-origin() { git fetch origin $1:$1; }
 alias git-empty-commit='git commit --allow-empty'
 alias git-clone-shallow='git clone --depth 1 --single-branch'
 alias git-commit-date='git --no-pager log --pretty=format:%ci -n 1'
+alias git-dirty-check='git diff --exit-code --quiet HEAD'
+
 if has peco; then
   alias gco-peco='git branch | peco | xargs git checkout'
   alias gcopeco='gco-peco'
