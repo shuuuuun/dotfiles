@@ -12,7 +12,7 @@
     "editor.fontFamily": "'Anonymous Pro', Menlo, Monaco, 'Courier New', monospace",
     "editor.fontSize": 13,
     "editor.wordWrap": "off",
-    "explorer.openEditors.visible": 3,
+    "explorer.openEditors.visible": 10,
     "editor.scrollBeyondLastLine": false,
     "workbench.startupEditor": "newUntitledFile",
     "explorer.autoReveal": false,
@@ -108,11 +108,15 @@
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "vetur.format.defaultFormatter.js": "none",
-    "workbench.editorAssociations": [
-        {
-            "viewType": "jupyter.notebook.ipynb",
-            "filenamePattern": "*.ipynb"
-        }
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter-notebook"
+    },
+    "python.showStartPage": false,
+    "settingsSync.ignoredSettings": [
     ],
-    "python.showStartPage": false
+    "notebook.cellToolbarLocation": {
+        "default": "right",
+        "jupyter-notebook": "left"
+    },
+    "editor.fontLigatures": null
 }
