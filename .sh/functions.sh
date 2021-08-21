@@ -49,8 +49,7 @@ function set-window-title {
   git_root=`git rev-parse --show-toplevel` > /dev/null 2>&1
   if [[ $git_root == "" ]]; then git_root=`pwd`; fi
   dir_name=`echo $git_root | sed "s@^.*\/@@"`
-  # echo $dir_name
-  echo -en "\033];$dir_name\007"
+  echo -en "\033]0;$dir_name\007"
 }
 
 # ディレクトリ変更時に毎回呼ばれる関数
