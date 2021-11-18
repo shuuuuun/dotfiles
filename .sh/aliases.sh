@@ -283,7 +283,7 @@ if has zip; then
 fi
 
 if has aws; then
-  alias aws-logs-loggroupnames='aws logs describe-log-groups | jq ".logGroups[].logGroupName"' # TODO: pecoと組み合わせてログイベント取得を作る
+  alias aws-logs-loggroupnames='aws logs describe-log-groups | jq -rc ".logGroups[].logGroupName"' # TODO: pecoと組み合わせてログイベント取得を作る
 fi
 
 if has awslogs; then
