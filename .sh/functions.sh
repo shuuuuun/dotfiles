@@ -659,6 +659,18 @@ function docker-images-remove {
   docker image rm $images && echo "docker images removed: $images"
 }
 
+function docker-images-remove-force {
+  local selected=$(docker image ls | tail +2 | sort | peco --prompt 'DOCKER IMAGES>' --query "$1")
+  echo $selected
+  local images=($(echo -n $selected | awk '{print $3}' ORS=' '))
+  if [ -z "$images" ]; then
+    echo "no images selected."
+    return
+  fi
+  # echo "images:$images;"
+  docker image rm --force $images && echo "docker images removed: $images"
+}
+
 function ebenv2dotenv {
   env_name="$1"
   if [ -z "$env_name" ]; then
