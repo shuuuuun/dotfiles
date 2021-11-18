@@ -32,7 +32,7 @@
 
 [user]
 	name = shuuuuuny
-	email = shuuuuuny@gmail.com
+	email = shuuuuuny+git@gmail.com
 
 [merge]
 	tool = vimdiff
