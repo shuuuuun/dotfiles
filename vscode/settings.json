@@ -5,7 +5,9 @@
     "editor.renderWhitespace": "all",
     "editor.renderControlCharacters": true,
     "files.associations": {
-        "*.config": "yaml"
+        "Makefile*": "makefile",
+        "*.config": "yaml",
+        ".env.*": "dotenv"
     },
     "editor.multiCursorModifier": "ctrlCmd",
     "atomKeymap.promptV3Features": true,
@@ -118,5 +120,10 @@
         "default": "right",
         "jupyter-notebook": "left"
     },
-    "editor.fontLigatures": null
+    "editor.fontLigatures": null,
+    "[ruby]": {
+        "editor.defaultFormatter": "misogi.ruby-rubocop"
+    },
+    "ruby.rubocop.onSave": false,
+    "ruby.rubocop.useBundler": true
 }
