@@ -695,3 +695,10 @@ function tmux-peco {
   echo $name
   tmux -CC new -A -s $name
 }
+
+function git-worktree-cd {
+  result=$(git worktree list | peco --query "$1" --select-1)
+  echo "$result"
+  dir=$(echo "$result" | awk '{ print $1 }')
+  cd "$dir"
+}
