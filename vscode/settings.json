@@ -1,48 +1,46 @@
 {
-    "workbench.colorTheme": "Slime",
-    "editor.wordSeparators": "`~!@#$%^&*()=+[{]}\\|;:'\",.<>/?",
+    "atomKeymap.promptV3Features": true,
+    "customizeUI.activityBar": "bottom",
+    "customizeUI.titleBar": "frameless",
+    "editor.fontFamily": "'Anonymous Pro', Menlo, Monaco, 'Courier New', monospace",
+    "editor.fontLigatures": null,
+    "editor.fontSize": 13,
     "editor.minimap.enabled": false,
-    "editor.renderWhitespace": "all",
+    "editor.multiCursorModifier": "ctrlCmd",
     "editor.renderControlCharacters": true,
+    "editor.renderWhitespace": "all",
+    "editor.scrollBeyondLastLine": false,
+    "editor.tabSize": 2,
+    "editor.wordSeparators": "`~!@#$%^&*()=+[{]}\\|;:'\",.<>/?",
+    "editor.wordWrap": "off",
+    "explorer.autoReveal": false,
+    "explorer.confirmDragAndDrop": false,
+    "explorer.openEditors.visible": 10,
     "files.associations": {
         "Makefile*": "makefile",
         "*.config": "yaml",
         ".env.*": "dotenv"
     },
-    "editor.multiCursorModifier": "ctrlCmd",
-    "atomKeymap.promptV3Features": true,
-    "editor.fontFamily": "'Anonymous Pro', Menlo, Monaco, 'Courier New', monospace",
-    "editor.fontSize": 13,
-    "editor.wordWrap": "off",
-    "explorer.openEditors.visible": 10,
-    "editor.scrollBeyondLastLine": false,
-    "workbench.startupEditor": "newUntitledFile",
-    "explorer.autoReveal": false,
-    "files.trimTrailingWhitespace": true,
-    "[markdown]": {
-        "files.trimTrailingWhitespace": false
-    },
     "files.insertFinalNewline": true,
     "files.trimFinalNewlines": true,
-    "[elixir]": {
-        "editor.defaultFormatter": "sammkj.vscode-elixir-formatter"
-    },
-    "ruby.format": "rubocop",
-    "ruby.intellisense": "rubyLocate",
-    "ruby.codeCompletion": "rcodetools",
-    "workbench.tree.indent": 15,
-    "workbench.tree.renderIndentGuides": "always",
-    "window.restoreWindows": "all",
-    "markdown.marp.enableHtml": true,
-    "workbench.editor.untitled.labelFormat": "name",
-    "explorer.confirmDragAndDrop": false,
+    "files.trimTrailingWhitespace": true,
     "git.alwaysShowStagedChangesResourceGroup": true,
     "hediet.vscode-drawio.local-storage": "eyIuZHJhd2lvLWNvbmZpZyI6IntcImxhbmd1YWdlXCI6XCJcIixcImN1c3RvbUZvbnRzXCI6W10sXCJsaWJyYXJpZXNcIjpcImdlbmVyYWxcIixcImN1c3RvbUxpYnJhcmllc1wiOltcIkwuc2NyYXRjaHBhZFwiXSxcInBsdWdpbnNcIjpbXSxcInJlY2VudENvbG9yc1wiOltdLFwiZm9ybWF0V2lkdGhcIjoyNDAsXCJjcmVhdGVUYXJnZXRcIjpmYWxzZSxcInBhZ2VGb3JtYXRcIjp7XCJ4XCI6MCxcInlcIjowLFwid2lkdGhcIjoxMTAwLFwiaGVpZ2h0XCI6ODUwfSxcInNlYXJjaFwiOnRydWUsXCJzaG93U3RhcnRTY3JlZW5cIjp0cnVlLFwiZ3JpZENvbG9yXCI6XCIjZDBkMGQwXCIsXCJkYXJrR3JpZENvbG9yXCI6XCIjNmU2ZTZlXCIsXCJhdXRvc2F2ZVwiOnRydWUsXCJyZXNpemVJbWFnZXNcIjpudWxsLFwib3BlbkNvdW50ZXJcIjowLFwidmVyc2lvblwiOjE4LFwidW5pdFwiOjEsXCJpc1J1bGVyT25cIjpmYWxzZSxcInVpXCI6XCJcIn0ifQ==",
-    "workbench.iconTheme": "vscode-seedling-icon-theme",
-    "customizeUI.titleBar": "frameless",
-    "customizeUI.activityBar": "bottom",
+    "markdown.marp.enableHtml": true,
+    "notebook.cellToolbarLocation": {
+        "default": "right",
+        "jupyter-notebook": "left"
+    },
+    "python.showStartPage": false,
+    "ruby.codeCompletion": "rcodetools",
+    "ruby.format": "rubocop",
+    "ruby.intellisense": "rubyLocate",
+    "ruby.rubocop.onSave": false,
+    "ruby.rubocop.useBundler": true,
+    "settingsSync.ignoredSettings": [],
+    "vetur.format.defaultFormatter.js": "none",
+    "window.restoreWindows": "all",
     "window.titleBarStyle": "native",
-    "editor.tabSize": 2,
     "workbench.colorCustomizations": {
         // ref. https://code.visualstudio.com/api/references/theme-color
 
@@ -106,24 +104,25 @@
 
         "_comment": ""
     },
-    "[javascript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "vetur.format.defaultFormatter.js": "none",
+    "workbench.colorTheme": "Slime",
+    "workbench.editor.untitled.labelFormat": "name",
     "workbench.editorAssociations": {
         "*.ipynb": "jupyter-notebook"
     },
-    "python.showStartPage": false,
-    "settingsSync.ignoredSettings": [
-    ],
-    "notebook.cellToolbarLocation": {
-        "default": "right",
-        "jupyter-notebook": "left"
+    "workbench.iconTheme": "vscode-seedling-icon-theme",
+    "workbench.startupEditor": "newUntitledFile",
+    "workbench.tree.indent": 15,
+    "workbench.tree.renderIndentGuides": "always",
+    "[elixir]": {
+        "editor.defaultFormatter": "sammkj.vscode-elixir-formatter"
     },
-    "editor.fontLigatures": null,
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[markdown]": {
+        "files.trimTrailingWhitespace": false
+    },
     "[ruby]": {
         "editor.defaultFormatter": "misogi.ruby-rubocop"
-    },
-    "ruby.rubocop.onSave": false,
-    "ruby.rubocop.useBundler": true
+    }
 }
