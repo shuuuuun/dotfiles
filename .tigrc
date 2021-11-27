@@ -1,5 +1,6 @@
 set line-graphics = utf-8
 set ignore-case = true
 set diff-options = -m --first-parent
+set diff-highlight = true
 
 set main-view = id date author commit-title:graph=yes,refs=yes
