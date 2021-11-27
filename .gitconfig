@@ -29,6 +29,7 @@
 	push-f = push --force-with-lease
 	diff-no = diff --name-only
 	log-graph = log --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+	log-oneline = log --pretty='format:%C(yellow)%h %C(green)%cd %C(cyan)%an %C(reset)%s %C(red)%d' --date=iso -n 10
 
 [user]
 	name = shuuuuuny

@@ -172,6 +172,7 @@ alias git-clone-shallow='git clone --depth 1 --single-branch'
 alias git-commit-date='git --no-pager log --pretty=format:%ci -n 1'
 alias git-dirty-check='git diff --exit-code --quiet HEAD'
 alias git-commit-hash='git log -1 --format=%H'
+alias git-log-oneline='git --no-pager log-oneline'
 
 if has peco; then
   alias gco-peco='git branch | peco | xargs git checkout'
