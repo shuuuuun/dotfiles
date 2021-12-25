@@ -116,8 +116,9 @@ if is_mac; then
 
   alias copy-branch='git symbolic-ref --short HEAD | pbcopy'
 
-  GITHUB_REPO_NAME_REGEX='/[https?:\/\/|git\@]github\.com[\/|:]([^\/]+)\/([^\/]+)(\.git)?/'
-  alias open-github='git remote -v | head -n 1 | awk '"'"'{ print $2 }'"'"' | perl -0ne '"'"'print "https://github.com/$1/$2" if ('$GITHUB_REPO_NAME_REGEX')'"'"' | tee /dev/stderr | xargs -I url open url'
+  GITHUB_REPO_NAME_REGEX='/[https?:\/\/|git\@]github\.com[\/|:]([^\/]+?)\/([^\/]+?)(\.git)?$/'
+  alias github-url='git remote -v | head -n 1 | awk '"'"'{ print $2 }'"'"' | perl -0ne '"'"'print "https://github.com/$1/$2" if ('$GITHUB_REPO_NAME_REGEX')'"'"''
+  alias open-github='github-url | tee /dev/stderr | xargs -I url open url'
   alias open-gh-pages='git remote -v | head -n 1 | awk '"'"'{ print $2 }'"'"' | perl -0ne '"'"'print "https://$1.github.io/$2/" if ('$GITHUB_REPO_NAME_REGEX')'"'"' | tee /dev/stderr | xargs -I url open url'
   alias push-gh-pages='git subtree push --prefix public/ origin gh-pages'
   alias github='open-github'

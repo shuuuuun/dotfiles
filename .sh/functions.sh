@@ -256,7 +256,7 @@ function local-ip {
 # TODO: git-push-u-current-branch
 # git push -u origin current-branch
 
-GITHUB_REPO_NAME_REGEX='/[https?:\/\/|git\@]github\.com[\/|:]([^\/]+)\/([^\/]+)(\.git)?/'
+GITHUB_REPO_NAME_REGEX='/[https?:\/\/|git\@]github\.com[\/|:]([^\/]+?)\/([^\/]+?)(\.git)?$/'
 
 function github-file-page {
   filename=$1
