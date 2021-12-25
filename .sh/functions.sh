@@ -256,10 +256,11 @@ function local-ip {
 # TODO: git-push-u-current-branch
 # git push -u origin current-branch
 
+GITHUB_REPO_NAME_REGEX='/[https?:\/\/|git\@]github\.com[\/|:]([^\/]+)\/([^\/]+)(\.git)?/'
+
 function github-file-page {
   filename=$1
-  github_repo_name_regexp='/[https?:\/\/|git\@]github\.com[\/|:]([^\/]+)\/([^\/]+)\.git/'
-  github_url=$(git remote -v | perl -0ne 'print "https://github.com/$1/$2" if ('$github_repo_name_regexp')')
+  github_url=$(git remote -v | head -n 1 | awk '{ print $2 }' | perl -0ne 'print "https://github.com/$1/$2" if ('$GITHUB_REPO_NAME_REGEX')')
   branch=$(git rev-parse --abbrev-ref HEAD)
   url="$github_url/blob/$branch/$filename"
   echo $url
@@ -267,9 +268,9 @@ function github-file-page {
 }
 
 function github-commit-page {
-  github_repo_name_regexp='/[https?:\/\/|git\@]github\.com[\/|:]([^\/]+)\/([^\/]+)\.git/'
-  github_url=$(git remote -v | perl -0ne 'print "https://github.com/$1/$2" if ('$github_repo_name_regexp')')
-  commit_url="$github_url/commit/$1"
+  commit=$1
+  github_url=$(git remote -v | head -n 1 | awk '{ print $2 }' | perl -0ne 'print "https://github.com/$1/$2" if ('$GITHUB_REPO_NAME_REGEX')')
+  commit_url="$github_url/commit/$commit"
   echo $commit_url
   open $commit_url
 }
