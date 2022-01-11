@@ -84,3 +84,4 @@
 
 [init]
 	templateDir = ~/.git-templates/git-secrets
+	defaultBranch = main
