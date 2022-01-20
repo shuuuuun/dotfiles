@@ -385,6 +385,17 @@ brew "remind101/formulae/assume-role"
 brew "shuuuuun/tap/brew-npm"
 # High performance source code search tool.
 brew "tkengo/highway/highway"
+# Tool to customize input devices and automate computer systems
+cask "bettertouchtool"
+# Clipboard extension app
+cask "clipy"
+# App to build and share containerized applications and microservices
+cask "docker"
+# Client for the Dropbox cloud storage service
+cask "dropbox"
+cask "google-japanese-ime"
+# Keyboard customizer
+cask "karabiner-elements"
 # Reverse proxy, secure introspectable tunnels to localhost
 cask "ngrok"
 cask "nosql-workbench-for-amazon-dynamodb"
@@ -398,3 +409,5 @@ cask "virtualbox"
 cask "wkhtmltopdf"
 # Open-source version of the X.Org X Window System
 cask "xquartz"
+# Open-source code editor
+cask "visual-studio-code"
