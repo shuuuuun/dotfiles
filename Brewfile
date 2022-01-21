@@ -385,6 +385,8 @@ brew "remind101/formulae/assume-role"
 brew "shuuuuun/tap/brew-npm"
 # High performance source code search tool.
 brew "tkengo/highway/highway"
+# Two-factor authentication software
+cask "authy"
 # Tool to customize input devices and automate computer systems
 cask "bettertouchtool"
 # Clipboard extension app
@@ -393,6 +395,8 @@ cask "clipy"
 cask "docker"
 # Client for the Dropbox cloud storage service
 cask "dropbox"
+# Tool to turn any web page into a desktop app
+cask "flotato"
 cask "google-japanese-ime"
 # Keyboard customizer
 cask "karabiner-elements"
