@@ -703,3 +703,16 @@ function git-worktree-cd {
   dir=$(echo "$result" | awk '{ print $1 }')
   cd "$dir"
 }
+function git-worktree-add {
+  dirname=$1
+  branch=$2
+  if [ -z "$dirname" -o -z "$branch" ]; then
+    echo "Too few arguments"
+    return 1
+  fi
+  relpath="tmp/worktrees/$dirname"
+  echo "$relpath"
+  mkdir -p "$relpath"
+  git worktree add "$relpath" "$branch"
+  cd "$relpath"
+}
