@@ -270,7 +270,7 @@ brew "nim"
 brew "nkf"
 # Tiny, lightning fast, feature-packed file manager
 brew "nnn"
-brew "npm-clasp"
+brew "npm-google-clasp"
 brew "npm-koko"
 brew "npm-lighthouse"
 brew "npm-rgb-hex-cli"
@@ -385,6 +385,8 @@ brew "remind101/formulae/assume-role"
 brew "shuuuuun/tap/brew-npm"
 # High performance source code search tool.
 brew "tkengo/highway/highway"
+# Application uninstaller
+cask "appcleaner"
 # Two-factor authentication software
 cask "authy"
 # Tool to customize input devices and automate computer systems
