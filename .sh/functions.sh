@@ -703,6 +703,8 @@ function git-worktree-cd {
   dir=$(echo "$result" | awk '{ print $1 }')
   cd "$dir"
 }
+alias cd-git-worktree='git-worktree-cd'
+
 function git-worktree-add {
   dirname=$1
   branch=$2
