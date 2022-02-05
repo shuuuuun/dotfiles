@@ -50,6 +50,8 @@ echo "backup end."
 #
 echo "deploying dotfiles to $HOME..."
 for file in ${DOTFILES[@]}; do
+  dir=$(dirname "$file")
+  mkdir -p "$HOME/$dir"
   ln -s "$DOTFILES_ROOT/$file" "$HOME/$file" && \
     echo "  symbolic_link: $DOTFILES_ROOT/$file -> $HOME/$file"
 done
