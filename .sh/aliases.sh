@@ -164,6 +164,8 @@ alias gpull-rebase='git pull --rebase'
 # alias gswdevelop='git switch develop'
 alias gsw-='git switch -'
 alias git-root='git rev-parse --show-toplevel'
+alias git-gitdir='git rev-parse --git-dir'
+alias git-git-common-dir='git rev-parse --git-common-dir'
 alias gft-origin-master='git fetch origin master:master'
 alias gft-origin-develop='git fetch origin develop:develop'
 function gft-origin() { git fetch origin $1:$1; }
