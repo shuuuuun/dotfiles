@@ -1,0 +1,7 @@
+# ref. https://github.com/gokcehan/lf
+# ref. https://godoc.org/github.com/gokcehan/lf
+
+set hidden
+
+# map <enter> edit
+map sh shell
