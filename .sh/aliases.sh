@@ -265,6 +265,11 @@ if has ruby; then
   alias yamlsort='ruby -ryaml -e "puts YAML.load(STDIN.read).sort.to_h.to_yaml"'
 fi
 
+if has node; then
+  alias decodeURIComponent='xargs -Istdin node -e "console.log(decodeURIComponent(\"stdin\"))"'
+  alias encodeURIComponent='xargs -Istdin node -e "console.log(encodeURIComponent(\"stdin\"))"'
+fi
+
 if has rg; then
   alias rgTODO='rg TODO'
   alias rgtodo='rg TODO'

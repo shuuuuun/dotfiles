@@ -355,6 +355,18 @@ function shuffle {
   ruby -e "puts '$1'.split('').shuffle.join('')"
 }
 
+function decode_uri {
+  input=$1
+  # TODO: STDIN support
+  ruby -ruri -e "puts URI.decode_www_form_component('$input')"
+}
+
+function encode_uri {
+  input=$1
+  # TODO: STDIN support
+  ruby -ruri -e "puts URI.encode_www_form_component('$input')"
+}
+
 function git-init {
   git init # 既存のrepoでは何もしないので大丈夫(Reinitialized existing Git repository とか出るので不安になるけど)
   git commit -m "init" --allow-empty
