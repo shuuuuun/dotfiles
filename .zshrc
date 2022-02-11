@@ -188,6 +188,12 @@ fi
 # fpath=($fpath /usr/local/Cellar/tig/*/share/zsh/site-functions)
 source_if_exist "/usr/local/Cellar/tig/*/share/zsh/site-functions/tig-completion.bash"
 
+# lf
+# ref. https://github.com/gokcehan/lf/wiki/Tutorial#working-directory
+# $ curl https://raw.githubusercontent.com/gokcehan/lf/master/etc/lfcd.sh -o ~/.config/lf/lfcd.sh
+source_if_exist "$HOME/.config/lf/lfcd.sh"
+
+
 # 上矢印で入力中の単語にマッチした履歴を出してくれるやつ
 # ref. https://github.com/ohmyzsh/ohmyzsh/blob/master/lib/key-bindings.zsh
 #
