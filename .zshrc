@@ -47,8 +47,10 @@ zinit light shuuuuun/pure
 # prompt
 #
 # PURE_PROMPT_SYMBOL='%*$'
-# PURE_PROMPT_LEFT='%*'
-PURE_PREPROMPT_LEFT='%*'
+# PURE_PREPROMPT_LEFT='%*'
+PURE_PREPROMPT_LEFT="%D{%Y/%m/%d %H:%M:%S}"
+# PURE_PROMPT_LEFT='%F{6}%D %*%f '
+# PURE_PROMPT_LEFT="%D{%Y-%m-%d %H:%M:%S} %f"
 PURE_PROMPT_SYMBOL='$'
 PURE_PROMPT_SYMBOL_COLOR='magenta'
 PURE_PROMPT_SYMBOL_ERROR_COLOR='red'
@@ -61,6 +63,38 @@ type prompt_pure_setup > /dev/null 2>&1 && prompt_pure_setup
 # promptinit
 # prompt pure
 # prompt muslim
+
+# function show_command_end_time() {
+#   PURE_PREPROMPT_LEFT=`date "+%Y-%m-%d %H:%M:%S"`
+# }
+# autoload -Uz add-zsh-hook
+# add-zsh-hook precmd show_command_end_time
+
+# show_command_begin_time() {
+#   PURE_PROMPT_LEFT=`date "+%H:%M:%S"`
+#   # PURE_PROMPT_LEFT="%D{%Y-%m-%d %H:%M:%S} %f"
+#   zle .accept-line
+#   zle .reset-prompt
+# }
+# zle -N accept-line show_command_begin_time
+
+# re-prompt() {
+#     PURE_PROMPT_LEFT=`date "+%H:%M:%S"`
+#     zle .reset-prompt
+#     zle .accept-line
+# }
+# zle -N accept-line re-prompt
+
+# export TMOUT=1
+# function TRAPALRM() {
+#   zle .reset-prompt
+# }
+
+# show-time() {
+#   zle .accept-line
+#   echo "\n"`date "+%Y-%m-%d %H:%M:%S"`
+# }
+# zle -N accept-line show-time
 
 
 #
