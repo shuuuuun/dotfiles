@@ -9,7 +9,6 @@ tap "homebrew/cask"
 tap "homebrew/cask-fonts"
 tap "homebrew/core"
 tap "homebrew/services"
-tap "k1low/tap"
 tap "kayac/tap"
 tap "knqyf263/utern"
 tap "minamijoyo/tfupdate"
@@ -58,6 +57,8 @@ brew "pkg-config"
 brew "cairo"
 # Decentralized dependency manager for Cocoa
 brew "carthage"
+# Zstandard is a real-time compression algorithm
+brew "zstd"
 # GNU compiler collection
 brew "gcc"
 # Optimized BLAS library
@@ -80,6 +81,8 @@ brew "cmatrix"
 brew "colordiff"
 # GNU File, Shell, and Text utilities
 brew "coreutils"
+# International domain name library (IDNA2008, Punycode and TR46)
+brew "libidn2"
 # Open source programming language to build simple/reliable/efficient software
 brew "go"
 # Go dependency management tool
@@ -98,14 +101,10 @@ brew "erlang"
 brew "elixir"
 # Asynchronous event library
 brew "libevent"
-# International domain name library (IDNA2008, Punycode and TR46)
-brew "libidn2"
 # Library to load and enumerate PKCS#11 modules
 brew "p11-kit"
 # GNU Transport Layer Security (TLS) Library
 brew "gnutls"
-# HTTP/2 C Library
-brew "nghttp2"
 # GNU Emacs text editor
 brew "emacs"
 # Perl lib for reading and writing EXIF metadata
@@ -142,16 +141,9 @@ brew "xerces-c"
 brew "gdal"
 # Toolkit for image loading and pixel buffer manipulation
 brew "gdk-pixbuf"
-brew "gem-html2haml"
 brew "gem-irep"
-brew "gem-pry"
-brew "gem-rails"
-brew "gem-rails-erd"
-brew "gem-rebi"
 brew "gem-rubocop"
-brew "gem-rubocop-rails"
 brew "gem-solargraph"
-brew "gem-twurl"
 # GitHub command-line tool
 brew "gh"
 # Remote repository management made easy
@@ -206,18 +198,12 @@ brew "httpie"
 brew "hub"
 # USB multiplexor library for iOS devices
 brew "libusbmuxd"
-# Library to communicate with iOS devices natively
-brew "libimobiledevice", args: ["HEAD"]
 # Tool for managing apps on iOS devices
 brew "ideviceinstaller"
 # OpenEXR ILM Base libraries (high dynamic-range image file format)
-brew "ilmbase", link: true
+brew "ilmbase"
 # ISO/IEC 23008-12:2017 HEIF file format decoder and encoder
 brew "libheif"
-# Tool Command Language
-brew "tcl-tk"
-# Interpreted, interactive, object-oriented programming language
-brew "python@3.8"
 # Tools and libraries to manipulate images in many formats
 brew "imagemagick"
 # Tools and libraries to manipulate images in many formats
@@ -240,12 +226,14 @@ brew "jsonnet"
 brew "lf"
 # CSS parsing and manipulation toolkit for GNOME
 brew "libcroco"
-# Cartographic Projections Library
-brew "proj"
 # Allows SpatiaLite to support ST_MakeValid() like PostGIS
 brew "liblwgeom"
 # C XSLT library for GNOME
 brew "libxslt"
+# Emulator for x86 and PowerPC
+brew "qemu"
+# Linux virtual machines
+brew "lima"
 # Replacement for the old crypt package and crypt(1) command
 brew "mcrypt"
 # Yet another part-of-speech and morphological analyzer
@@ -262,6 +250,8 @@ brew "mozjpeg"
 brew "mysql@5.7", link: true
 # Wrap web apps natively
 brew "nativefier"
+# HTTP/2 C Library
+brew "nghttp2"
 # HTTP(S) server and reverse proxy, and IMAP/POP3 proxy server
 brew "nginx"
 # Statically typed compiled systems programming language
@@ -272,13 +262,14 @@ brew "nkf"
 brew "nnn"
 brew "npm-google-clasp"
 brew "npm-koko"
-brew "npm-lighthouse"
 brew "npm-rgb-hex-cli"
 brew "npm-serverless"
 # Toolkit for 3D computer graphics, image processing, and visualization
 brew "vtk"
 # Open source computer vision library
 brew "opencv"
+# Cryptography and SSL/TLS Toolkit
+brew "openssl@3"
 # PNG file optimizer
 brew "optipng"
 # Swiss-army knife of markup format conversion
@@ -291,6 +282,8 @@ brew "perl"
 brew "pipx"
 # PNG image optimizing utility
 brew "pngquant"
+# Cross-platform application and UI framework
+brew "qt", link: false
 # PDF rendering library (based on the xpdf-3.0 code base)
 brew "poppler"
 # Object-relational database system
@@ -299,14 +292,14 @@ brew "postgresql"
 brew "postgis"
 # Object-relational database system
 brew "postgresql@10"
+# Cartographic Projections Library
+brew "proj"
 # Sound system for POSIX OSes
 brew "pulseaudio"
-# Cross-platform application and UI framework
-brew "qt", link: false
+# Tool Command Language
+brew "tcl-tk"
 # Interpreted, interactive, object-oriented programming language
-brew "python@2", link: false
-# Emulator for x86 and PowerPC
-brew "qemu"
+brew "python@3.8"
 # File browser
 brew "ranger"
 # Persistent key-value database, with built-in net interface
@@ -341,8 +334,6 @@ brew "tmux"
 brew "tree"
 # File synchronization tool for OSX
 brew "unison"
-# Google's open source JavaScript engine
-brew "v8@3.15"
 # HTTP load testing tool and library
 brew "vegeta"
 # Vi 'workalike' with many additional features
@@ -370,8 +361,6 @@ brew "eugenmayer/dockersync/unox"
 brew "fujiwara/tap/aswrap"
 brew "fujiwara/tap/lambroll"
 brew "fujiwara/tap/tracer"
-# tbls is a CI-Friendly tool for document a database, written in Go.
-brew "k1low/tap/tbls"
 brew "kayac/tap/ecspresso"
 # Multi group and stream log tailing for AWS CloudWatch Logs
 brew "knqyf263/utern/utern"
@@ -405,16 +394,13 @@ cask "google-japanese-ime"
 cask "karabiner-elements"
 # Reverse proxy, secure introspectable tunnels to localhost
 cask "ngrok"
-cask "nosql-workbench-for-amazon-dynamodb"
+# App to write, plan, collaborate, and get organized
+cask "notion"
+# Collaboration platform for API development
+cask "postman"
 # Plugin for AWS CLI to start and end sessions that connect to managed instances
 cask "session-manager-plugin"
-cask "tcl"
-# Development environment
-cask "vagrant"
-# Virtualizer for x86 hardware
-cask "virtualbox"
-cask "wkhtmltopdf"
-# Open-source version of the X.Org X Window System
-cask "xquartz"
+# Editor for designing and documenting APIs
+cask "stoplight-studio"
 # Open-source code editor
 cask "visual-studio-code"
