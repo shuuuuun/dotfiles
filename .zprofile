@@ -25,14 +25,6 @@ path=(
 export LESS="-iMRS"
 
 #
-# LS_COLORS
-#
-dircolors_path="$HOME/.sh/lib/seebi/dircolors-solarized/dircolors.ansi-universal"
-if [ -f $dircolors_path ]; then
-  eval $(gdircolors $dircolors_path)
-fi
-
-#
 # Temporary Files
 #
 if [[ ! -d "$TMPDIR" ]]; then
@@ -59,6 +51,14 @@ export GOPATH=$HOME/repo
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:~/.sh/commands
 
+
+#
+# LS_COLORS
+#
+dircolors_path="$HOME/.sh/lib/seebi/dircolors-solarized/dircolors.ansi-universal"
+if [ -f $dircolors_path ]; then
+  eval $(gdircolors $dircolors_path)
+fi
 
 #
 # Editors
