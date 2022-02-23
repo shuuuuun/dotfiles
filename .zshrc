@@ -43,7 +43,7 @@ zinit light shuuuuun/pure
 # zinit wait lucid atload"zicompinit; zicdreplay" blockf for zsh-users/zsh-completions
 
 # git completion
-zinit wait lucid atclone"zstyle ':completion:*:*:git:*' script git-completion.bash" atpull"%atclone" for "https://github.com/git/git/blob/master/contrib/completion/git-completion.bash"
+zinit wait silent lucid atclone"zstyle ':completion:*:*:git:*' script git-completion.bash" atpull"%atclone" for "https://github.com/git/git/blob/master/contrib/completion/git-completion.bash"
 zinit wait lucid as"completion" atload"zicompinit; zicdreplay" mv"git-completion.zsh -> _git" for "https://github.com/git/git/blob/master/contrib/completion/git-completion.zsh"
 
 
