@@ -351,6 +351,21 @@ function ruby-string {
   ruby -e "puts '$str'.send('$method')"
 }
 
+function strsize {
+  if [ -p /dev/stdin ]; then
+    str=$(cat -)
+  else
+    str=$1
+  fi
+  local ruby_script=$(cat <<-RUBY
+    puts "size: #{ '$str'.size }"
+    puts "bytesize: #{ '$str'.bytesize }"
+    puts "line: #{ '$str'.split("\\n").size }"
+RUBY
+  )
+  ruby -e "$ruby_script"
+}
+
 function shuffle {
   ruby -e "puts '$1'.split('').shuffle.join('')"
 }
