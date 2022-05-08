@@ -25,15 +25,14 @@ zinit light-mode for \
 ### End of Zinit's installer chunk
 
 # plugins
-zinit ice wait'!0'; zinit light zsh-users/zsh-autosuggestions
-# zinit ice wait'!0'; zinit light zsh-users/zsh-syntax-highlighting
-zinit ice wait'!0'; zinit light zdharma-continuum/fast-syntax-highlighting
-zinit ice wait'!0'; zinit light zsh-users/zsh-completions # 補完
-# zinit light zdharma-continuum/history-search-multi-word
-# zinit light zsh-users/zsh-history-substring-search
-# zinit light momo-lab/zsh-abbrev-alias # 略語を展開する
+zinit wait light-mode for zsh-users/zsh-autosuggestions
+# zinit wait light-mode for zsh-users/zsh-syntax-highlighting
+zinit wait light-mode for zdharma-continuum/fast-syntax-highlighting
+zinit wait light-mode for zsh-users/zsh-completions # 補完
+# zinit wait light-mode for zdharma-continuum/history-search-multi-word
+# zinit wait light-mode for zsh-users/zsh-history-substring-search
+# zinit wait light-mode for momo-lab/zsh-abbrev-alias # 略語を展開する
 
-# zinit ice wait atload"zicompinit; zicdreplay"; zinit light felipec/git-completion
 zinit wait atload"zicompinit; zicdreplay" light-mode for felipec/git-completion
 
 # prompt
@@ -42,8 +41,6 @@ zinit light mafredri/zsh-async # need for pure prompt
 zinit light shuuuuun/pure
 # zinit light nksoff/muslim
 # zinit light isqua/bureau
-
-# zinit wait lucid atload"zicompinit; zicdreplay" blockf for zsh-users/zsh-completions
 
 # git completion
 # zinit wait silent lucid atclone"zstyle ':completion:*:*:git:*' script git-completion.bash" atpull"%atclone" for "https://github.com/git/git/blob/master/contrib/completion/git-completion.bash"
