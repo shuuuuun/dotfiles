@@ -590,24 +590,24 @@ alias tilde2home='perl -pe "s@^~@$HOME@g"'
 
 # cd repo directory with ghq and peco
 function cd-repo {
-  local path=$(ghq list -p | home2tilde | peco --query "$LBUFFER" | tilde2home)
-  if [ -n "$path" ]; then
-    cd ${path}
-    echo "jump to ${path}"
+  local new_path=$(ghq list -p | home2tilde | peco --query "$LBUFFER" | tilde2home)
+  if [ -n "$new_path" ]; then
+    cd ${new_path}
+    echo "jump to ${new_path}"
   fi
 }
 
 # cd works directory with peco
 function cd-works {
-  local path=$(find ~/works -name '.git' -prune \
+  local new_path=$(find ~/works -name '.git' -prune \
                       -or -type d \
                       -maxdepth 2 \
                | home2tilde \
                | peco --query "$LBUFFER" \
                | tilde2home)
-  if [ -n "$path" ]; then
-    cd ${path}
-    echo "jump to ${path}"
+  if [ -n "$new_path" ]; then
+    cd ${new_path}
+    echo "jump to ${new_path}"
   fi
 }
 
