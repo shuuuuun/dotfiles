@@ -371,14 +371,20 @@ function shuffle {
 }
 
 function decode_uri {
-  input=$1
-  # TODO: STDIN support
+  if [ -p /dev/stdin ]; then
+    input=$(cat -)
+  else
+    input=$1
+  fi
   ruby -ruri -e "puts URI.decode_www_form_component('$input')"
 }
 
 function encode_uri {
-  input=$1
-  # TODO: STDIN support
+  if [ -p /dev/stdin ]; then
+    input=$(cat -)
+  else
+    input=$1
+  fi
   ruby -ruri -e "puts URI.encode_www_form_component('$input')"
 }
 
