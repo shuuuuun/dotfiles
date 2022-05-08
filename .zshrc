@@ -47,6 +47,12 @@ zinit light shuuuuun/pure
 # zinit wait lucid as"completion" atload"zicompinit; zicdreplay" mv"git-completion.bash -> _git.bash" atclone"zstyle ':completion:*:*:git:*' script _git.bash" atpull"%atclone" for "https://github.com/git/git/blob/master/contrib/completion/git-completion.bash"
 # zinit wait lucid as"completion" atload"zicompinit; zicdreplay" mv"git-completion.zsh -> _git" for "https://github.com/git/git/blob/master/contrib/completion/git-completion.zsh"
 
+# direnv
+# ref. https://zdharma-continuum.github.io/zinit/wiki/Direnv-explanation/
+zinit wait lucid light-mode from"gh-r" as"program" mv"direnv* -> direnv" \
+      atclone'./direnv hook zsh > zhook.zsh' atpull'%atclone' \
+      pick"direnv" src="zhook.zsh" for \
+      direnv/direnv
 
 
 #
@@ -176,9 +182,9 @@ fi
 
 REPORTTIME=3
 
-if has direnv; then
-  eval "$(direnv hook zsh)"
-fi
+# if has direnv; then
+#   eval "$(direnv hook zsh)"
+# fi
 
 if [ -d ${HOME}/.anyenv ]; then
   export PATH="$HOME/.anyenv/bin:$PATH"
