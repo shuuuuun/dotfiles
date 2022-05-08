@@ -108,6 +108,7 @@ type prompt_pure_setup > /dev/null 2>&1 && prompt_pure_setup
 #
 setopt transient_rprompt # RPROMPTを残さない
 unsetopt correct # disable autocorrect
+setopt nonomatch # ?などのグロブ展開を無効化
 
 # history
 setopt share_history
