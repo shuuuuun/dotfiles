@@ -205,6 +205,9 @@ source_if_exist "/usr/local/Cellar/tig/*/share/zsh/site-functions/tig-completion
 # ref. https://github.com/gokcehan/lf/wiki/Tutorial#working-directory
 # $ curl https://raw.githubusercontent.com/gokcehan/lf/master/etc/lfcd.sh -o ~/.config/lf/lfcd.sh
 source_if_exist "$HOME/.config/lf/lfcd.sh"
+if has lfcd; then
+  alias cd-lf='lfcd'
+fi
 
 
 # 上矢印で入力中の単語にマッチした履歴を出してくれるやつ
