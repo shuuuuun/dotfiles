@@ -80,7 +80,7 @@ function agreplace {
 # 検索してマッチした数を出す
 # ex. agcount hoge path
 function agcount {
-  ag --nobreak --nofilename $1 $2 | wc -l 
+  ag --nobreak --nofilename $1 $2 | wc -l
 }
 
 # TODO:
@@ -509,7 +509,7 @@ alias find-peco-cd='cd $(find-peco-dir)'
 
 function find-peco-file {
   # TODO: gitignoreは１階層だけ表示とか
-  # TODO: ディレクトリの中身が多いときは表示しないとか  
+  # TODO: ディレクトリの中身が多いときは表示しないとか
   find . -name '.git' -prune \
          -or -name 'node_modules' -prune \
          -or -type f -print \
@@ -551,7 +551,7 @@ function mdfind-peco {
 # }
 # zle -N peco-history
 # bindkey '^R' peco-history
-# 
+#
 # function peco-select-history {
 #   BUFFER=$(\history -n -r 1 | peco --query "$LBUFFER")
 #   CURSOR=$#BUFFER
