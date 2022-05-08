@@ -33,6 +33,9 @@ zinit ice wait'!0'; zinit light zsh-users/zsh-completions # 補完
 # zinit light zsh-users/zsh-history-substring-search
 # zinit light momo-lab/zsh-abbrev-alias # 略語を展開する
 
+# zinit ice wait atload"zicompinit; zicdreplay"; zinit light felipec/git-completion
+zinit wait atload"zicompinit; zicdreplay" light-mode for felipec/git-completion
+
 # prompt
 zinit light mafredri/zsh-async # need for pure prompt
 # zinit light sindresorhus/pure
@@ -43,8 +46,10 @@ zinit light shuuuuun/pure
 # zinit wait lucid atload"zicompinit; zicdreplay" blockf for zsh-users/zsh-completions
 
 # git completion
-zinit wait silent lucid atclone"zstyle ':completion:*:*:git:*' script git-completion.bash" atpull"%atclone" for "https://github.com/git/git/blob/master/contrib/completion/git-completion.bash"
-zinit wait lucid as"completion" atload"zicompinit; zicdreplay" mv"git-completion.zsh -> _git" for "https://github.com/git/git/blob/master/contrib/completion/git-completion.zsh"
+# zinit wait silent lucid atclone"zstyle ':completion:*:*:git:*' script git-completion.bash" atpull"%atclone" for "https://github.com/git/git/blob/master/contrib/completion/git-completion.bash"
+# zinit wait lucid as"completion" atload"zicompinit; zicdreplay" mv"git-completion.bash -> _git.bash" atclone"zstyle ':completion:*:*:git:*' script _git.bash" atpull"%atclone" for "https://github.com/git/git/blob/master/contrib/completion/git-completion.bash"
+# zinit wait lucid as"completion" atload"zicompinit; zicdreplay" mv"git-completion.zsh -> _git" for "https://github.com/git/git/blob/master/contrib/completion/git-completion.zsh"
+
 
 
 #
