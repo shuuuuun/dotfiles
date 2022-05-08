@@ -730,3 +730,10 @@ function git-worktree-add {
   git worktree add "$relpath" "$branch"
   cd "$relpath"
 }
+
+function tracer-peco {
+  name=`tracer "$1" | peco | awk '{print $1}'`
+  [ -z "$name" ] && return
+  echo $name
+  tracer $1 $name
+}
