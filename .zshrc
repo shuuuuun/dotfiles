@@ -33,7 +33,7 @@ zinit wait light-mode for zsh-users/zsh-completions # 補完
 # zinit wait light-mode for zsh-users/zsh-history-substring-search
 # zinit wait light-mode for momo-lab/zsh-abbrev-alias # 略語を展開する
 
-zinit wait atload"zicompinit; zicdreplay" light-mode for felipec/git-completion
+zinit wait lucid atload"zicompinit; zicdreplay" light-mode for felipec/git-completion
 
 # prompt
 zinit light mafredri/zsh-async # need for pure prompt
