@@ -208,6 +208,7 @@ fi
 
 if has bundle; then
   alias bundle-install-path-vendor-bundle='bundle install --path vendor/bundle'
+  alias bundle-check-install='bundle check || bundle install --jobs=4 --retry=3'
   alias bundle-exec='bundle exec'
   alias be='bundle exec'
   alias bundle-gem='bundle gem --bin --coc --mit --no-git'
