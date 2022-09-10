@@ -249,6 +249,7 @@ fi
 if has docker; then
   alias docker-container-stop-all='docker container stop $(docker container ls -q)'
   alias docker-volume-ls-dangling='docker volume ls --filter dangling=true'
+  alias ghcr-login='git config --get github.token | docker login ghcr.io -u $(git config --get github.user) --password-stdin'
 fi
 
 if has docker-compose; then
@@ -293,6 +294,7 @@ fi
 
 if has aws; then
   alias aws-logs-loggroupnames='aws logs describe-log-groups | jq -rc ".logGroups[].logGroupName"' # TODO: pecoと組み合わせてログイベント取得を作る
+  alias aws-create-invalidation='aws cloudfront list-distributions | jq -r ".DistributionList.Items[].Id" | xargs -I% aws cloudfront create-invalidation --distribution-id % --paths "/*"' # TODO: pecoと組み合わせたい
 fi
 
 if has awslogs; then
