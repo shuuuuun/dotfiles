@@ -705,6 +705,18 @@ function docker-images-remove-force {
   docker image rm --force $images && echo "docker images removed: $images"
 }
 
+function docker-container-exec-bash {
+  local selected=$(docker container ls | tail +2 | peco --prompt 'DOCKER CONTAINERS>' --query "$1")
+  echo $selected
+  local container_id=($(echo -n $selected | awk '{print $1}' ORS=' '))
+  if [ -z "$container_id" ]; then
+    echo "no container selected."
+    return
+  fi
+  # echo "container_id:$container_id;"
+  docker exec -it $container_id bash
+}
+
 function ebenv2dotenv {
   env_name="$1"
   if [ -z "$env_name" ]; then
