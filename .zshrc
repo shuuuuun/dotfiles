@@ -25,13 +25,13 @@ zinit light-mode for \
 ### End of Zinit's installer chunk
 
 # plugins
-zinit wait light-mode for zsh-users/zsh-autosuggestions
-# zinit wait light-mode for zsh-users/zsh-syntax-highlighting
-zinit wait light-mode for zdharma-continuum/fast-syntax-highlighting
-zinit wait light-mode for zsh-users/zsh-completions # 補完
-# zinit wait light-mode for zdharma-continuum/history-search-multi-word
-# zinit wait light-mode for zsh-users/zsh-history-substring-search
-# zinit wait light-mode for momo-lab/zsh-abbrev-alias # 略語を展開する
+zinit wait lucid light-mode for zsh-users/zsh-autosuggestions
+# zinit wait lucid light-mode for zsh-users/zsh-syntax-highlighting
+zinit wait lucid light-mode for zdharma-continuum/fast-syntax-highlighting
+zinit wait lucid light-mode for zsh-users/zsh-completions # 補完
+# zinit wait lucid light-mode for zdharma-continuum/history-search-multi-word
+# zinit wait lucid light-mode for zsh-users/zsh-history-substring-search
+# zinit wait lucid light-mode for momo-lab/zsh-abbrev-alias # 略語を展開する
 
 zinit wait lucid atload"zicompinit; zicdreplay" light-mode for felipec/git-completion
 
