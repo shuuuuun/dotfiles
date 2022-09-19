@@ -124,6 +124,8 @@ if is_mac; then
   alias github='open-github'
   alias gh-open='open-gh-pages'
   alias gh-push='push-gh-pages'
+
+  alias restart-audio='sudo launchctl kickstart -kp system/com.apple.audio.coreaudiod'
 fi
 
 alias g='git'
