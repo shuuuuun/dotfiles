@@ -682,9 +682,9 @@ function docker-volumes-restore {
 }
 
 function docker-images-remove {
-  local selected=$(docker image ls | tail +2 | sort | peco --prompt 'DOCKER IMAGES>' --query "$1")
+  local selected=$(docker image ls --format "table {{.Size}}\t{{.Repository}}\t{{.Tag}}\t{{.ID}}\t{{.CreatedSince}}" | sort --human-numeric-sort --reverse -k 1 | peco --prompt 'DOCKER IMAGES>' --query "$1")
   echo $selected
-  local images=($(echo -n $selected | awk '{print $3}' ORS=' '))
+  local images=($(echo -n $selected | awk '{print $4}' ORS=' '))
   if [ -z "$images" ]; then
     echo "no images selected."
     return
@@ -694,15 +694,27 @@ function docker-images-remove {
 }
 
 function docker-images-remove-force {
-  local selected=$(docker image ls | tail +2 | sort | peco --prompt 'DOCKER IMAGES>' --query "$1")
+  local selected=$(docker image ls --format "table {{.Size}}\t{{.Repository}}\t{{.Tag}}\t{{.ID}}\t{{.CreatedSince}}" | sort --human-numeric-sort --reverse -k 1 | peco --prompt 'DOCKER IMAGES>' --query "$1")
   echo $selected
-  local images=($(echo -n $selected | awk '{print $3}' ORS=' '))
+  local images=($(echo -n $selected | awk '{print $4}' ORS=' '))
   if [ -z "$images" ]; then
     echo "no images selected."
     return
   fi
   # echo "images:$images;"
   docker image rm --force $images && echo "docker images removed: $images"
+}
+
+function docker-images-remove-repo {
+  local selected=$(docker image ls --format "table {{.Size}}\t{{.Repository}}:{{.Tag}}\t{{.ID}}\t{{.CreatedSince}}" | sort --human-numeric-sort --reverse -k 1 | peco --prompt 'DOCKER IMAGES>' --query "$1")
+  echo $selected
+  local images=($(echo -n $selected | awk '{print $2}' ORS=' '))
+  if [ -z "$images" ]; then
+    echo "no images selected."
+    return
+  fi
+  # echo "images:$images;"
+  docker image rm $images && echo "docker images removed: $images"
 }
 
 function docker-container-exec-bash {
