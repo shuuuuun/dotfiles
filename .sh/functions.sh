@@ -472,44 +472,6 @@ function brew-upgrade-peco {
   fi
 }
 
-# patchバージョンのみ更新されてるものすべてをアップグレード
-function brew-upgrade-patch {
-  brew update
-  outdated=$(brew outdated --verbose)
-  echo "Outdated:\n$outdated"
-  # $ for line in $outdated; do echo "$line" | perl -pe "s/^.+ \((.+)\) < .+$/\1/g"; done
-  # $ echo $outdated | ruby -r english -ne "puts $LAST_READ_LINE"
-  # $ echo $outdated | ruby -ne "p $_"
-  # $ echo $outdated | ruby -pe "name, current_vers, new_ver = gets.chomp.match(/\A(.+) \((.+)\) < (.+)\z/)&.captures; current_ver = current_vers.split(', ').last; p current_ver.split('.').slice(0, 2) == new_ver.split('.').slice(0, 2)"
-#   ruby_script=$(cat <<-RUBY
-# res = ARGF.readlines.map do |arg|
-#   name, current_vers, new_ver = arg.chomp.match(/\A(.+) \((.+)\) < (.+)\z/)&.captures
-#   current_ver = current_vers.split(', ').last
-#   is_same_major_minor = current_ver.split('.').slice(0, 2) == new_ver.split('.').slice(0, 2)
-#   is_same_major_minor ? name : nil
-# end.compact.join(' ')
-# print res
-# RUBY
-  # target=$(echo $outdated | ruby -e "$ruby_script")
-  ruby_script=$(cat <<-RUBY
-name, current_vers, new_ver = \$_.chomp.match(/\A(.+) \((.+)\) < (.+)\z/)&.captures
-current_ver = current_vers.split(', ').last
-is_same_major_minor = current_ver.split('.').slice(0, 2) == new_ver.split('.').slice(0, 2)
-puts is_same_major_minor ? name : nil
-RUBY
-  )
-  target=($(echo $outdated | ruby -ne "$ruby_script"))
-  # echo $target
-  for lib in $target; do
-    echo ""
-    echo "Upgrading: $lib"
-    brew upgrade $lib
-    echo "Upgraded: $lib"
-  done
-  echo ""
-  echo "Upgrade completed:\n$target"
-}
-
 function peco-args {
   # usage: find . -type d | peco-args cd
   #        cd $(find . -type d | peco)
