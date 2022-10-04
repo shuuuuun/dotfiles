@@ -2,17 +2,33 @@
 
 # patchバージョンのみ更新されてるものすべてをアップグレード
 
+require "pty"
 require "open3"
 require "json"
 
-def run_cmd(cmd, verbose: false)
-  puts "*** running: #{cmd}"
+def run_cmd(cmd, xtrace: true, verbose: false)
+  puts "+ #{cmd}" if xtrace
   stdout, stderr, status = Open3.capture3(cmd)
   puts stdout, stderr if verbose
 
   exit status.exitstatus and return unless status.success?
 
   [stdout, stderr, status]
+end
+
+def run_pty_cmd(cmd, xtrace: true)
+  # カラー出力用
+  puts "+ #{cmd}" if xtrace
+  status = nil
+  PTY.spawn(cmd) do |pty_out, pty_in, pid|
+    pty_in.close
+    while l = pty_out.gets
+      # puts "PTY: #{l}"
+      puts l
+    end
+    status = PTY.check pid
+  end
+  status
 end
 
 run_cmd "brew --version", verbose: true
@@ -33,16 +49,18 @@ end
 formulae = outdated["formulae"].select{ filter_formula(_1) }
 casks = outdated["casks"].select{ filter_formula(_1) }
 
+puts ""
 puts "target formulae:\n#{formulae.join("\n")}"
 formulae.each do |lib|
   puts ""
-  puts "** upgrading: #{lib["name"]}, #{lib["installed_versions"]} -> #{lib["current_version"]}"
-  run_cmd "brew upgrade #{lib["name"]}", verbose: true
+  puts "*** upgrading: #{lib["name"]}, #{lib["installed_versions"]} -> #{lib["current_version"]}"
+  run_pty_cmd "brew upgrade #{lib["name"]}"
 end
 
+puts ""
 puts "target casks:\n#{casks.join("\n")}"
 casks.each do |lib|
   puts ""
-  puts "** upgrading: #{lib["name"]}, #{lib["installed_versions"]} -> #{lib["current_version"]}"
-  run_cmd "brew upgrade #{lib["name"]}", verbose: true
+  puts "*** upgrading: #{lib["name"]}, #{lib["installed_versions"]} -> #{lib["current_version"]}"
+  run_pty_cmd "brew upgrade #{lib["name"]}"
 end
