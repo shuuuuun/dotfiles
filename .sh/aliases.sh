@@ -248,6 +248,12 @@ if has pg_ctl; then
   alias postgres-start='pg_ctl start -D /usr/local/var/postgres -l /usr/local/var/log/postgres.log'
 fi
 
+if has lima; then
+  # alias docker='lima nerdctl'
+  # alias docker-compose='docker compose'
+  alias limactl-restart-docker='limactl stop docker && echo "------" && limactl start docker'
+fi
+
 if has docker; then
   alias docker-container-stop-all='docker container stop $(docker container ls -q)'
   alias docker-volume-ls-dangling='docker volume ls --filter dangling=true'

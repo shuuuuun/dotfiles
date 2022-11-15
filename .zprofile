@@ -78,3 +78,4 @@ export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 # export CLOUDSDK_PYTHON=~/.anyenv/envs/pyenv/shims/python2 # ref. https://github.com/GoogleCloudPlatform/gsutil/issues/961
 export AWS_PAGER=""
 export ITERM_ENABLE_SHELL_INTEGRATION_WITH_TMUX=YES
+export LIMA_INSTANCE=docker
