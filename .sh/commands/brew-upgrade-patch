@@ -31,6 +31,40 @@ def run_pty_cmd(cmd, xtrace: true)
   status
 end
 
+class TablePrinter
+  def initialize(data, labels)
+    @data = data.map{ _1.map{ |k,v| [k.to_sym, v.is_a?(Array) ? v.join(", ") : v.to_s ]}.to_h }
+    @columns = labels.each_with_object({}) do |(col, label), memo_obj|
+      memo_obj[col.to_sym] = { label: label, width: [@data.map{ _1[col.to_sym]&.size || 0 }.max, label.size].max }
+    end
+  end
+
+  def print
+    write_divider
+    write_header
+    write_divider
+    @data.each{ write_line(_1) }
+    write_divider
+  end
+
+  private
+
+  def write_header
+    $stdout.puts "| #{ @columns.map{ |_k,v| v[:label].ljust(v[:width]) }.join(" | ") } |"
+  end
+
+  def write_divider
+    $stdout.puts "+-#{ @columns.map{ |_k,v| "-"*v[:width] }.join("-+-") }-+"
+  end
+
+  def write_line(line)
+    keys = @columns.keys
+    str = keys.map{ |k| line[k].ljust(@columns.dig(k, :width) || 0) }.join(" | ")
+    $stdout.puts "| #{str} |"
+  end
+end
+
+
 run_cmd "brew --version", verbose: true
 run_cmd "brew update", verbose: true
 run_cmd "brew outdated --verbose", verbose: true
@@ -50,7 +84,14 @@ formulae = outdated["formulae"].select{ filter_formula(_1) }
 casks = outdated["casks"].select{ filter_formula(_1) }
 
 puts ""
-puts "target formulae:\n#{formulae.join("\n")}"
+puts "target formulae:"
+labels = {
+  name: "Name",
+  installed_versions: "Installed Versions",
+  current_version: "Current Version",
+}
+TablePrinter.new(formulae, labels).print
+
 formulae.each do |lib|
   puts ""
   puts "*** upgrading: #{lib["name"]}, #{lib["installed_versions"]} -> #{lib["current_version"]}"
