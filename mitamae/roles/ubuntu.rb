@@ -12,6 +12,10 @@ node.reverse_merge!(
   }
 )
 
+execute "update packages" do
+  command "apt-get update"
+end
+
 include_cookbook 'git'
 include_cookbook 'vim'
 include_cookbook 'tig'
