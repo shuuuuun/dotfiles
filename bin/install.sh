@@ -63,20 +63,29 @@ echo "deploy end."
 #
 echo "initializing dotfiles..."
 # export DOTFILES_ROOT=$DOTFILES_ROOT
+
 # TODO: init script
 # .zsh/lib/以下をignoreする？
 # dir="$DOTFILES_ROOT/.zsh/lib/seebi/dircolors-solarized"
 # mkdir -p $dir
 # cd $dir
 # curl https://raw.githubusercontent.com/seebi/dircolors-solarized/master/dircolors.ansi-universal -O
+
 # TODO: brew installing
 # install: brew bundle
 # dump: brew bundle dump --describe --force
 # check: brew bundle check --verbose
 # ref. https://github.com/Homebrew/homebrew-bundle
+
 # TODO: anyenv install
 # https://github.com/anyenv/anyenv
 # git clone https://github.com/anyenv/anyenv ~/.anyenv
+
+# TODO: miamae setup on linux.
+# cd mitamae
+# make setup
+# make run
+
 echo "initialize end."
 
 
