@@ -51,7 +51,7 @@ alias authorize-ssh-keys='curl https://github.com/shuuuuun.keys >> ~/.ssh/author
 alias nc-server='while true; do ( echo "HTTP/1.0 200 Ok"; echo; echo "Hello World" ) | nc -l 8080; [ $? != 0 ] && break; done'
 
 # alias ssh-tmux-example='ssh -A -t example.com ". ~/.bash_profile; tmux -CC new -A -s main"'
-function ssh-tmux { ssh -A -t "$1" '. ~/.bash_profile; tmux -CC new -A -s main' }
+function ssh-tmux { ssh -A -t "$1" '. ~/.bash_profile; tmux -CC new -A -s main'; }
 
 if has tmux; then
   alias tmux-main='tmux -CC new -A -s main'
@@ -182,7 +182,7 @@ if has peco; then
   alias gco-peco='git branch | peco | xargs git checkout'
   alias gcopeco='gco-peco'
   # alias gswpeco='git branch | peco | xargs git switch'
-  function gswpeco { git branch | peco --query "$1" | xargs git switch }
+  function gswpeco { git branch | peco --query "$1" | xargs git switch; }
 fi
 
 if has tig; then
