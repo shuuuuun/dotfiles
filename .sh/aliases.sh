@@ -251,7 +251,7 @@ fi
 if has lima; then
   # alias docker='lima nerdctl'
   # alias docker-compose='docker compose'
-  alias limactl-restart-docker='limactl stop docker && echo "------" && limactl start docker'
+  alias limactl-restart-docker='limactl stop docker && echo "------" && sleep 1 && limactl start docker'
 fi
 
 if has docker; then
