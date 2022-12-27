@@ -1,0 +1,44 @@
+#!/bin/sh
+
+set -eu
+
+MITAMAE_VERSION="1.14.0"
+
+case "$(uname)" in
+  "Linux")
+    mitamae_os="linux"
+    ;;
+  "Darwin")
+    mitamae_os="darwin"
+    ;;
+  *)
+    echo "unexpected uname: $(uname)"
+    exit 1
+    ;;
+esac
+
+case "$(uname -m)" in
+  "x86_64")
+    mitamae_arch="x86_64"
+    ;;
+  "arm64")
+    mitamae_arch="aarch64"
+    ;;
+  *)
+    echo "unsupported architecture: $(uname -m)"
+    exit 1
+    ;;
+esac
+
+mitamae_cache="mitamae-${MITAMAE_VERSION}"
+mitamae_bin="mitamae-${mitamae_arch}-${mitamae_os}"
+mitamae_url="https://github.com/itamae-kitchen/mitamae/releases/download/v${MITAMAE_VERSION}/${mitamae_bin}.tar.gz"
+
+echo "Downloading... ${mitamae_url}"
+curl -o "bin/${mitamae_bin}.tar.gz" -fsSL "${mitamae_url}"
+tar xvzf "bin/${mitamae_bin}.tar.gz"
+
+rm "bin/${mitamae_bin}.tar.gz"
+mv "${mitamae_bin}" "bin/${mitamae_cache}"
+chmod +x "bin/${mitamae_cache}"
+ln -sf "${mitamae_cache}" "bin/mitamae"
