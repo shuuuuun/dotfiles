@@ -19,11 +19,10 @@ end
 include_cookbook 'git'
 include_cookbook 'vim'
 include_cookbook 'tig'
+include_cookbook 'anyenv'
 
 # include_recipe 'tmux'
 # include_recipe 'docker::install'
-
-# include_cookbook 'anyenv'
 
 # include_cookbook 'mosh'
 # include_cookbook 'ghq'
