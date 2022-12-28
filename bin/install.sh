@@ -75,9 +75,9 @@ echo "initializing dotfiles..."
 # https://github.com/anyenv/anyenv
 # git clone https://github.com/anyenv/anyenv ~/.anyenv
 
-# TODO: miamae setup on linux.
-# cd mitamae
-# make setup
-# make run
+# mitamae
+cd "$DOTFILES_ROOT/mitamae"
+make setup
+make run
 
 echo "initialize end."
