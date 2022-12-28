@@ -71,12 +71,6 @@ echo "initializing dotfiles..."
 # cd $dir
 # curl https://raw.githubusercontent.com/seebi/dircolors-solarized/master/dircolors.ansi-universal -O
 
-# TODO: brew installing
-# install: brew bundle install
-# dump: brew bundle dump --describe --force
-# check: brew bundle check --verbose
-# ref. https://github.com/Homebrew/homebrew-bundle
-
 # TODO: anyenv install
 # https://github.com/anyenv/anyenv
 # git clone https://github.com/anyenv/anyenv ~/.anyenv
@@ -87,12 +81,3 @@ echo "initializing dotfiles..."
 # make run
 
 echo "initialize end."
-
-
-#
-# note
-#
-# change login shell
-#   chsh -s /bin/zsh
-# installation
-#   curl https://raw.githubusercontent.com/shuuuuun/dotfiles/master/bin/install.sh | bash
