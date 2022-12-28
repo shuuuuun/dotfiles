@@ -20,8 +20,9 @@ include_cookbook 'git'
 include_cookbook 'vim'
 include_cookbook 'tig'
 
-include_recipe 'tmux'
-include_recipe 'docker::install'
+# include_recipe 'tmux'
+# include_recipe 'docker::install'
+
 # include_cookbook 'anyenv'
 
 # include_cookbook 'mosh'
