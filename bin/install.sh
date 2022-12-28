@@ -72,7 +72,7 @@ echo "initializing dotfiles..."
 # curl https://raw.githubusercontent.com/seebi/dircolors-solarized/master/dircolors.ansi-universal -O
 
 # TODO: brew installing
-# install: brew bundle
+# install: brew bundle install
 # dump: brew bundle dump --describe --force
 # check: brew bundle check --verbose
 # ref. https://github.com/Homebrew/homebrew-bundle
