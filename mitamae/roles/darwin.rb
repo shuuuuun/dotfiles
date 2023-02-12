@@ -10,3 +10,4 @@ execute "install bundle packages" do
 end
 
 include_cookbook "anyenv"
+include_cookbook "rustup"
