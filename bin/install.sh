@@ -6,7 +6,7 @@ set -e
 # const
 #
 REPOSITORY="https://github.com/shuuuuun/dotfiles.git"
-DOTFILES=(.bash_profile .bashrc .gitignore_global .gitconfig .vimrc .sh .zprofile .zshrc .tigrc .ripgreprc .tmux.conf .config/peco/config.json .config/lf/lfrc .config/direnv/direnvrc)
+DOTFILES=(.bash_profile .bashrc .gitignore_global .gitconfig .vimrc .sh .zprofile .zshrc .tigrc .ripgreprc .tmux.conf .config/peco/config.json .config/lf/lfrc .config/direnv/direnvrc .rubocop.yml)
 DOTFILES_ROOT="$HOME/dotfiles"
 
 cd "$HOME"
@@ -70,10 +70,6 @@ echo "initializing dotfiles..."
 # mkdir -p $dir
 # cd $dir
 # curl https://raw.githubusercontent.com/seebi/dircolors-solarized/master/dircolors.ansi-universal -O
-
-# TODO: anyenv install
-# https://github.com/anyenv/anyenv
-# git clone https://github.com/anyenv/anyenv ~/.anyenv
 
 # mitamae
 cd "$DOTFILES_ROOT/mitamae"

@@ -1,0 +1,244 @@
+# docs: https://docs.rubocop.org/rubocop/
+
+# inherit_from: .rubocop_todo.yml
+
+# inherit_mode:
+#   merge:
+#     - Exclude
+
+# require:
+#   - rubocop-rubycw
+#   - rubocop-rake
+#   - rubocop-rspec
+#   - rubocop-rails
+#   - rubocop-performance
+
+AllCops:
+  TargetRubyVersion: 2.7
+  NewCops: enable
+  DisplayCopNames: true
+  DisplayStyleGuide: true
+  ExtraDetails: true
+  Exclude:
+    - '.*/**/*'
+    - 'tmp/**/*'
+    - 'vendor/bundle/**/*'
+    - 'vendor/bundle/**/.*'
+    - 'node_modules/**/*'
+
+
+### Bundler
+
+Bundler/OrderedGems:
+  Enabled: false
+
+
+### Layout
+
+Layout/DotPosition:
+  Enabled: false
+
+Layout/EmptyLineAfterGuardClause:
+  Enabled: false
+
+Layout/EmptyLines:
+  Enabled: false
+
+Layout/EmptyLinesAroundClassBody:
+  Enabled: false
+
+Layout/EmptyLinesAroundMethodBody:
+  Enabled: false
+
+Layout/EmptyLinesAroundModuleBody:
+  Enabled: false
+
+Layout/EmptyLinesAroundBlockBody:
+  Enabled: false
+
+Layout/HashAlignment:
+  Enabled: false
+
+Layout/HeredocIndentation:
+  Enabled: false
+
+Layout/LineLength:
+  Max: 120
+  Exclude:
+    - '*.gemspec'
+
+Layout/SpaceAroundEqualsInParameterDefault:
+  Enabled: false
+
+Layout/SpaceBeforeBlockBraces:
+  Enabled: false
+
+Layout/SpaceInLambdaLiteral:
+  Enabled: false
+
+Layout/SpaceInsideBlockBraces:
+  Enabled: false
+
+Layout/SpaceInsideHashLiteralBraces:
+  Enabled: false
+
+Layout/SpaceInsideRangeLiteral:
+  Enabled: false
+
+Layout/SpaceInsideStringInterpolation:
+  Enabled: false
+
+
+### Lint
+
+Lint/UnusedBlockArgument:
+  Enabled: false
+
+Lint/UnusedMethodArgument:
+  Enabled: false
+
+
+### Metrics
+
+Metrics/AbcSize:
+  Max: 55
+
+Metrics/BlockLength:
+  Max: 50
+  Exclude:
+    - 'app/admin/*'
+    - 'config/environments/*'
+    - 'config/routes.rb'
+    - 'lib/tasks/**/*'
+    - 'spec/**/*'
+
+Metrics/ClassLength:
+  Max: 1000
+
+Metrics/CyclomaticComplexity:
+  Max: 20
+
+Metrics/MethodLength:
+  Max: 15
+
+Metrics/ModuleLength:
+  Max: 500
+
+Metrics/PerceivedComplexity:
+  Max: 22
+
+
+### Naming
+
+Naming/AsciiIdentifiers:
+  Enabled: false
+
+Naming/MethodParameterName:
+  AllowedNames: [at, by, db, id, in, io, ip, of, on, os, pp, to, ex]
+
+Naming/PredicateName:
+  Enabled: false
+
+Naming/RescuedExceptionsVariableName:
+  Enabled: false
+
+Naming/VariableNumber:
+  Enabled: false
+
+
+### Style
+
+Style/AsciiComments:
+  Enabled: false
+
+Style/BlockComments:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/CommandLiteral:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/EmptyLambdaParameter:
+  Enabled: false
+
+Style/EmptyMethod:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/GuardClause:
+  Enabled: false
+
+Style/HashSyntax:
+  Enabled: false
+
+Style/IfUnlessModifier:
+  Enabled: false
+
+Style/Lambda:
+  Enabled: false
+
+Style/LambdaCall:
+  Enabled: false
+
+Style/NumericLiterals:
+  Enabled: false
+
+Style/NumericPredicate:
+  Enabled: false
+
+Style/PerlBackrefs:
+  Enabled: false
+
+Style/PreferredHashMethods:
+  Enabled: false
+
+Style/RedundantAssignment:
+  Enabled: false
+
+Style/RedundantSelf:
+  Enabled: false
+
+Style/RegexpLiteral:
+  Enabled: false
+
+Style/StringLiterals:
+  Enabled: true
+  EnforcedStyle: double_quotes
+
+Style/StringLiteralsInInterpolation:
+  Enabled: true
+  EnforcedStyle: double_quotes
+
+Style/SymbolArray:
+  Enabled: false
+
+Style/TernaryParentheses:
+  Enabled: false
+
+Style/TrailingCommaInArguments:
+  Enabled: false
+
+Style/TrailingCommaInArrayLiteral:
+  Enabled: false
+
+Style/TrailingCommaInHashLiteral:
+  Enabled: false
+
+Style/RedundantInterpolation:
+  Enabled: false
+
+Style/WordArray:
+  Enabled: false
+
+Style/StringLiterals:
+  Enabled: false
+
+Style/ZeroLengthPredicate:
+  Enabled: false
