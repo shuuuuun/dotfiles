@@ -79,3 +79,4 @@ export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 export AWS_PAGER=""
 export ITERM_ENABLE_SHELL_INTEGRATION_WITH_TMUX=YES
 export LIMA_INSTANCE=docker
+export RUBY_CONFIGURE_OPTS=--enable-yjit
