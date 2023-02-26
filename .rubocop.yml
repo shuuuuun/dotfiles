@@ -29,82 +29,80 @@ AllCops:
 
 ### Bundler
 
-Bundler/OrderedGems:
+Bundler/OrderedGems: # https://docs.rubocop.org/rubocop/cops_bundler.html#bundlerorderedgems
   Enabled: false
 
 
 ### Layout
 
-Layout/DotPosition:
+Layout/DotPosition: # https://docs.rubocop.org/rubocop/cops_layout.html#layoutdotposition
   Enabled: false
 
-Layout/EmptyLineAfterGuardClause:
+Layout/EmptyLineAfterGuardClause: # https://docs.rubocop.org/rubocop/cops_layout.html#layoutemptylineafterguardclause
   Enabled: false
 
-Layout/EmptyLines:
+Layout/EmptyLines: # https://docs.rubocop.org/rubocop/cops_layout.html#layoutemptylines
   Enabled: false
 
-Layout/EmptyLinesAroundClassBody:
+Layout/EmptyLinesAroundClassBody: # https://docs.rubocop.org/rubocop/cops_layout.html#layoutemptylinesaroundclassbody
   Enabled: false
 
-Layout/EmptyLinesAroundMethodBody:
+Layout/EmptyLinesAroundMethodBody: # https://docs.rubocop.org/rubocop/cops_layout.html#layoutemptylinesaroundmethodbody
   Enabled: false
 
-Layout/EmptyLinesAroundModuleBody:
+Layout/EmptyLinesAroundModuleBody: # https://docs.rubocop.org/rubocop/cops_layout.html#layoutemptylinesaroundmodulebody
   Enabled: false
 
-Layout/EmptyLinesAroundBlockBody:
+Layout/EmptyLinesAroundBlockBody: # https://docs.rubocop.org/rubocop/cops_layout.html#layoutemptylinesaroundblockbody
   Enabled: false
 
-Layout/HashAlignment:
+Layout/HashAlignment: # https://docs.rubocop.org/rubocop/cops_layout.html#layouthashalignment
   Enabled: false
 
-Layout/HeredocIndentation:
-  Enabled: false
-
-Layout/LineLength:
-  Max: 120
+Layout/LineLength: # https://docs.rubocop.org/rubocop/cops_layout.html#layoutlinelength
+  Max: 150
   Exclude:
     - '*.gemspec'
 
-Layout/SpaceAroundEqualsInParameterDefault:
+Layout/SpaceAroundEqualsInParameterDefault: # https://docs.rubocop.org/rubocop/cops_layout.html#layoutspacearoundequalsinparameterdefault
   Enabled: false
 
-Layout/SpaceBeforeBlockBraces:
+Layout/SpaceBeforeBlockBraces: # https://docs.rubocop.org/rubocop/cops_layout.html#layoutspacebeforeblockbraces
   Enabled: false
 
-Layout/SpaceInLambdaLiteral:
+Layout/SpaceInLambdaLiteral: # https://docs.rubocop.org/rubocop/cops_layout.html#layoutspaceinlambdaliteral
   Enabled: false
 
-Layout/SpaceInsideBlockBraces:
+Layout/SpaceInsideBlockBraces: # https://docs.rubocop.org/rubocop/cops_layout.html#layoutspaceinsideblockbraces
   Enabled: false
 
-Layout/SpaceInsideHashLiteralBraces:
+Layout/SpaceInsideHashLiteralBraces: # https://docs.rubocop.org/rubocop/cops_layout.html#layoutspaceinsidehashliteralbraces
   Enabled: false
 
-Layout/SpaceInsideRangeLiteral:
+Layout/SpaceInsideRangeLiteral: # https://docs.rubocop.org/rubocop/cops_layout.html#layoutspaceinsiderangeliteral
   Enabled: false
 
-Layout/SpaceInsideStringInterpolation:
+Layout/SpaceInsideStringInterpolation: # https://docs.rubocop.org/rubocop/cops_layout.html#layoutspaceinsidestringinterpolation
   Enabled: false
 
 
 ### Lint
 
-Lint/UnusedBlockArgument:
+Lint/UnusedBlockArgument: # https://docs.rubocop.org/rubocop/cops_lint.html#lintunusedblockargument
   Enabled: false
 
-Lint/UnusedMethodArgument:
+Lint/UnusedMethodArgument: # https://docs.rubocop.org/rubocop/cops_lint.html#lintunusedmethodargument
   Enabled: false
 
 
 ### Metrics
 
-Metrics/AbcSize:
-  Max: 55
-
-Metrics/BlockLength:
+Metrics/AbcSize: # https://docs.rubocop.org/rubocop/cops_metrics.html#metricsabcsize
   Max: 50
+
+Metrics/BlockLength: # https://docs.rubocop.org/rubocop/cops_metrics.html#metricsblocklength
+  Max: 30
+  CountAsOne: ['array', 'heredoc', 'method_call']
   Exclude:
     - 'app/admin/*'
     - 'config/environments/*'
@@ -112,133 +110,121 @@ Metrics/BlockLength:
     - 'lib/tasks/**/*'
     - 'spec/**/*'
 
-Metrics/ClassLength:
-  Max: 1000
+Metrics/ClassLength: # https://docs.rubocop.org/rubocop/cops_metrics.html#metricsclasslength
+  Max: 500
+  CountAsOne: ['array', 'heredoc', 'method_call']
 
-Metrics/CyclomaticComplexity:
+Metrics/CyclomaticComplexity: # https://docs.rubocop.org/rubocop/cops_metrics.html#metricscyclomaticcomplexity
   Max: 20
 
-Metrics/MethodLength:
+Metrics/MethodLength: # https://docs.rubocop.org/rubocop/cops_metrics.html#metricsmethodlength
   Max: 15
 
-Metrics/ModuleLength:
+Metrics/ModuleLength: # https://docs.rubocop.org/rubocop/cops_metrics.html#metricsmodulelength
   Max: 500
 
-Metrics/PerceivedComplexity:
+Metrics/PerceivedComplexity: # https://docs.rubocop.org/rubocop/cops_metrics.html#metricsperceivedcomplexity
   Max: 22
 
 
 ### Naming
 
-Naming/AsciiIdentifiers:
+Naming/PredicateName: # https://docs.rubocop.org/rubocop/cops_naming.html#namingpredicatename
   Enabled: false
 
-Naming/MethodParameterName:
-  AllowedNames: [at, by, db, id, in, io, ip, of, on, os, pp, to, ex]
-
-Naming/PredicateName:
+Naming/RescuedExceptionsVariableName: # https://docs.rubocop.org/rubocop/cops_naming.html#namingrescuedexceptionsvariablename
   Enabled: false
+  # PreferredName: ex
 
-Naming/RescuedExceptionsVariableName:
-  Enabled: false
-
-Naming/VariableNumber:
+Naming/VariableNumber: # https://docs.rubocop.org/rubocop/cops_naming.html#namingvariablenumber
   Enabled: false
 
 
 ### Style
 
-Style/AsciiComments:
+Style/AsciiComments: # https://docs.rubocop.org/rubocop/cops_style.html#styleasciicomments
   Enabled: false
 
-Style/BlockComments:
+Style/BlockComments: # https://docs.rubocop.org/rubocop/cops_style.html#styleblockcomments
   Enabled: false
 
-Style/ClassAndModuleChildren:
+Style/ClassAndModuleChildren: # https://docs.rubocop.org/rubocop/cops_style.html#styleclassandmodulechildren
   Enabled: false
 
-Style/CommandLiteral:
+Style/CommandLiteral: # https://docs.rubocop.org/rubocop/cops_style.html#stylecommandliteral
   Enabled: false
 
-Style/Documentation:
+Style/Documentation: # https://docs.rubocop.org/rubocop/cops_style.html#styledocumentation
   Enabled: false
 
-Style/EmptyLambdaParameter:
+Style/EmptyLambdaParameter: # https://docs.rubocop.org/rubocop/cops_style.html#styleemptylambdaparameter
   Enabled: false
 
-Style/EmptyMethod:
+Style/EmptyMethod: # https://docs.rubocop.org/rubocop/cops_style.html#styleemptymethod
   Enabled: false
 
-Style/FrozenStringLiteralComment:
+Style/FrozenStringLiteralComment: # https://docs.rubocop.org/rubocop/cops_style.html#stylefrozenstringliteralcomment
   Enabled: false
 
-Style/GuardClause:
+Style/GuardClause: # https://docs.rubocop.org/rubocop/cops_style.html#styleguardclause
   Enabled: false
 
-Style/HashSyntax:
+Style/IfUnlessModifier: # https://docs.rubocop.org/rubocop/cops_style.html#styleifunlessmodifier
   Enabled: false
 
-Style/IfUnlessModifier:
+Style/Lambda: # https://docs.rubocop.org/rubocop/cops_style.html#stylelambda
   Enabled: false
 
-Style/Lambda:
+# Style/NumericLiterals: # https://docs.rubocop.org/rubocop/cops_style.html#stylenumericliterals
+#   Enabled: false
+
+Style/NumericPredicate: # https://docs.rubocop.org/rubocop/cops_style.html#stylenumericpredicate
   Enabled: false
 
-Style/LambdaCall:
+# Style/PerlBackrefs: # https://docs.rubocop.org/rubocop/cops_style.html#styleperlbackrefs
+#   Enabled: false
+
+Style/PreferredHashMethods: # https://docs.rubocop.org/rubocop/cops_style.html#stylepreferredhashmethods
   Enabled: false
 
-Style/NumericLiterals:
+Style/RedundantAssignment: # https://docs.rubocop.org/rubocop/cops_style.html#styleredundantassignment
   Enabled: false
 
-Style/NumericPredicate:
+Style/RedundantInterpolation: # https://docs.rubocop.org/rubocop/cops_style.html#styleredundantinterpolation
   Enabled: false
 
-Style/PerlBackrefs:
+Style/RedundantSelf: # https://docs.rubocop.org/rubocop/cops_style.html#styleredundantself
   Enabled: false
 
-Style/PreferredHashMethods:
-  Enabled: false
+Style/RegexpLiteral: # https://docs.rubocop.org/rubocop/cops_style.html#styleregexpliteral
+  Enabled: true
+  EnforcedStyle: percent_r
 
-Style/RedundantAssignment:
-  Enabled: false
-
-Style/RedundantSelf:
-  Enabled: false
-
-Style/RegexpLiteral:
-  Enabled: false
-
-Style/StringLiterals:
+Style/StringLiterals: # https://docs.rubocop.org/rubocop/cops_style.html#stylestringliterals
   Enabled: true
   EnforcedStyle: double_quotes
 
-Style/StringLiteralsInInterpolation:
+Style/StringLiteralsInInterpolation: # https://docs.rubocop.org/rubocop/cops_style.html#stylestringliteralsininterpolation
   Enabled: true
   EnforcedStyle: double_quotes
 
-Style/SymbolArray:
+Style/SymbolArray: # https://docs.rubocop.org/rubocop/cops_style.html#stylesymbolarray
+  Enabled: true
+
+Style/TernaryParentheses: # https://docs.rubocop.org/rubocop/cops_style.html#styleternaryparentheses
   Enabled: false
 
-Style/TernaryParentheses:
+Style/TrailingCommaInArguments: # https://docs.rubocop.org/rubocop/cops_style.html#styletrailingcommainarguments
   Enabled: false
 
-Style/TrailingCommaInArguments:
+Style/TrailingCommaInArrayLiteral: # https://docs.rubocop.org/rubocop/cops_style.html#styletrailingcommainarrayliteral
   Enabled: false
 
-Style/TrailingCommaInArrayLiteral:
+Style/TrailingCommaInHashLiteral: # https://docs.rubocop.org/rubocop/cops_style.html#styletrailingcommainhashliteral
   Enabled: false
 
-Style/TrailingCommaInHashLiteral:
+Style/WordArray: # https://docs.rubocop.org/rubocop/cops_style.html#stylewordarray
   Enabled: false
 
-Style/RedundantInterpolation:
-  Enabled: false
-
-Style/WordArray:
-  Enabled: false
-
-Style/StringLiterals:
-  Enabled: false
-
-Style/ZeroLengthPredicate:
+Style/ZeroLengthPredicate: # https://docs.rubocop.org/rubocop/cops_style.html#stylezerolengthpredicate
   Enabled: false
