@@ -52,8 +52,13 @@ echo "deploying dotfiles to $HOME..."
 for file in ${DOTFILES[@]}; do
   dir=$(dirname "$file")
   mkdir -p "$HOME/$dir"
-  ln -s "$DOTFILES_ROOT/$file" "$HOME/$file" && \
-    echo "  symbolic_link: $DOTFILES_ROOT/$file -> $HOME/$file"
+  if [ -f "$DOTFILES_ROOT/$file" -o -d "$DOTFILES_ROOT/$file" ]; then
+    # TODO: ディレクトリがすでに存在する場合もsymlink作ってしまう
+    ln -s "$DOTFILES_ROOT/$file" "$HOME/$file" && \
+      echo "  symbolic_link: $DOTFILES_ROOT/$file -> $HOME/$file"
+  else
+    echo "$DOTFILES_ROOT/$file: No such file or directory."
+  fi
 done
 echo "deploy end."
 
