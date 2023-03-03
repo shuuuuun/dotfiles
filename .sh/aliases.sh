@@ -130,6 +130,7 @@ fi
 
 alias g='git'
 alias gst='git status'
+alias gst.='git status .'
 alias gbr='git branch'
 alias gbra='git branch -a'
 alias gstash='git stash'
