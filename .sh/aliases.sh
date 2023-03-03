@@ -301,7 +301,9 @@ fi
 
 if has aws; then
   alias aws-logs-loggroupnames='aws logs describe-log-groups | jq -rc ".logGroups[].logGroupName"' # TODO: pecoと組み合わせてログイベント取得を作る
-  alias aws-create-invalidation='aws cloudfront list-distributions | jq -r ".DistributionList.Items[].Id" | xargs -I% aws cloudfront create-invalidation --distribution-id % --paths "/*"' # TODO: pecoと組み合わせたい
+  alias aws-create-invalidation-all='aws cloudfront list-distributions | jq -r ".DistributionList.Items[].Id" | xargs -I% aws cloudfront create-invalidation --distribution-id % --paths "/*"'
+  alias aws-cloudfront-distributions='aws cloudfront list-distributions | jq -r ".DistributionList.Items[] | [.Id, .Status, .Enabled, .DomainName, .LastModifiedTime, .Comment, .Aliases.Items[]?] | @tsv"'
+  alias aws-create-invalidation='aws-cloudfront-distributions | peco | tee /dev/stderr | awk '\''{ print $1 }'\'' | xargs -I% aws cloudfront create-invalidation --distribution-id % --paths "/*"'
 fi
 
 if has awslogs; then
