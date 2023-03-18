@@ -1,4 +1,10 @@
 node.reverse_merge!(
+  home_dir: "/home/#{current_user}",
+  anyenv: {
+    root_dir: "/home/#{current_user}/.anyenv",
+    owner: "#{current_user}",
+    group: "#{current_user}",
+  },
   tmux: {
     version: "3.1c",
     prefix: "/usr/local",
@@ -13,7 +19,7 @@ node.reverse_merge!(
 )
 
 execute "update packages" do
-  command "apt-get update"
+  command "sudo apt-get update"
 end
 
 include_cookbook 'git'
@@ -30,3 +36,10 @@ include_cookbook 'anyenv'
 # include_cookbook 'peco'
 # include_cookbook 'local-accounts'
 # include_recipe 'ssh-agent'
+
+
+# gem install solargraph
+
+
+# change login shell
+#   sudo chsh -s $(which zsh)

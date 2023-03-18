@@ -209,6 +209,9 @@ if has lfcd; then
   alias cd-lf='lfcd'
 fi
 
+# asdf
+source_if_exist "$HOME/.asdf/asdf.sh"
+
 
 # 上矢印で入力中の単語にマッチした履歴を出してくれるやつ
 # ref. https://github.com/ohmyzsh/ohmyzsh/blob/master/lib/key-bindings.zsh

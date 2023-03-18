@@ -1,6 +1,7 @@
 # dotfiles
 
 ### install
+for main PC.
 ```sh
 curl -L dot.shuuuuun.com/bin/install.sh | bash
 
@@ -8,7 +9,17 @@ curl -L dot.shuuuuun.com/bin/install.sh | bash
 curl https://raw.githubusercontent.com/shuuuuun/dotfiles/master/bin/install.sh | bash
 ```
 
+### dev install
+for dev linux.
+```sh
+curl -L dot.shuuuuun.com/bin/dev.sh | bash
+
+# same as:
+curl https://raw.githubusercontent.com/shuuuuun/dotfiles/master/bin/dev.sh | bash
+```
+
 ### minimal install
+for other linux.
 ```sh
 curl -L dot.shuuuuun.com/bin/minimal.sh | bash
 
