@@ -33,8 +33,6 @@ zinit wait lucid light-mode for zsh-users/zsh-completions # 補完
 # zinit wait lucid light-mode for zsh-users/zsh-history-substring-search
 # zinit wait lucid light-mode for momo-lab/zsh-abbrev-alias # 略語を展開する
 
-zinit wait lucid atload"zicompinit; zicdreplay" light-mode for felipec/git-completion
-
 # prompt
 zinit light mafredri/zsh-async # need for pure prompt
 # zinit light sindresorhus/pure
@@ -46,6 +44,8 @@ zinit light shuuuuun/pure
 # zinit wait silent lucid atclone"zstyle ':completion:*:*:git:*' script git-completion.bash" atpull"%atclone" for "https://github.com/git/git/blob/master/contrib/completion/git-completion.bash"
 # zinit wait lucid as"completion" atload"zicompinit; zicdreplay" mv"git-completion.bash -> _git.bash" atclone"zstyle ':completion:*:*:git:*' script _git.bash" atpull"%atclone" for "https://github.com/git/git/blob/master/contrib/completion/git-completion.bash"
 # zinit wait lucid as"completion" atload"zicompinit; zicdreplay" mv"git-completion.zsh -> _git" for "https://github.com/git/git/blob/master/contrib/completion/git-completion.zsh"
+# zinit wait lucid atload"zicompinit; zicdreplay" light-mode for felipec/git-completion
+zinit light felipec/git-completion
 
 # direnv
 # ref. https://zdharma-continuum.github.io/zinit/wiki/Direnv-explanation/
