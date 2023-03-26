@@ -59,6 +59,13 @@ function chpwd {
 PERIOD=30
 add-zsh-hook periodic set-window-title
 
+# Enterを押してコマンドを実行する直前に呼ばれる
+function preexec {
+  # printf "# "
+  # date +"%Y/%m/%d %H:%M:%S"
+  # RPROMPT=`date +"%Y/%m/%d %H:%M:%S"`
+  # RPROMPT='%D{%Y/%m/%d %H:%M:%S}'
+}
 
 # なんか画面に改行を空けたいときに
 function br {

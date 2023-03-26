@@ -64,12 +64,15 @@ PURE_PREPROMPT_LEFT="%D{%Y/%m/%d %H:%M:%S}"
 # PURE_PROMPT_LEFT='%F{6}%D %*%f '
 # PURE_PROMPT_LEFT="%D{%Y-%m-%d %H:%M:%S} %f"
 PURE_PROMPT_SYMBOL='$'
-PURE_PROMPT_SYMBOL_COLOR='magenta'
-PURE_PROMPT_SYMBOL_ERROR_COLOR='red'
 PURE_DISABLE_SET_TITLE=true
 # PURE_GIT_PULL=0
-PURE_PREPROMPT_DIRECTORY_COLOR='cyan'
 type prompt_pure_setup > /dev/null 2>&1 && prompt_pure_setup
+
+# ref. https://github.com/sindresorhus/pure#colors
+zstyle :prompt:pure:path color cyan
+zstyle :prompt:pure:git:dirty color 242
+
+zstyle :prompt:pure:git:stash show yes
 
 # autoload -U promptinit
 # promptinit
@@ -107,6 +110,20 @@ type prompt_pure_setup > /dev/null 2>&1 && prompt_pure_setup
 #   echo "\n"`date "+%Y-%m-%d %H:%M:%S"`
 # }
 # zle -N accept-line show-time
+
+# current-rprompt() {
+#   RPROMPT=''
+# }
+# add-zsh-hook precmd current-rprompt
+
+# update-rprompt-accpet-line() {
+#   echo update-rprompt-accpet-line
+#   # RPROMPT=`date +"%Y/%m/%d %H:%M:%S"`
+#   RPROMPT='%D{%y/%m/%d %H:%M:%S}'
+#   zle .reset-prompt
+#   zle .accept-line
+# }
+# zle -N accept-line update-rprompt-accpet-line
 
 
 #
