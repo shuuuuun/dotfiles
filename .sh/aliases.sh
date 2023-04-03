@@ -305,6 +305,7 @@ if has aws; then
   alias aws-create-invalidation-all='aws cloudfront list-distributions | jq -r ".DistributionList.Items[].Id" | xargs -I% aws cloudfront create-invalidation --distribution-id % --paths "/*"'
   alias aws-cloudfront-distributions='aws cloudfront list-distributions | jq -r ".DistributionList.Items[] | [.Id, .Status, .Enabled, .DomainName, .LastModifiedTime, .Comment, .Aliases.Items[]?] | @tsv"'
   alias aws-create-invalidation='aws-cloudfront-distributions | peco | tee /dev/stderr | awk '\''{ print $1 }'\'' | xargs -I% aws cloudfront create-invalidation --distribution-id % --paths "/*"'
+  alias aws-list-invalidations='aws-cloudfront-distributions | peco | tee /dev/stderr | awk '\''{ print $1 }'\'' | xargs -I% aws cloudfront list-invalidations --distribution-id %'
 fi
 
 if has awslogs; then
