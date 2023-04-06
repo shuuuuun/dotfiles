@@ -1,3 +1,14 @@
+current_user = `whoami`.strip
+puts "current_user: #{current_user}"
+home_dir = `echo $HOME`.strip
+puts "home_dir: #{home_dir}"
+
+node.reverse_merge!(
+  anyenv: {
+    root_dir: "#{home_dir}/.anyenv",
+  },
+)
+
 include_cookbook "homebrew"
 
 execute "update packages" do
