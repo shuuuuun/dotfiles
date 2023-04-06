@@ -43,3 +43,8 @@ include_cookbook 'asdf'
 # include_cookbook 'peco'
 # include_cookbook 'local-accounts'
 # include_recipe 'ssh-agent'
+
+gems = %w[solargraph]
+execute "install gems" do
+  command "gem install #{gems.join(" ")}"
+end
