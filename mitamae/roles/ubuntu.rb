@@ -1,4 +1,17 @@
+current_user = `whoami`.strip
+puts "current_user: #{current_user}"
+home_dir = `echo $HOME`.strip
+puts "home_dir: #{home_dir}"
+
 node.reverse_merge!(
+  home_dir: "#{home_dir}",
+  asdf: {
+    root_dir: "#{home_dir}/.asdf",
+    plugins: [
+      "ruby",
+      "nodejs",
+    ]
+  },
   tmux: {
     version: "3.1c",
     prefix: "/usr/local",
@@ -13,13 +26,14 @@ node.reverse_merge!(
 )
 
 execute "update packages" do
-  command "apt-get update"
+  command "sudo apt-get update"
 end
 
 include_cookbook 'git'
 include_cookbook 'vim'
 include_cookbook 'tig'
-include_cookbook 'anyenv'
+# include_cookbook 'anyenv'
+include_cookbook 'asdf'
 
 # include_recipe 'tmux'
 # include_recipe 'docker::install'

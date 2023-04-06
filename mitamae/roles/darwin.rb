@@ -4,6 +4,14 @@ home_dir = `echo $HOME`.strip
 puts "home_dir: #{home_dir}"
 
 node.reverse_merge!(
+  home_dir: "#{home_dir}",
+  asdf: {
+    root_dir: "#{home_dir}/.asdf",
+    plugins: [
+      "ruby",
+      "nodejs",
+    ]
+  },
   anyenv: {
     root_dir: "#{home_dir}/.anyenv",
   },
@@ -20,5 +28,6 @@ execute "install bundle packages" do
   not_if "brew bundle check"
 end
 
-include_cookbook "anyenv"
+include_cookbook "asdf"
+# include_cookbook "anyenv"
 include_cookbook "rustup"
