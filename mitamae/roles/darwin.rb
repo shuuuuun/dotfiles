@@ -6,14 +6,10 @@ puts "home_dir: #{home_dir}"
 node.reverse_merge!(
   home_dir: "#{home_dir}",
   asdf: {
-    root_dir: "#{home_dir}/.asdf",
     plugins: [
       "ruby",
       "nodejs",
     ]
-  },
-  anyenv: {
-    root_dir: "#{home_dir}/.anyenv",
   },
 )
 

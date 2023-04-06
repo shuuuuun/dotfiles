@@ -2,7 +2,6 @@
 # https://asdf-vm.com/guide/getting-started.html
 
 asdf_dir = "#{node["home_dir"]}/.asdf"
-# asdf_dir = node["asdf"]["root_dir"]
 plugins = node["asdf"]["plugins"]
 
 git asdf_dir do

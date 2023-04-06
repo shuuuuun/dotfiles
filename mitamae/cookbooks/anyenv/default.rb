@@ -1,6 +1,6 @@
 # ref. https://github.com/anyenv/anyenv
 
-anyenv_dir = node["anyenv"]["root_dir"]
+anyenv_dir = "#{node["home_dir"]}/.anyenv"
 
 git anyenv_dir do
   repository "https://github.com/anyenv/anyenv"
