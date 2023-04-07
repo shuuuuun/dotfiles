@@ -6,10 +6,10 @@ puts "home_dir: #{home_dir}"
 node.reverse_merge!(
   home_dir: "#{home_dir}",
   asdf: {
-    plugins: [
-      "ruby",
-      "nodejs",
-    ]
+    plugins: {
+      "ruby" => "latest",
+      "nodejs" => "lts",
+    }
   },
   tmux: {
     version: "3.1c",

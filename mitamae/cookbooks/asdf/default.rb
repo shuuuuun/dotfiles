@@ -8,14 +8,14 @@ git asdf_dir do
   repository "https://github.com/asdf-vm/asdf.git"
 end
 
-plugins.each do |plugin|
-  execute "asdf add plugin(#{plugin})" do
-    command "#{asdf_dir}/bin/asdf plugin add #{plugin}"
-    not_if "#{asdf_dir}/bin/asdf plugin list | grep #{plugin}"
+plugins.each do |name, version|
+  execute "asdf add plugin(#{name})" do
+    command "#{asdf_dir}/bin/asdf plugin add #{name}"
+    not_if "#{asdf_dir}/bin/asdf plugin list | grep #{name}"
   end
 
-  execute "asdf install latest(#{plugin})" do
-    command "#{asdf_dir}/bin/asdf install #{plugin} latest"
+  execute "asdf install #{name} #{version}" do
+    command "#{asdf_dir}/bin/asdf install #{name} #{version}"
   end
 end
 
