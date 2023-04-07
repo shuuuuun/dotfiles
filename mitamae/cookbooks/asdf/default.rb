@@ -10,15 +10,15 @@ end
 
 plugins.each do |plugin|
   execute "asdf add plugin(#{plugin})" do
-    command "asdf plugin add #{plugin}"
-    not_if "asdf plugin list | grep #{plugin}"
+    command "#{asdf_dir}/bin/asdf plugin add #{plugin}"
+    not_if "#{asdf_dir}/bin/asdf plugin list | grep #{plugin}"
   end
 
   execute "asdf install latest(#{plugin})" do
-    command "asdf install #{plugin} latest"
+    command "#{asdf_dir}/bin/asdf install #{plugin} latest"
   end
 end
 
 execute "asdf update all plugins" do
-  command "asdf plugin update --all"
+  command "#{asdf_dir}/bin/asdf plugin update --all"
 end
