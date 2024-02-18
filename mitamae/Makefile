@@ -1,5 +1,5 @@
 .PHONY: setup
-setup: prepare
+setup:
 	bin/setup
 	bin/mitamae version
 
