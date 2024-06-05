@@ -29,6 +29,7 @@ alias rmrf='rm -rf'
 alias cprf='cp -rf'
 # alias rm='echo use \`gomi\` command!!; false'
 alias top-cpu='top -o cpu'
+alias top-mem='top -o mem'
 alias rsync-copy='rsync -C --filter=":- .gitignore" -av'
 alias now='date +"%Y%m%d_%H%M%S"'
 alias date-iso8601='date "+%Y-%m-%dT%H:%M:%S%z"'
@@ -144,6 +145,7 @@ alias gcmam='git commit --amend'
 alias gcmmbuild='git commit -m "build"'
 alias gcmmtemp='git commit -m "temp"'
 alias gcmmupdate='git commit -m "update"'
+alias gcmmempty='git commit -m "empty" --allow-empty'
 alias gmg='git merge'
 alias gmg-noff='git merge --no-ff'
 alias gft='git fetch'
@@ -183,7 +185,7 @@ if has peco; then
   alias gco-peco='git branch | peco | xargs git checkout'
   alias gcopeco='gco-peco'
   # alias gswpeco='git branch | peco | xargs git switch'
-  function gswpeco { git branch | peco --query "$1" | xargs git switch; }
+  function gswpeco { git branch --sort=-committerdate | peco --query "$1" | xargs git switch; }
 fi
 
 if has tig; then
@@ -197,8 +199,8 @@ if has tig; then
   alias tigdevelop='tig develop'
   alias tig-follow='tig --follow'
   if has peco; then
-    function tigbranch { tig $(git branch | peco); }
-    function tigbranch-a { tig $(git branch -a | peco); }
+    function tigbranch { tig $(git branch --sort=-committerdate | peco); }
+    function tigbranch-a { tig $(git branch -a --sort=-committerdate | peco); }
   fi
 fi
 
