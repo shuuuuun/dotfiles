@@ -21,9 +21,9 @@ function make-Makefile {
   fi
   TAB="$(printf '\t')"
   cat <<-EOF > Makefile
-.PHONY: hoge
-hoge:
-${TAB}echo "hoge"
+.PHONY: help
+help:
+${TAB}@cat Makefile | grep -E '^[^\.]\S*:'
 EOF
 }
 
@@ -442,7 +442,7 @@ function git-prune-all {
 # peco
 #
 function ps-peco {
-  ps | peco --query "$1"
+  ps aux | peco --query "$1"
 }
 
 function ps-peco-pid-copy {
@@ -735,7 +735,7 @@ function git-worktree-add {
   dirname=$1
   branch=$2
   if [ -z "$dirname" -o -z "$branch" ]; then
-    echo "Too few arguments"
+    echo "Too few arguments. Usage: git-worktree-add dirname branch"
     return 1
   fi
   relpath="tmp/worktrees/$dirname"
@@ -750,4 +750,12 @@ function tracer-peco {
   [ -z "$name" ] && return
   echo $name
   tracer $1 $name
+}
+
+# リポジトリ一覧を最終コミット日時順で取得
+function git-last-commit-repo-list {
+  maxdepth=3
+  for repo in $(find . -maxdepth $maxdepth -name ".git" | cut -c 3-); do
+    echo "$(git --git-dir=$repo log -1 --format="%ci $repo" | awk '{print $1" "$2" "$3" "$4" "$5}')"
+  done | sort -r
 }
