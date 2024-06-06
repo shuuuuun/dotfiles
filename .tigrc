@@ -4,3 +4,4 @@ set diff-options = -m --first-parent
 set diff-highlight = true
 
 set main-view = id date author commit-title:graph=yes,refs=yes
+set stash-view = id date author commit-title:graph=yes,refs=yes
