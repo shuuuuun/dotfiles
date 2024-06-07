@@ -25,6 +25,7 @@ DOTFILES=(
   .rubocop.yml
   .lima/docker/lima.yaml
   .asdfrc
+  .hammerspoon/init.lua
 )
 DOTFILES_ROOT="$HOME/dotfiles"
 
