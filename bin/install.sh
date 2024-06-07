@@ -6,7 +6,26 @@ set -e
 # const
 #
 REPOSITORY="https://github.com/shuuuuun/dotfiles.git"
-DOTFILES=(.bash_profile .bashrc .gitignore_global .gitconfig.local .gitconfig .vimrc .sh .zprofile .zshrc .tigrc .ripgreprc .tmux.conf .config/peco/config.json .config/lf/lfrc .config/direnv/direnvrc .rubocop.yml .lima/docker/lima.yaml .asdfrc)
+DOTFILES=(
+  .bash_profile
+  .bashrc
+  .gitignore_global
+  .gitconfig.local
+  .gitconfig
+  .vimrc
+  .sh
+  .zprofile
+  .zshrc
+  .tigrc
+  .ripgreprc
+  .tmux.conf
+  .config/peco/config.json
+  .config/lf/lfrc
+  .config/direnv/direnvrc
+  .rubocop.yml
+  .lima/docker/lima.yaml
+  .asdfrc
+)
 DOTFILES_ROOT="$HOME/dotfiles"
 
 cd "$HOME"
