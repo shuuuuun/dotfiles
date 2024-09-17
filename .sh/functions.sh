@@ -650,6 +650,18 @@ function docker-volumes-restore {
   echo "complete!"
 }
 
+function docker-volume-remove {
+  local selected=$(docker system df -v --format 'json' | jq -r '.Volumes[] | [.Size, .Name] | @tsv' | sort --human-numeric-sort --reverse -k 1 | peco --prompt 'DOCKER VOLUMES>' --query "$1")
+  echo $selected
+  local volumes=($(echo -n $selected | awk '{print $2}' ORS=' '))
+  if [ -z "$volumes" ]; then
+    echo "no volumes selected."
+    return
+  fi
+  # echo "volumes:$volumes;"
+  docker volume rm $volumes && echo "docker volumes removed: $volumes"
+}
+
 function docker-images-remove {
   local selected=$(docker image ls --format "table {{.Size}}\t{{.Repository}}\t{{.Tag}}\t{{.ID}}\t{{.CreatedSince}}" | sort --human-numeric-sort --reverse -k 1 | peco --prompt 'DOCKER IMAGES>' --query "$1")
   echo $selected

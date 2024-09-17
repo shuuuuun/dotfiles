@@ -260,6 +260,7 @@ fi
 if has docker; then
   alias docker-container-stop-all='docker container stop $(docker container ls -q)'
   alias docker-volume-ls-dangling='docker volume ls --filter dangling=true'
+  alias docker-volume-ls-df='docker system df -v --format "json" | jq -r ".Volumes[] | [.Size, .Name] | @tsv" | sort --human-numeric-sort --reverse -k 1'
   alias docker-image-ls-full='docker image ls --format "table {{.ID}}\t{{.Size}}\t{{.Repository}}\t{{.Tag}}\t{{.CreatedSince}}\t{{.CreatedAt}}\t{{.Digest}}"'
   alias ghcr-login='git config --get github.token | docker login ghcr.io -u $(git config --get github.user) --password-stdin'
 
