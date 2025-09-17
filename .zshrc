@@ -226,17 +226,6 @@ if has lfcd; then
   alias cd-lf='lfcd'
 fi
 
-# asdf
-# doc: https://asdf-vm.com/guide/getting-started.html
-if [ -d ${HOME}/.asdf ]; then
-  source_if_exist "$HOME/.asdf/asdf.sh"
-
-  # append completions to fpath
-  fpath=(${ASDF_DIR}/completions $fpath)
-  # initialise completions with ZSH's compinit
-  autoload -Uz compinit && compinit
-fi
-
 # 上矢印で入力中の単語にマッチした履歴を出してくれるやつ
 # ref. https://github.com/ohmyzsh/ohmyzsh/blob/master/lib/key-bindings.zsh
 #

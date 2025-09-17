@@ -80,3 +80,18 @@ export ITERM_ENABLE_SHELL_INTEGRATION_WITH_TMUX=YES
 export LIMA_INSTANCE=docker
 export RUBY_CONFIGURE_OPTS=--enable-yjit
 export ECSPRESSO_FILTER_COMMAND=peco
+
+# asdf
+# doc: https://asdf-vm.com/guide/getting-started.html
+ASDF_DIR="${ASDF_DATA_DIR:-$HOME/.asdf}"
+if [ -d $ASDF_DIR ]; then
+  export PATH="$ASDF_DIR/shims:$PATH"
+
+  mkdir -p "$ASDF_DIR/completions"
+  asdf completion zsh > "$ASDF_DIR/completions/_asdf"
+
+  # append completions to fpath
+  fpath=($ASDF_DIR/completions $fpath)
+  # initialise completions with ZSH's compinit
+  autoload -Uz compinit && compinit
+fi
