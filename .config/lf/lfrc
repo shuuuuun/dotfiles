@@ -2,6 +2,7 @@
 # ref. https://godoc.org/github.com/gokcehan/lf
 
 set hidden
+set previewer ~/.config/lf/previewer.sh
 
 # map <enter> edit
 map sh shell

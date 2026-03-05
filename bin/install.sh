@@ -21,6 +21,7 @@ DOTFILES=(
   .tmux.conf
   .config/peco/config.json
   .config/lf/lfrc
+  .config/lf/previewer.sh
   .config/direnv/direnvrc
   .rubocop.yml
   .lima/docker/lima.yaml
