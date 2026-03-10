@@ -13,10 +13,10 @@ fi
 typeset -gU cdpath fpath mailpath path
 
 # Set the list of directories that Zsh searches for programs.
-path=(
-  /usr/local/{bin,sbin}
-  $path
-)
+# path=(
+#   /usr/local/{bin,sbin}
+#   $path
+# )
 
 #
 # Less
@@ -38,18 +38,35 @@ TMPPREFIX="${TMPDIR%/}/zsh"
 #
 # PATH
 #
+# echo $PATH
+# /usr/libexec/path_helper -s
+
+if [[ -n $TMUX ]]; then
+  # tmux の場合は親シェルのPATHが引き継がれちゃうのでリセット
+  path=(
+    /usr/local/{bin,sbin}
+    /System/Cryptexes/App/usr/bin
+    /usr/bin
+    /bin
+    /usr/sbin
+    /sbin
+    # $path
+  )
+fi
+
 if [ -d /opt/homebrew  ]; then
   export PATH=/opt/homebrew/bin:$PATH
 fi
 export PATH=$PATH:/usr/local/sbin
+export PATH=$PATH:~/.local/bin
+export PATH=$PATH:/usr/local/share/git-core/contrib/diff-highlight
+export PATH=$PATH:~/.cargo/bin # Rust
 export PATH=$PATH:~/.mix/escripts # elixir, erlang
-export PATH=$PATH:~/Library/Python/2.7/bin
+export PATH=$PATH:~/Library/Python/3.11/bin
 export PATH=$PATH:~/lib/flutter/bin
-# export GOPATH=$HOME/go
 export GOPATH=$HOME/repo
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:~/.sh/commands
-# export PATH=$PATH:/usr/local/opt/awscli@1/bin # aws v2 で問題なさそうなことが確認できたら消す
 
 
 #
@@ -74,7 +91,6 @@ export PAGER='less'
 export DISPLAY=':0.0'
 export ERL_AFLAGS='-kernel shell_history enabled' # elixir iex
 export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
-# export CLOUDSDK_PYTHON=~/.anyenv/envs/pyenv/shims/python2 # ref. https://github.com/GoogleCloudPlatform/gsutil/issues/961
 export AWS_PAGER=""
 export ITERM_ENABLE_SHELL_INTEGRATION_WITH_TMUX=YES
 export LIMA_INSTANCE=docker
@@ -95,3 +111,6 @@ if [ -d $ASDF_DIR ]; then
   # initialise completions with ZSH's compinit
   autoload -Uz compinit && compinit
 fi
+
+# aqua (asdfより後に設定)
+export PATH="${AQUA_ROOT_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/aquaproj-aqua}/bin:$PATH"
