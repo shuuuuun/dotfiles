@@ -16,6 +16,7 @@ DOTFILES=(
   .sh
   .zprofile
   .zshrc
+  .zshenv
   .tigrc
   .ripgreprc
   .tmux.conf
@@ -24,7 +25,7 @@ DOTFILES=(
   .config/lf/previewer.sh
   .config/direnv/direnvrc
   .rubocop.yml
-  .lima/docker/lima.yaml
+  # .lima/docker/lima.yaml
   .asdfrc
   .hammerspoon/init.lua
 )
