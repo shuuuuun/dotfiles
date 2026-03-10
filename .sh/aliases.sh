@@ -287,10 +287,6 @@ if has rg; then
   alias rgTODO='rg TODO'
   alias rgtodo='rg TODO'
   alias rg-hidden='rg --glob "!.git" --hidden'
-  # $ rg --files | rg ripgrep
-  # $ rg --files --glob '**/*ripgrep*/**' --glob '*ripgrep*'
-  alias rg-files='rg --files | rg'
-  # function rg-files { rg --files --glob "**/*$@*/**" --glob "*$@*"; }
   alias git-diff-todo='git diff --diff-filter=ACMR origin/develop..HEAD | rg TODO'
   alias rg-all='rg --no-ignore --hidden'
 fi
@@ -304,11 +300,15 @@ if has zip; then
 fi
 
 if has aws; then
-  alias aws-logs-loggroupnames='aws logs describe-log-groups | jq -rc ".logGroups[].logGroupName"' # TODO: pecoと組み合わせてログイベント取得を作る
+  alias aws-logs-loggroupnames='aws logs describe-log-groups | jq -rc ".logGroups[].logGroupName"'
+  function aws-logs-tail-peco { aws logs describe-log-groups | jq -rc ".logGroups[].logGroupName" | peco | xargs -I% aws logs tail $@ %; }
   alias aws-create-invalidation-all='aws cloudfront list-distributions | jq -r ".DistributionList.Items[].Id" | xargs -I% aws cloudfront create-invalidation --distribution-id % --paths "/*"'
   alias aws-cloudfront-distributions='aws cloudfront list-distributions | jq -r ".DistributionList.Items[] | [.Id, .Status, .Enabled, .DomainName, .LastModifiedTime, .Comment, .Aliases.Items[]?] | @tsv"'
   alias aws-create-invalidation='aws-cloudfront-distributions | peco | tee /dev/stderr | awk '\''{ print $1 }'\'' | xargs -I% aws cloudfront create-invalidation --distribution-id % --paths "/*"'
   alias aws-list-invalidations='aws-cloudfront-distributions | peco | tee /dev/stderr | awk '\''{ print $1 }'\'' | xargs -I% aws cloudfront list-invalidations --distribution-id %'
+  alias aws-create-invalidation-all='aws cloudfront list-distributions | jq -r ".DistributionList.Items[].Id" | xargs -I% aws cloudfront create-invalidation --distribution-id % --paths "/*"'
+  alias aws-cloudfront-distributions='aws cloudfront list-distributions | jq -r ".DistributionList.Items[] | [.Id, .Status, .Enabled, .DomainName, .LastModifiedTime, .Comment, .Aliases.Items[]?] | @tsv"'
+  alias aws-create-invalidation='aws-cloudfront-distributions | peco | tee /dev/stderr | awk '\''{ print $1 }'\'' | xargs -I% aws cloudfront create-invalidation --distribution-id % --paths "/*"'
 fi
 
 if has awslogs; then
@@ -324,3 +324,7 @@ alias gitdiff='git diff --no-index'
 # vimdiff というのもある
 
 # alias highlight='highlight --style=Moria'
+
+if has cjpeg; then
+  alias mozjpeg='cjpeg'
+fi

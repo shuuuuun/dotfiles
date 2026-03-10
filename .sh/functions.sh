@@ -729,7 +729,7 @@ function ebenv2dotenv {
 }
 
 function tmux-peco {
-  name=`tmux ls | peco --query "$1" | awk -F: '{print $1}'`
+  name=`set -o pipefail && tmux ls | peco --query "$1" | awk -F: '{print $1}'`
   [ -z "$name" ] && return
   echo $name
   tmux -CC new -A -s $name
@@ -770,4 +770,14 @@ function git-last-commit-repo-list {
   for repo in $(find . -maxdepth $maxdepth -name ".git" | cut -c 3-); do
     echo "$(git --git-dir=$repo log -1 --format="%ci $repo" | awk '{print $1" "$2" "$3" "$4" "$5}')"
   done | sort -r
+}
+
+# ref. https://github.com/BurntSushi/ripgrep/issues/193#issuecomment-643338962
+function rg-files {
+  if [ -z "$2" ]
+  then
+      rg --files | rg "$1"
+  else
+      rg --files "$2" | rg "$1"
+  fi
 }
