@@ -32,3 +32,11 @@ include_cookbook "rustup"
 # TODO: ruby YJIT enabled
 # RUBY_CONFIGURE_OPTS=--enable-yjit rbenv install 3.2.1
 # ruby --yjit -ve 'p RubyVM::YJIT.enabled?'
+
+# TODO: install docker
+# brew install docker
+# brew install docker-compose
+# brew install docker-buildx
+# mkdir -p ~/.docker/cli-plugins
+# ln -sfn /opt/homebrew/bin/docker-compose ~/.docker/cli-plugins/docker-compose
+# ln -sfn /opt/homebrew/bin/docker-buildx ~/.docker/cli-plugins/
