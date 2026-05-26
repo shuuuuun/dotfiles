@@ -1,5 +1,6 @@
 [core]
 	excludesfile = ~/.gitignore_global
+	quotepath = false
 
 [include]
 	path = ~/.gitconfig.local
