@@ -232,8 +232,6 @@ brew "liblwgeom"
 brew "libxslt"
 # Emulator for x86 and PowerPC
 brew "qemu"
-# Linux virtual machines
-brew "lima"
 # Replacement for the old crypt package and crypt(1) command
 brew "mcrypt"
 # Yet another part-of-speech and morphological analyzer
