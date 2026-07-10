@@ -1,0 +1,87 @@
+# Brewfile.core
+# 新しい Mac への移行用。依存ライブラリや古いバージョン付きパッケージを除いたコアなもののみ。
+
+tap "fujiwara/tap"
+
+# --- シェル・ターミナル ---
+brew "bash"
+brew "zsh"
+brew "tmux"
+brew "vim"
+brew "direnv"
+
+# --- Git 関連 ---
+brew "git"
+brew "git-lfs"
+brew "git-secrets"
+brew "gh"
+brew "ghq"
+brew "gibo"
+brew "tig"
+
+# --- CLI ユーティリティ ---
+brew "coreutils"
+brew "gnu-sed"
+brew "grep"
+brew "make"
+brew "colordiff"
+brew "tree"
+brew "watch"
+brew "wget"
+brew "curl"
+brew "rsync"
+brew "rename"
+brew "ripgrep"
+brew "peco"
+brew "jq"
+brew "yq"
+brew "gron"
+brew "jid"
+brew "nkf"
+brew "httpie"
+brew "pandoc"
+
+# --- 言語・ランタイム ---
+brew "asdf"
+brew "go"
+brew "node"
+brew "pnpm"
+brew "pipx"
+
+# --- コンテナ ---
+brew "docker", link: false
+brew "docker-buildx"
+brew "docker-compose"
+brew "colima"
+
+# --- AWS / インフラ ---
+brew "awscli"
+brew "sops"
+brew "tflint"
+brew "fujiwara/tap/lambroll", trusted: true
+brew "fujiwara/tap/ecsta", trusted: true
+brew "fujiwara/tap/tfstate-lookup", trusted: true
+
+# --- メディア ---
+brew "ffmpeg"
+brew "imagemagick"
+brew "jpegoptim"
+brew "pngquant"
+brew "exiftool"
+
+# --- Cask: 日常アプリ ---
+cask "alt-tab"
+cask "appcleaner"
+cask "bettertouchtool"
+cask "clipy"
+cask "dropbox"
+cask "google-japanese-ime"
+cask "hammerspoon"
+cask "karabiner-elements"
+
+# --- Cask: 開発ツール ---
+cask "claude-code"
+cask "gcloud-cli"
+cask "ghostty"
+cask "session-manager-plugin"
+cask "visual-studio-code"

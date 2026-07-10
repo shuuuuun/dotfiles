@@ -19,10 +19,12 @@ include_cookbook "homebrew"
 #   command "brew update"
 # end
 
-# execute "install bundle packages" do
-#   command "brew bundle install"
-#   not_if "brew bundle check"
-# end
+brewfile_core = File.expand_path("../../../Brewfile.core", __FILE__)
+
+execute "install bundle packages (core)" do
+  command "brew bundle install --file=#{brewfile_core}"
+  not_if "brew bundle check --file=#{brewfile_core}"
+end
 
 include_cookbook "asdf"
 # include_cookbook "anyenv"
