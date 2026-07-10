@@ -1,5 +1,7 @@
 # Brewfile.core
 # 新しい Mac への移行用。依存ライブラリや古いバージョン付きパッケージを除いたコアなもののみ。
+# $ brew bundle check --file=Brewfile.core --verbose
+# $ brew bundle install --file=Brewfile.core
 
 tap "fujiwara/tap"
 
@@ -23,6 +25,7 @@ brew "tig"
 brew "coreutils"
 brew "gnu-sed"
 brew "grep"
+brew "gpg"
 brew "make"
 brew "colordiff"
 brew "tree"
@@ -40,6 +43,8 @@ brew "jid"
 brew "nkf"
 brew "httpie"
 brew "pandoc"
+brew "gomi"
+brew "lf"
 
 # --- 言語・ランタイム ---
 brew "asdf"
@@ -57,7 +62,6 @@ brew "colima"
 # --- AWS / インフラ ---
 brew "awscli"
 brew "sops"
-brew "tflint"
 brew "fujiwara/tap/lambroll", trusted: true
 brew "fujiwara/tap/ecsta", trusted: true
 brew "fujiwara/tap/tfstate-lookup", trusted: true
@@ -72,14 +76,17 @@ brew "exiftool"
 # --- Cask: 日常アプリ ---
 cask "alt-tab"
 cask "appcleaner"
+cask "arc"
 cask "bettertouchtool"
 cask "clipy"
 cask "dropbox"
 cask "google-japanese-ime"
 cask "hammerspoon"
-cask "karabiner-elements"
+cask "obsidian"
+cask "slack"
 
 # --- Cask: 開発ツール ---
+cask "claude"
 cask "claude-code"
 cask "gcloud-cli"
 cask "ghostty"
