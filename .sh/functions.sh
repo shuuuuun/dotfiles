@@ -735,6 +735,13 @@ function tmux-peco {
   tmux -CC new -A -s $name
 }
 
+function tig-worktree {
+  result=$(git worktree list | peco --query "$1" --select-1)
+  echo "$result"
+  dir=$(echo "$result" | awk '{ print $1 }')
+  tig -C "$dir"
+}
+
 function git-worktree-cd {
   result=$(git worktree list | peco --query "$1" --select-1)
   echo "$result"
