@@ -181,7 +181,12 @@ endif
 " Depending on dein
 
 " color scheme
-autocmd ColorScheme * highlight Normal ctermbg=none
+" 背景色の自動検出が効かずlight扱いになる場合があるため明示する
+set background=dark
+if has('termguicolors')
+  set termguicolors
+endif
+autocmd ColorScheme * highlight Normal ctermbg=NONE guibg=NONE
 colorscheme gruvbox
 
 " 隠しファイルをデフォルトで表示させる
