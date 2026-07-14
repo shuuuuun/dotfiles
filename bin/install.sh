@@ -20,6 +20,7 @@ DOTFILES=(
   .tigrc
   .ripgreprc
   .tmux.conf
+  .config/ghostty/config
   .config/peco/config.json
   .config/lf/lfrc
   .config/lf/previewer.sh
