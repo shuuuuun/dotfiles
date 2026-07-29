@@ -47,12 +47,8 @@ zinit light shuuuuun/pure
 zinit wait lucid atload"zicompinit; zicdreplay" light-mode for felipec/git-completion
 # zinit light felipec/git-completion
 
-# direnv
-# ref. https://zdharma-continuum.github.io/zinit/wiki/Direnv-explanation/
-zinit wait lucid light-mode from"gh-r" as"program" mv"direnv* -> direnv" \
-      atclone'./direnv hook zsh > zhook.zsh' atpull'%atclone' \
-      pick"direnv" src="zhook.zsh" for \
-      direnv/direnv
+# direnv (Homebrew 版を使用)
+(( $+commands[direnv] )) && eval "$(direnv hook zsh)"
 
 
 #
