@@ -764,6 +764,36 @@ function git-worktree-add {
   cd "$relpath"
 }
 
+function wt-remove {
+  # ヘッダ行・空行・"○ Showing..." フッタ行を除いてから peco に渡す
+  local selected=$(wt list | tail +2 | awk 'NF && $1 != "○"' | peco --prompt 'WORKTREES>' --query "$1")
+  echo "$selected"
+  local branches=($(echo -n $selected | awk '{print $2}' ORS=' '))
+  if [ -z "$branches" ]; then
+    echo "no worktrees selected."
+    return
+  fi
+  wt remove $branches
+}
+
+# main に統合済みかつ作業ツリーがクリーンな worktree（wt list で dim 表示されるもの）をまとめて削除する
+function wt-prune {
+  # json-schema を 1 に固定（schema 2 ではフィールド名が変わりうるため）
+  local branches=($(wt list --format json --config-set 'list.json-schema = 1' 2>/dev/null \
+    | jq -r '.[]
+        | select(.is_main | not)
+        | select(.branch != null)
+        | select(.main_state == "empty" or .main_state == "integrated")
+        | select([.working_tree.staged, .working_tree.modified, .working_tree.untracked, .working_tree.renamed, .working_tree.deleted] | any | not)
+        | .branch'))
+  if [ -z "$branches" ]; then
+    echo "no prunable worktrees."
+    return
+  fi
+  echo "pruning: $branches"
+  wt remove $branches
+}
+
 function tracer-peco {
   name=`tracer "$1" | peco | awk '{print $1}'`
   [ -z "$name" ] && return
