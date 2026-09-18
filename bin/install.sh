@@ -25,6 +25,7 @@ DOTFILES=(
   .config/lf/lfrc
   .config/lf/previewer.sh
   .config/direnv/direnvrc
+  .config/herdr/config.toml
   .rubocop.yml
   .asdfrc
   .hammerspoon/init.lua
