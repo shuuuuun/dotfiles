@@ -35,3 +35,6 @@ export HISTSIZE=10000
 export HISTCONTROL=erasedups # 重複を削除
 # export HISTIGNORE="fg*:bg*:history*" # 履歴に不要なコマンドを除外
 export HISTTIMEFORMAT="%Y-%m-%d %T " # 使用時刻を表示
+
+# Worktrunk: dotfiles 管理の共通設定（~/.config/worktrunk/config.toml とマージされる）
+export WORKTRUNK_SYSTEM_CONFIG_PATH="$HOME/.config/worktrunk/system.toml"
