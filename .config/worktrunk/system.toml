@@ -1,0 +1,8 @@
+# WORKTRUNK_SYSTEM_CONFIG_PATH で読み込ませる共通設定。
+# マシン固有・プロジェクト固有の設定は ~/.config/worktrunk/config.toml（dotfiles 管理外）に書く。
+# hooks は両方の設定がマージされて実行される。
+
+worktree-path = "{{ repo_path }}/.worktrees/{{ branch | sanitize }}"
+
+[pre-remove]
+backup-ignored = "~/.config/worktrunk/backup-ignored.sh {{ primary_worktree_path }} {{ branch | sanitize }}"
