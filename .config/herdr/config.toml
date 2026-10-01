@@ -35,7 +35,7 @@ height = "90%"
 command = '''PLUGIN_DIR="$(herdr plugin list --json | jq -r '.result.plugins[] | select(.plugin_id=="herdr-file-viewer") | .plugin_root')" && CONFIG_DIR="$(herdr plugin config-dir herdr-file-viewer)" && HERDR_PLUGIN_CONFIG_DIR="$CONFIG_DIR" exec "$PLUGIN_DIR/target/release/herdr-file-viewer"'''
 
 [[keys.command]]
-key = "cmd+r"
+key = "prefix+d"
 type = "plugin_action"
 command = "persiyanov.reviewr.toggle"
 description = "toggle reviewr"
