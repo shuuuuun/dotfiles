@@ -1,7 +1,10 @@
 # 背景を透過
-background-opacity = 0.70
+background-opacity = 1.00
 # ブラー（すりガラス効果）
 background-blur-radius = 15
+
+# 非アクティブなペインを薄く表示
+unfocused-split-opacity = 0.4
 
 
 # テキストとウィンドウの間に良い感じのスペースを入れます
@@ -18,3 +21,12 @@ font-family = Monaco
 font-family = Courier New
 font-family = monospace
 font-family = "Hiragino Sans"
+
+# カーソル
+# 四角（デフォルト）
+cursor-style = block
+# カーソルの太さ
+adjust-cursor-thickness = 7
+# 点滅させる（デフォルト）
+cursor-style-blink = true
+cursor-opacity = 0.8
