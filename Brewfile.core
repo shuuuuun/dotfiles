@@ -20,6 +20,11 @@ brew "gh"
 brew "ghq"
 brew "gibo"
 brew "tig"
+brew "git-delta"
+
+# --- ビューア（herdr-file-viewer のレンダラ） ---
+brew "glow"
+brew "bat"
 
 # --- CLI ユーティリティ ---
 brew "coreutils"
