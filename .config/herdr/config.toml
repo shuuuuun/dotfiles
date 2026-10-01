@@ -25,6 +25,15 @@ type = "plugin_action"
 command = "herdr-file-viewer.open-file-viewer-tab"
 description = "open file viewer in tab"
 
+# プラグインのアクションは split / tab を開くものしかないため、popup ではバイナリを直接起動する
+[[keys.command]]
+key = "prefix+ctrl+f"
+type = "popup"
+description = "open file viewer in popup"
+width = "90%"
+height = "90%"
+command = '''PLUGIN_DIR="$(herdr plugin list --json | jq -r '.result.plugins[] | select(.plugin_id=="herdr-file-viewer") | .plugin_root')" && CONFIG_DIR="$(herdr plugin config-dir herdr-file-viewer)" && HERDR_PLUGIN_CONFIG_DIR="$CONFIG_DIR" exec "$PLUGIN_DIR/target/release/herdr-file-viewer"'''
+
 [[keys.command]]
 key = "cmd+r"
 type = "plugin_action"
