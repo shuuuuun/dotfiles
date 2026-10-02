@@ -29,6 +29,7 @@ DOTFILES=(
   .config/herdr/plugins/config/persiyanov.reviewr/config.toml
   .config/worktrunk/system.toml
   .config/worktrunk/backup-ignored.sh
+  .claude/hooks/sync-tab-title.sh
   .rubocop.yml
   .asdfrc
   .hammerspoon/init.lua
