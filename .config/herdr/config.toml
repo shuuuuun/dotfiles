@@ -8,6 +8,7 @@ name = "gruvbox"
 auto_switch = false
 
 [ui.sidebar.agents]
+row_gap = 1
 # タブ名は Claude Code の Stop hook（~/.claude/hooks/sync-tab-title.sh）で端末タイトルに同期している
 rows = [
   ["state_icon", "machine", "workspace"],
