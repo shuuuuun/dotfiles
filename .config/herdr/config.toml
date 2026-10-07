@@ -41,3 +41,9 @@ key = "prefix+d"
 type = "plugin_action"
 command = "persiyanov.reviewr.toggle"
 description = "toggle reviewr"
+
+[[keys.command]]
+key = "prefix+space"
+type = "shell"
+command = "~/.config/herdr/toggle-split.sh"
+description = "toggle split direction of 2-pane tab"
