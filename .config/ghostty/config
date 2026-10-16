@@ -30,3 +30,6 @@ adjust-cursor-thickness = 7
 # 点滅させる（デフォルト）
 cursor-style-blink = true
 cursor-opacity = 0.8
+
+# 左 Option を Alt として送る（herdr の alt+z など）。右 Option は特殊文字入力用に残す
+macos-option-as-alt = left
