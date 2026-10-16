@@ -3,6 +3,9 @@ onboarding = false
 [ui]
 agent_panel_sort = "priority"
 
+[keys]
+zoom = ["prefix+z", "alt+z"]
+
 [theme]
 name = "gruvbox"
 auto_switch = false
