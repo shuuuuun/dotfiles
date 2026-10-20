@@ -61,3 +61,11 @@ description = "open tig in popup"
 width = "90%"
 height = "90%"
 command = '''cd "$HERDR_ACTIVE_PANE_CWD" && exec tig'''
+
+[[keys.command]]
+key = "prefix+ctrl+s"
+type = "popup"
+description = "open shell in popup"
+width = "90%"
+height = "90%"
+command = '''cd "$HERDR_ACTIVE_PANE_CWD" && exec "${SHELL:-zsh}"'''
