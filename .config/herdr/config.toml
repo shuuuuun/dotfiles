@@ -49,3 +49,11 @@ key = "prefix+space"
 type = "shell"
 command = "~/.config/herdr/toggle-split.sh"
 description = "toggle split direction of 2-pane tab"
+
+[[keys.command]]
+key = "prefix+ctrl+t"
+type = "popup"
+description = "open tig in popup"
+width = "90%"
+height = "90%"
+command = '''cd "$HERDR_ACTIVE_PANE_CWD" && exec tig'''
