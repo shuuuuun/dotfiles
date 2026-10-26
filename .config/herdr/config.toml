@@ -46,7 +46,7 @@ type = "popup"
 description = "open reviewr in popup"
 width = "90%"
 height = "90%"
-command = '''PLUGIN_DIR="$(herdr plugin list --json | jq -r '.result.plugins[] | select(.plugin_id=="persiyanov.reviewr") | .plugin_root')" && CONFIG_DIR="$(herdr plugin config-dir persiyanov.reviewr)" && cd "$HERDR_ACTIVE_PANE_CWD" && exec env -u HERDR_PANE_ID HERDR_WORKSPACE_ID="$HERDR_ACTIVE_WORKSPACE_ID" HERDR_PLUGIN_ROOT="$PLUGIN_DIR" HERDR_PLUGIN_CONFIG_DIR="$CONFIG_DIR" "$PLUGIN_DIR/bin/herdr-reviewr"'''
+command = '''PLUGIN_DIR="$(herdr plugin list --json | jq -r '.result.plugins[] | select(.plugin_id=="persiyanov.reviewr") | .plugin_root')" && CONFIG_DIR="$(herdr plugin config-dir persiyanov.reviewr)" && cd "$(~/.config/herdr/popup-cwd.sh)" && exec env -u HERDR_PANE_ID HERDR_WORKSPACE_ID="$HERDR_ACTIVE_WORKSPACE_ID" HERDR_PLUGIN_ROOT="$PLUGIN_DIR" HERDR_PLUGIN_CONFIG_DIR="$CONFIG_DIR" "$PLUGIN_DIR/bin/herdr-reviewr"'''
 
 [[keys.command]]
 key = "prefix+space"
@@ -60,7 +60,7 @@ type = "popup"
 description = "open tig in popup"
 width = "90%"
 height = "90%"
-command = '''cd "$HERDR_ACTIVE_PANE_CWD" && exec tig'''
+command = '''cd "$(~/.config/herdr/popup-cwd.sh)" && exec tig'''
 
 [[keys.command]]
 key = "prefix+ctrl+s"
@@ -68,4 +68,4 @@ type = "popup"
 description = "open shell in popup"
 width = "90%"
 height = "90%"
-command = '''cd "$HERDR_ACTIVE_PANE_CWD" && exec "${SHELL:-zsh}"'''
+command = '''cd "$(~/.config/herdr/popup-cwd.sh)" && exec "${SHELL:-zsh}"'''

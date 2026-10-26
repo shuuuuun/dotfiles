@@ -27,10 +27,12 @@ DOTFILES=(
   .config/direnv/direnvrc
   .config/herdr/config.toml
   .config/herdr/toggle-split.sh
+  .config/herdr/popup-cwd.sh
   .config/herdr/plugins/config/persiyanov.reviewr/config.toml
   .config/worktrunk/system.toml
   .config/worktrunk/backup-ignored.sh
   .claude/hooks/sync-tab-title.sh
+  .claude/hooks/report-cwd.sh
   .rubocop.yml
   .asdfrc
   .hammerspoon/init.lua
