@@ -50,6 +50,9 @@ zinit wait lucid atload"zicompinit; zicdreplay" light-mode for felipec/git-compl
 # direnv (Homebrew 版を使用)
 (( $+commands[direnv] )) && eval "$(direnv hook zsh)"
 
+# herdr は TERM_PROGRAM=herdr を設定するため、Claude Code などがハイパーリンク非対応の端末とみなして file:// リンクを出さなくなる
+[[ "$TERM_PROGRAM" = herdr ]] && export FORCE_HYPERLINK=1
+
 
 #
 # prompt
