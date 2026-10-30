@@ -1,0 +1,19 @@
+id = "open-file"
+name = "Open File"
+version = "0.1.0"
+min_herdr_version = "0.9.5"
+description = "Ctrl-click a file:// link in a pane to open it with the macOS default app"
+platforms = ["macos"]
+
+[[actions]]
+id = "open"
+title = "Open clicked file link"
+contexts = ["pane"]
+command = ["sh", "open.sh"]
+
+# herdr が Ctrl+クリックをプラグインに渡すのは OSC 8 リンクだけで、素の文字列のパスは対象外
+[[link_handlers]]
+id = "file-link"
+title = "Open file with default app"
+pattern = "^file://"
+action = "open"
