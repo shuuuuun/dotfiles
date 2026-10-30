@@ -49,10 +49,16 @@ height = "90%"
 command = '''PLUGIN_DIR="$(herdr plugin list --json | jq -r '.result.plugins[] | select(.plugin_id=="persiyanov.reviewr") | .plugin_root')" && CONFIG_DIR="$(herdr plugin config-dir persiyanov.reviewr)" && cd "$(~/.config/herdr/popup-cwd.sh)" && exec env -u HERDR_PANE_ID HERDR_WORKSPACE_ID="$HERDR_ACTIVE_WORKSPACE_ID" HERDR_PLUGIN_ROOT="$PLUGIN_DIR" HERDR_PLUGIN_CONFIG_DIR="$CONFIG_DIR" "$PLUGIN_DIR/bin/herdr-reviewr"'''
 
 [[keys.command]]
-key = "prefix+space"
+key = "prefix+shift+space"
 type = "shell"
 command = "~/.config/herdr/toggle-split.sh"
 description = "toggle split direction of 2-pane tab"
+
+[[keys.command]]
+key = "prefix+space"
+type = "shell"
+command = "~/.config/herdr/quicklook.sh"
+description = "open selected path in Quick Look"
 
 [[keys.command]]
 key = "prefix+ctrl+t"
