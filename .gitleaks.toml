@@ -11,11 +11,6 @@ useDefault = true
 [allowlist]
 description = "dotfiles 固有の許可リスト"
 
-paths = [
-  # この設定ファイル自体がサンプルキーの文字列を含むため
-  '''(^|/)\.gitleaks\.toml$''',
-]
-
 regexes = [
   # AWS公式ドキュメントのサンプル値(実在しないキー)。.gitconfig の [secrets] にも記載がある
   '''AKIAIOSFODNN7EXAMPLE''',
