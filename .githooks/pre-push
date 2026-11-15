@@ -17,7 +17,8 @@ set -uo pipefail
 
 readonly ZERO_SHA='0000000000000000000000000000000000000000'
 readonly EMPTY_TREE='4b825dc642cb6eb9a060e54bf8d69288fbee4904'
-# 差分がこれを超えたら追加行のみに絞る(APIに投げる量と時間を抑えるため)
+# 差分がこれを超えたら追加行のみに絞り、それでも超えたら push を止める
+# (APIに投げる量と時間を抑えるため)
 readonly MAX_DIFF_BYTES=400000
 
 log() { printf '%s\n' "$*" >&2; }
@@ -46,8 +47,10 @@ collect_diff() {
     # ブランチ削除の push には差分が無い
     [ "$local_sha" = "$ZERO_SHA" ] && continue
 
-    if [ "$remote_sha" = "$ZERO_SHA" ]; then
-      # リモートに未存在のブランチ: どのリモートにも無いコミット群を対象にする
+    # リモートに未存在のブランチ、またはリモートの先端がローカルに無い場合
+    # (別端末で push 済みのブランチを fetch せずに force push するなど):
+    # どのリモートにも無いコミット群を対象にする
+    if [ "$remote_sha" = "$ZERO_SHA" ] || ! git cat-file -e "${remote_sha}^{commit}" 2>/dev/null; then
       oldest="$(git rev-list "$local_sha" --not --remotes 2>/dev/null | tail -n 1)"
       [ -z "$oldest" ] && continue
       base="$(git rev-parse --verify --quiet "${oldest}^" 2>/dev/null)"
@@ -65,15 +68,26 @@ collect_diff() {
 diff_text="$(collect_diff)"
 
 # diff 本体が1行も無ければレビュー不要
-if ! printf '%s\n' "$diff_text" | grep -q '^diff --git'; then
+# パイプにすると grep -q が早期終了したとき printf が SIGPIPE になり、pipefail 下で
+# 「差分なし」と誤判定されて大きな差分ほど素通りするため、ヒアストリングで渡す
+if ! grep -q '^diff --git' <<<"$diff_text"; then
   exit 0
 fi
 
+# ${#var} は UTF-8 ロケールでは文字数になるため、バイト数は wc -c で測る
+byte_size() { printf '%s' "$1" | wc -c | tr -d ' '; }
+
 truncated_note=''
-if [ "${#diff_text}" -gt "$MAX_DIFF_BYTES" ]; then
+if [ "$(byte_size "$diff_text")" -gt "$MAX_DIFF_BYTES" ]; then
   # 追加行だけに絞って再構成する(削除行は公開リスクにならない)
-  diff_text="$(printf '%s\n' "$diff_text" | grep -E '^(\+|=====|diff --git)' | head -c "$MAX_DIFF_BYTES")"
-  truncated_note='(注: 差分が大きいため、追加行のみに絞った上で切り詰めている)'
+  diff_text="$(printf '%s\n' "$diff_text" | grep -E '^(\+|=====|diff --git)')"
+  truncated_note='(注: 差分が大きいため、追加行のみに絞っている)'
+  if [ "$(byte_size "$diff_text")" -gt "$MAX_DIFF_BYTES" ]; then
+    # 切り詰めると残りがレビューされないまま push されるため、判定不能として止める
+    log "pre-push: 差分が大きすぎてAIレビューできないため push を中止しました (追加行のみで ${MAX_DIFF_BYTES} バイト超)"
+    log "  分割して push するか、内容を確認した上で: DOTFILES_SKIP_AI_REVIEW=1 git push"
+    exit 1
+  fi
 fi
 
 # ── Claude にレビューさせる ────────────────────────────────────────────────
@@ -108,7 +122,9 @@ PROMPT
 
 log "pre-push: Claude で差分をレビュー中..."
 
-claude_args=(-p --output-format text --no-session-persistence)
+# --tools "": 判定にツールは不要。差分内のテキストにツール実行を誘導させない
+# --safe-mode: hooks・CLAUDE.md・プラグイン等を無効化し、出力形式が環境に左右されないようにする
+claude_args=(-p --output-format text --no-session-persistence --safe-mode --tools "")
 if [ -n "${DOTFILES_AI_REVIEW_MODEL:-}" ]; then
   claude_args+=(--model "$DOTFILES_AI_REVIEW_MODEL")
 fi
@@ -124,10 +140,11 @@ fi
 
 payload="$(printf '%s\n\n%s\n\n<diff>\n%s\n</diff>\n' "$instruction" "$truncated_note" "$diff_text")"
 
+# stderr は verdict に混ぜず端末にそのまま出す(ログイン期限の警告などが1行目になると判定が崩れるため)
 if [ -n "$timeout_cmd" ]; then
-  verdict="$(printf '%s' "$payload" | DOTFILES_AI_REVIEW_RUNNING=1 "$timeout_cmd" 300 claude "${claude_args[@]}" 2>&1)"
+  verdict="$(printf '%s' "$payload" | DOTFILES_AI_REVIEW_RUNNING=1 "$timeout_cmd" 300 claude "${claude_args[@]}")"
 else
-  verdict="$(printf '%s' "$payload" | DOTFILES_AI_REVIEW_RUNNING=1 claude "${claude_args[@]}" 2>&1)"
+  verdict="$(printf '%s' "$payload" | DOTFILES_AI_REVIEW_RUNNING=1 claude "${claude_args[@]}")"
 fi
 status=$?
 
