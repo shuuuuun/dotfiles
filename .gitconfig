@@ -52,6 +52,11 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 
+# 端末ごとに異なるホームディレクトリの絶対パスを、リポジトリ上では $HOME として保存する
+[filter "homepath"]
+	clean = sed \"s|$HOME/|\"'$HOME/|g'
+	smudge = sed 's|\\$HOME/|'\"$HOME/|g\"
+
 [fetch]
 	prune = true
 

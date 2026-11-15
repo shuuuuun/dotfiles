@@ -1,0 +1,2 @@
+# herdr-radar が tab-bar ブロックに書く絶対パスを端末間で共有するため
+.config/herdr/config.toml filter=homepath
