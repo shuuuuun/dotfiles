@@ -1,5 +1,7 @@
 #!/bin/sh
-# ステージした追加行に、端末固有のホームディレクトリの絶対パスが含まれていればコミットを止める。
+# ステージした変更を検査し、publicリポジトリに入れるとまずいものがあればコミットを止める。
+#   1. 端末固有のホームディレクトリの絶対パス
+#   2. gitleaks によるシークレット検出(APIキー/秘密鍵など)
 # 意図的に含める場合は git commit --no-verify で回避する。
 
 found=$(git diff --cached -U0 --no-color --diff-filter=ACMR | awk '
@@ -15,4 +17,25 @@ if [ -n "$found" ]; then
   echo "pre-commit: ホームディレクトリの絶対パスが含まれています。\$HOME や ~ に置き換えてください。" >&2
   echo "$found" >&2
   exit 1
+fi
+
+# gitleaks: 正規表現で確実に取れるシークレットを機械的に落とす。
+# 判断が要るもの(社内ホスト名/実名/内部URL等)は pre-push のAIレビューが担当する。
+if command -v gitleaks >/dev/null 2>&1; then
+  # バージョンによってサブコマンドが違う (v8.19+ は git、それ以前は protect)
+  if gitleaks git --staged --help >/dev/null 2>&1; then
+    subcmd=git
+  else
+    subcmd=protect
+  fi
+  # --redact: 検出値そのものは端末に出さない / -v: 無いとファイル・行が表示されない
+  if ! gitleaks "$subcmd" --staged --redact -v --no-banner; then
+    echo "pre-commit: gitleaks がシークレットを検出しました。" >&2
+    echo "  誤検知なら .gitleaks.toml の allowlist に追加してください。" >&2
+    exit 1
+  fi
+elif command -v git-secrets >/dev/null 2>&1; then
+  git secrets --pre_commit_hook -- "$@" || exit 1
+else
+  echo "pre-commit: 警告: gitleaks が無いためシークレット検出をスキップしました (brew install gitleaks)" >&2
 fi

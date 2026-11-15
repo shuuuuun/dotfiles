@@ -1,0 +1,18 @@
+# gitleaks 設定
+# 既定ルールセットを継承した上で、このリポジトリ固有の誤検知だけを許可する。
+# ref. https://github.com/gitleaks/gitleaks
+#
+# 注意: ここに追加するのは「実在しないサンプル値」や「パターン定義そのもの」だけにする。
+#       実際の秘密情報を allowlist で黙らせるのは本末転倒なので絶対にやらないこと。
+
+[extend]
+useDefault = true
+
+[allowlist]
+description = "dotfiles 固有の許可リスト"
+
+regexes = [
+  # AWS公式ドキュメントのサンプル値(実在しないキー)。.gitconfig の [secrets] にも記載がある
+  '''AKIAIOSFODNN7EXAMPLE''',
+  '''wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY''',
+]

@@ -252,6 +252,8 @@ brew "gibo"
 brew "git-lfs"
 # Prevents you from committing sensitive information to a git repo
 brew "git-secrets"
+# Protect and discover secrets using Gitleaks
+brew "gitleaks"
 # GNU implementation of the famous stream editor
 brew "gnu-sed"
 # Package compiler and linker metadata toolkit
