@@ -107,6 +107,9 @@ echo "initializing dotfiles..."
 # cd $dir
 # curl https://raw.githubusercontent.com/seebi/dircolors-solarized/master/dircolors.ansi-universal -O
 
+# git hooks
+git -C "$DOTFILES_ROOT" config core.hooksPath .githooks
+
 # mitamae
 cd "$DOTFILES_ROOT/mitamae"
 make setup

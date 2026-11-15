@@ -1,0 +1,18 @@
+#!/bin/sh
+# ステージした追加行に、端末固有のホームディレクトリの絶対パスが含まれていればコミットを止める。
+# 意図的に含める場合は git commit --no-verify で回避する。
+
+found=$(git diff --cached -U0 --no-color --diff-filter=ACMR | awk '
+  /^\+\+\+ b\// { file = substr($0, 7); next }
+  /^@@/ { split($3, a, ","); line = substr(a[1], 2); next }
+  /^\+/ {
+    if ($0 ~ /\/(Users|home)\/[A-Za-z0-9._-]+/) print file ":" line ": " substr($0, 2)
+    line++
+  }
+')
+
+if [ -n "$found" ]; then
+  echo "pre-commit: ホームディレクトリの絶対パスが含まれています。\$HOME や ~ に置き換えてください。" >&2
+  echo "$found" >&2
+  exit 1
+fi
